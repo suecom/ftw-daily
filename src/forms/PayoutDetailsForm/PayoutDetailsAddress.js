@@ -5,23 +5,8 @@ import * as validators from '../../util/validators';
 import { FieldSelect, FieldTextInput } from '../../components';
 
 import { stripeCountryConfigs } from './PayoutDetailsForm';
+import { CA_PROVINCES, US_STATES, AU_STATES } from './statesAndProvinces';
 import css from './PayoutDetailsForm.css';
-
-const CANADIAN_PROVINCES = [
-  'AB',
-  'BC',
-  'MB',
-  'NB',
-  'NL',
-  'NS',
-  'NT',
-  'NU',
-  'ON',
-  'PE',
-  'QC',
-  'SK',
-  'YT',
-];
 
 const PayoutDetailsAddress = props => {
   const { className, country, intl, disabled, form, fieldId } = props;
@@ -78,7 +63,8 @@ const PayoutDetailsAddress = props => {
     })
   );
 
-  const showState = country && isRequired(countryConfig, 'state');
+  const showStateUS = country && isRequired(countryConfig, 'stateUS');
+  const showStateAU = country && isRequired(countryConfig, 'stateAU');
 
   const stateLabel = intl.formatMessage({ id: 'PayoutDetailsForm.stateLabel' });
   const statePlaceholder = intl.formatMessage({ id: 'PayoutDetailsForm.statePlaceholder' });
@@ -88,7 +74,7 @@ const PayoutDetailsAddress = props => {
     })
   );
 
-  const showProvince = country && isRequired(countryConfig, 'province');
+  const showProvinceCA = country && isRequired(countryConfig, 'provinceCA');
 
   const provinceLabel = intl.formatMessage({ id: 'PayoutDetailsForm.canadianProvinceLabel' });
   const provincePlaceholder = intl.formatMessage({
@@ -148,22 +134,7 @@ const PayoutDetailsAddress = props => {
           />
         ) : null}
       </div>
-      {showState ? (
-        <FieldTextInput
-          id={`${fieldId}.state`}
-          name={`${fieldId}.state`}
-          disabled={disabled}
-          className={css.state}
-          type="text"
-          autoComplete="address-level1"
-          label={stateLabel}
-          placeholder={statePlaceholder}
-          validate={stateRequired}
-          onUnmount={() => form.change(`${fieldId}.state`, undefined)}
-        />
-      ) : null}
-
-      {showProvince ? (
+      {showProvinceCA ? (
         <FieldSelect
           id={`${fieldId}.province`}
           name={`${fieldId}.province`}
@@ -176,9 +147,49 @@ const PayoutDetailsAddress = props => {
           <option disabled value="">
             {provincePlaceholder}
           </option>
-          {CANADIAN_PROVINCES.map(p => (
-            <option key={p} value={p}>
-              {intl.formatMessage({ id: `PayoutDetailsForm.canadianProvinceNames.${p}` })}
+          {CA_PROVINCES.map(p => (
+            <option key={p.key} value={p.key}>
+              {p.label}
+            </option>
+          ))}
+        </FieldSelect>
+      ) : null}
+      {showStateUS ? (
+        <FieldSelect
+          id={`${fieldId}.state`}
+          name={`${fieldId}.state`}
+          disabled={disabled}
+          className={css.selectCountry}
+          autoComplete="address-level1"
+          label={stateLabel}
+          validate={stateRequired}
+        >
+          <option disabled value="">
+            {statePlaceholder}
+          </option>
+          {US_STATES.map(p => (
+            <option key={p.key} value={p.key}>
+              {p.label}
+            </option>
+          ))}
+        </FieldSelect>
+      ) : null}
+      {showStateAU ? (
+        <FieldSelect
+          id={`${fieldId}.state`}
+          name={`${fieldId}.state`}
+          disabled={disabled}
+          className={css.selectCountry}
+          autoComplete="address-level1"
+          label={stateLabel}
+          validate={stateRequired}
+        >
+          <option disabled value="">
+            {statePlaceholder}
+          </option>
+          {AU_STATES.map(p => (
+            <option key={p.key} value={p.key}>
+              {p.label}
             </option>
           ))}
         </FieldSelect>

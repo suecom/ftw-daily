@@ -23,7 +23,7 @@
   --backgroundImage: {
     /* Gradient direction and overlaying the black color on top of the image for better readability */
     background: linear-gradient(-45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
-      url('../../assets/background-1440.jpg');
+      url('../../assets/mini-fbhvc.jpg');
 
     /* Add loading color for the div */
     background-color: var(--matterColor);
@@ -38,13 +38,13 @@
       border-radius: 40px;
       border: solid 36px var(--matterColorBright);
     }
-  }
+  };
 
   /* ================ Colors ================ */
 
-  --marketplaceColor: #006F32;
-  --marketplaceColorLight: #ff4c38;
-  --marketplaceColorDark: #8c291e;
+  --marketplaceColor: rgb(0, 110, 50);
+  --marketplaceColorLight: rgb(6, 209, 97);
+  --marketplaceColorDark: rgb(0, 68, 31);
 
   /* Used with inline CSS SVGs */
   --marketplaceColorEncoded: %23c0392b;
@@ -128,8 +128,8 @@
       content: '';
       display: table;
       clear: both;
-    }
-  }
+    };
+  };
 
   /* ================ Links ================ */
 
@@ -151,8 +151,8 @@
     &:hover {
       text-decoration: underline;
       cursor: pointer;
-    }
-  }
+    };
+  };
 
   /* ================ Buttons ================ */
 

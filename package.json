@@ -83,6 +83,7 @@
     "clean": "rm -rf build/*",
     "config": "node scripts/config.js",
     "dev": "node scripts/config.js --check && sharetribe-scripts start",
+    "dev-debug": "sharetribe-scripts --inspect-brk=5858 start",
     "build": "sharetribe-scripts build",
     "format": "prettier --write '**/*.{js,css}'",
     "format-ci": "prettier --list-different '**/*.{js,css}'",

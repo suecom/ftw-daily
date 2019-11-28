@@ -19,6 +19,7 @@ const EditListingDescriptionFormComponent = props => (
     render={fieldRenderProps => {
       const {
         make,
+        model,
         className,
         disabled,
         handleSubmit,
@@ -54,6 +55,15 @@ const EditListingDescriptionFormComponent = props => (
       const maxLength60Message = maxLength(maxLengthMessage, TITLE_MAX_LENGTH);
       const descriptionRequiredMessage = intl.formatMessage({
         id: 'EditListingDescriptionForm.descriptionRequired',
+      });
+      const modelMessage = intl.formatMessage({
+        id: 'EditListingDescriptionForm.model',
+      });
+      const modelPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingDescriptionForm.modelPlaceholder',
+      });
+      const modelRequiredMessage = intl.formatMessage({
+        id: 'EditListingDescriptionForm.modelRequired',
       });
 
       const { updateListingError, createListingDraftError, showListingsError } = fetchErrors || {};
@@ -98,6 +108,25 @@ const EditListingDescriptionFormComponent = props => (
             autoFocus
           />
 
+          <CustomMakeSelectFieldMaybe
+            id="make"
+            name="make"
+            classname={css.make}
+            make={make}
+            intl={intl}
+          />
+
+          <FieldTextInput
+            id="model"
+            name="model"
+            className={css.model}
+            type="text"
+            model={model}
+            label={modelMessage}
+            placeholder={modelPlaceholderMessage}
+            validate={composeValidators(required(modelRequiredMessage))}
+          />
+
           <FieldTextInput
             id="description"
             name="description"
@@ -106,13 +135,6 @@ const EditListingDescriptionFormComponent = props => (
             label={descriptionMessage}
             placeholder={descriptionPlaceholderMessage}
             validate={composeValidators(required(descriptionRequiredMessage))}
-          />
-
-          <CustomMakeSelectFieldMaybe
-            id="make"
-            name="make"
-            make={make}
-            intl={intl}
           />
 
           <Button
@@ -144,12 +166,13 @@ EditListingDescriptionFormComponent.propTypes = {
     showListingsError: propTypes.error,
     updateListingError: propTypes.error,
   }),
+  model: string,
   make: arrayOf(
     shape({
       key: string.isRequired,
       label: string.isRequired,
     })
-  ),
+  )
 };
 
 export default compose(injectIntl)(EditListingDescriptionFormComponent);

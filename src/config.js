@@ -92,7 +92,7 @@ const siteTitle = 'OldenCars';
 const siteTwitterHandle = '@oldencars';
 
 // Instagram page is used in SEO schema (http://schema.org/Organization)
-const siteInstagramPage = null;
+const siteInstagramPage = 'https://www.instagram.com/oldencars/';
 
 // Facebook page is used in SEO schema (http://schema.org/Organization)
 const siteFacebookPage = 'https://www.facebook.com/oldencar/';

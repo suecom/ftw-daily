@@ -187,7 +187,7 @@ export class ListingPageComponent extends Component {
       sendEnquiryError,
       timeSlots,
       fetchTimeSlotsError,
-      makeConfig,
+      makeConfig
     } = this.props;
 
     const listingId = new UUID(rawParams.id);
@@ -375,6 +375,14 @@ export class ListingPageComponent extends Component {
           <span className={css.separator}>•</span>
         </span>
       ) : null;
+  
+    const model =
+    publicData && publicData.model ? (
+      <span>
+        {publicData.model}
+        <span className={css.separator}>•</span>
+      </span>
+    ) : null;
 
     return (
       <Page
@@ -420,6 +428,7 @@ export class ListingPageComponent extends Component {
                     formattedPrice={formattedPrice}
                     richTitle={richTitle}
                     make={make}
+                    model={model}
                     hostLink={hostLink}
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
@@ -482,6 +491,7 @@ ListingPageComponent.defaultProps = {
   fetchTimeSlotsError: null,
   sendEnquiryError: null,
   makeConfig: config.custom.make,
+  modelConfig: ''
 };
 
 ListingPageComponent.propTypes = {
@@ -520,8 +530,7 @@ ListingPageComponent.propTypes = {
   sendEnquiryError: propTypes.error,
   onSendEnquiry: func.isRequired,
   onInitializeCardPaymentData: func.isRequired,
-
-  makeConfig: array,
+  makeConfig: array
 };
 
 const mapStateToProps = state => {

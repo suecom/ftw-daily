@@ -70,7 +70,7 @@ describe('ListingPage', () => {
       onInitializeCardPaymentData: noop,
       sendEnquiryInProgress: false,
       onSendEnquiry: noop,
-      makeConfig,
+      makeConfig
     };
 
     const tree = renderShallow(<ListingPageComponent {...props} />);

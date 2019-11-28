@@ -69,7 +69,8 @@ const AboutPage = () => {
               <p>
                 You can also checkout our{' '}
                 <ExternalLink href={siteFacebookPage}>Facebook</ExternalLink> and{' '}
-                <ExternalLink href={siteTwitterPage}>Twitter</ExternalLink>.
+                <ExternalLink href={siteTwitterPage}>Twitter</ExternalLink> 
+                {' '}pages.
               </p>
             </div>
           </div>

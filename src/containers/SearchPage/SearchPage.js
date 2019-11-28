@@ -53,22 +53,22 @@ export class SearchPageComponent extends Component {
 
   filters() {
     const {
-      categories,
+      make,
       amenities,
       priceFilterConfig,
       dateRangeFilterConfig,
       keywordFilterConfig,
     } = this.props;
 
-    // Note: "category" and "amenities" filters are not actually filtering anything by default.
+    // Note: "make" and "amenities" filters are not actually filtering anything by default.
     // Currently, if you want to use them, we need to manually configure them to be available
     // for search queries. Read more from extended data document:
     // https://www.sharetribe.com/docs/references/extended-data/#data-schema
 
     return {
-      categoryFilter: {
-        paramName: 'pub_category',
-        options: categories,
+      makeFilter: {
+        paramName: 'pub_make',
+        options: make,
       },
       amenitiesFilter: {
         paramName: 'pub_amenities',
@@ -109,7 +109,7 @@ export class SearchPageComponent extends Component {
     if (viewportBoundsChanged && isSearchPage) {
       const { history, location } = this.props;
 
-      // parse query parameters, including a custom attribute named category
+      // parse query parameters, including a custom attribute named make
       const { address, bounds, mapSearch, ...rest } = parse(location.search, {
         latlng: ['origin'],
         latlngBounds: ['bounds'],
@@ -226,7 +226,7 @@ export class SearchPageComponent extends Component {
             searchParamsForPagination={parse(location.search)}
             showAsModalMaxWidth={MODAL_BREAKPOINT}
             primaryFilters={{
-              categoryFilter: filters.categoryFilter,
+              makeFilter: filters.makeFilter,
               amenitiesFilter: filters.amenitiesFilter,
               priceFilter: filters.priceFilter,
               dateRangeFilter: filters.dateRangeFilter,
@@ -274,7 +274,7 @@ SearchPageComponent.defaultProps = {
   searchListingsError: null,
   searchParams: {},
   tab: 'listings',
-  categories: config.custom.categories,
+  make: config.custom.make,
   amenities: config.custom.amenities,
   priceFilterConfig: config.custom.priceFilterConfig,
   dateRangeFilterConfig: config.custom.dateRangeFilterConfig,
@@ -294,7 +294,7 @@ SearchPageComponent.propTypes = {
   searchListingsError: propTypes.error,
   searchParams: object,
   tab: oneOf(['filters', 'listings', 'map']).isRequired,
-  categories: array,
+  make: array,
   amenities: array,
   priceFilterConfig: shape({
     min: number.isRequired,

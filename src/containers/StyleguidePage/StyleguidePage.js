@@ -119,7 +119,7 @@ const Nav = props => {
       <ul>{toGroupLink(ALL)}</ul>
       <h5>Basic styling</h5>
       <ul className={css.groups}>{basicStylingGroups}</ul>
-      <h5>Component categories</h5>
+      <h5>Component make</h5>
       <ul className={css.groups}>
         {componentGroups}
         {toGroupLink(DEFAULT_GROUP)}
@@ -228,7 +228,7 @@ const StyleguidePage = props => {
             Styleguide
           </NamedLink>
         </h1>
-        <h2 className={css.withMargin}>Select category:</h2>
+        <h2 className={css.withMargin}>Select make:</h2>
         <Nav groups={groups} selectedGroup={selectedGroup} />
       </div>
       <div className={css.main}>

@@ -67,7 +67,7 @@ const SearchFiltersComponent = props => {
     listingsAreLoaded,
     resultsCount,
     searchInProgress,
-    categoryFilter,
+    makeFilter,
     amenitiesFilter,
     priceFilter,
     dateRangeFilter,
@@ -82,8 +82,8 @@ const SearchFiltersComponent = props => {
   const hasNoResult = listingsAreLoaded && resultsCount === 0;
   const classes = classNames(rootClassName || css.root, { [css.longInfo]: hasNoResult }, className);
 
-  const categoryLabel = intl.formatMessage({
-    id: 'SearchFilters.categoryLabel',
+  const makeLabel = intl.formatMessage({
+    id: 'SearchFilters.makeLabel',
   });
 
   const amenitiesLabel = intl.formatMessage({
@@ -98,8 +98,8 @@ const SearchFiltersComponent = props => {
     ? initialValues(urlQueryParams, amenitiesFilter.paramName)
     : null;
 
-  const initialCategory = categoryFilter
-    ? initialValue(urlQueryParams, categoryFilter.paramName)
+  const initialMake = makeFilter
+    ? initialValue(urlQueryParams, makeFilter.paramName)
     : null;
 
   const initialPriceRange = priceFilter
@@ -165,14 +165,14 @@ const SearchFiltersComponent = props => {
     history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
   };
 
-  const categoryFilterElement = categoryFilter ? (
+  const makeFilterElement = makeFilter ? (
     <SelectSingleFilter
-      urlParam={categoryFilter.paramName}
-      label={categoryLabel}
+      urlParam={makeFilter.paramName}
+      label={makeLabel}
       onSelect={handleSelectOption}
       showAsPopup
-      options={categoryFilter.options}
-      initialValue={initialCategory}
+      options={makeFilter.options}
+      initialValue={initialMake}
       contentPlacementOffset={FILTER_DROPDOWN_OFFSET}
     />
   ) : null;
@@ -249,7 +249,7 @@ const SearchFiltersComponent = props => {
   return (
     <div className={classes}>
       <div className={css.filters}>
-        {categoryFilterElement}
+        {makeFilterElement}
         {amenitiesFilterElement}
         {priceFilterElement}
         {dateRangeFilterElement}
@@ -285,7 +285,7 @@ SearchFiltersComponent.defaultProps = {
   className: null,
   resultsCount: null,
   searchingInProgress: false,
-  categoryFilter: null,
+  makeFilter: null,
   amenitiesFilter: null,
   priceFilter: null,
   dateRangeFilter: null,
@@ -302,7 +302,7 @@ SearchFiltersComponent.propTypes = {
   resultsCount: number,
   searchingInProgress: bool,
   onManageDisableScrolling: func.isRequired,
-  categoriesFilter: propTypes.filterConfig,
+  makeFilter: propTypes.filterConfig,
   amenitiesFilter: propTypes.filterConfig,
   priceFilter: propTypes.filterConfig,
   dateRangeFilter: propTypes.filterConfig,

@@ -70,8 +70,8 @@ const priceData = (price, intl) => {
   return {};
 };
 
-const categoryLabel = (categories, key) => {
-  const cat = categories.find(c => c.key === key);
+const makeLabel = (make, key) => {
+  const cat = make.find(c => c.key === key);
   return cat ? cat.label : key;
 };
 
@@ -188,7 +188,7 @@ export class ListingPageComponent extends Component {
       sendEnquiryError,
       timeSlots,
       fetchTimeSlotsError,
-      categoriesConfig,
+      makeConfig,
       amenitiesConfig,
     } = this.props;
 
@@ -370,10 +370,10 @@ export class ListingPageComponent extends Component {
       </NamedLink>
     );
 
-    const category =
-      publicData && publicData.category ? (
+    const make =
+      publicData && publicData.make ? (
         <span>
-          {categoryLabel(categoriesConfig, publicData.category)}
+          {makeLabel(makeConfig, publicData.make)}
           <span className={css.separator}>•</span>
         </span>
       ) : null;
@@ -421,7 +421,7 @@ export class ListingPageComponent extends Component {
                     priceTitle={priceTitle}
                     formattedPrice={formattedPrice}
                     richTitle={richTitle}
-                    category={category}
+                    make={make}
                     hostLink={hostLink}
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
@@ -484,7 +484,7 @@ ListingPageComponent.defaultProps = {
   timeSlots: null,
   fetchTimeSlotsError: null,
   sendEnquiryError: null,
-  categoriesConfig: config.custom.categories,
+  makeConfig: config.custom.make,
   amenitiesConfig: config.custom.amenities,
 };
 
@@ -525,7 +525,7 @@ ListingPageComponent.propTypes = {
   onSendEnquiry: func.isRequired,
   onInitializeCardPaymentData: func.isRequired,
 
-  categoriesConfig: array,
+  makeConfig: array,
   amenitiesConfig: array,
 };
 

@@ -192,7 +192,7 @@ class SearchFiltersMobileComponent extends Component {
       onMapIconClick,
       onManageDisableScrolling,
       selectedFiltersCount,
-      categoryFilter,
+      makeFilter,
       amenitiesFilter,
       priceFilter,
       dateRangeFilter,
@@ -218,19 +218,19 @@ class SearchFiltersMobileComponent extends Component {
     const filtersButtonClasses =
       selectedFiltersCount > 0 ? css.filtersButtonSelected : css.filtersButton;
 
-    const categoryLabel = intl.formatMessage({
-      id: 'SearchFiltersMobile.categoryLabel',
+    const makeLabel = intl.formatMessage({
+      id: 'SearchFiltersMobile.makeLabel',
     });
-    const initialCategory = categoryFilter ? this.initialValue(categoryFilter.paramName) : null;
+    const initialMake = makeFilter ? this.initialValue(makeFilter.paramName) : null;
 
-    const categoryFilterElement = categoryFilter ? (
+    const makeFilterElement = makeFilter ? (
       <SelectSingleFilter
-        urlParam={categoryFilter.paramName}
-        label={categoryLabel}
+        urlParam={makeFilter.paramName}
+        label={makeLabel}
         onSelect={this.handleSelectSingle}
         liveEdit
-        options={categoryFilter.options}
-        initialValue={initialCategory}
+        options={makeFilter.options}
+        initialValue={initialMake}
         intl={intl}
       />
     ) : null;
@@ -330,7 +330,7 @@ class SearchFiltersMobileComponent extends Component {
           {this.state.isFiltersOpenOnMobile ? (
             <div className={css.filtersWrapper}>
               {keywordFilterElement}
-              {categoryFilterElement}
+              {makeFilterElement}
               {amenitiesFilterElement}
               {priceFilterElement}
               {dateRangeFilterElement}
@@ -355,7 +355,7 @@ SearchFiltersMobileComponent.defaultProps = {
   searchingInProgress: false,
   selectedFiltersCount: 0,
   filterParamNames: [],
-  categoryFilter: null,
+  makeFilter: null,
   amenitiesFilter: null,
   priceFilter: null,
   dateRangeFilter: null,
@@ -375,7 +375,7 @@ SearchFiltersMobileComponent.propTypes = {
   onCloseModal: func.isRequired,
   selectedFiltersCount: number,
   filterParamNames: array,
-  categoriesFilter: propTypes.filterConfig,
+  makeFilter: propTypes.filterConfig,
   amenitiesFilter: propTypes.filterConfig,
   priceFilter: propTypes.filterConfig,
   dateRangeFilter: propTypes.filterConfig,

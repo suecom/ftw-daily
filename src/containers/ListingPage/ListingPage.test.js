@@ -30,7 +30,7 @@ import ActionBarMaybe from './ActionBarMaybe';
 const { UUID } = sdkTypes;
 const noop = () => null;
 
-const categoriesConfig = [{ key: 'cat1', label: 'Cat 1' }, { key: 'cat2', label: 'Cat 2' }];
+const makeConfig = [{ key: 'cat1', label: 'Cat 1' }, { key: 'cat2', label: 'Cat 2' }];
 
 const amenitiesConfig = [
   { key: 'feat1', label: 'Feat 1' },
@@ -76,7 +76,7 @@ describe('ListingPage', () => {
       onInitializeCardPaymentData: noop,
       sendEnquiryInProgress: false,
       onSendEnquiry: noop,
-      categoriesConfig,
+      makeConfig,
       amenitiesConfig,
     };
 

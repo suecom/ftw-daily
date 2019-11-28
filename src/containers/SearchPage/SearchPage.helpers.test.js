@@ -6,14 +6,14 @@ import {
 } from './SearchPage.helpers.js';
 
 const urlParams = {
-  pub_category: 'smoke',
+  pub_make: 'audi',
   pub_amenities: 'towels,bathroom',
 };
 
 const filters = {
-  categoryFilter: {
-    paramName: 'pub_category',
-    options: [{ key: 'smoke' }, { key: 'wooden' }],
+  makeFilter: {
+    paramName: 'pub_make',
+    options: [{ key: 'audi' }, { key: 'alvis' }],
   },
   amenitiesFilter: {
     paramName: 'pub_amenities',
@@ -24,17 +24,17 @@ const filters = {
 describe('SearchPage.helpers', () => {
   describe('validURLParamForExtendedData', () => {
     it('returns a valid parameter', () => {
-      const validParam = validURLParamForExtendedData('pub_category', 'smoke', filters);
-      expect(validParam).toEqual({ pub_category: 'smoke' });
+      const validParam = validURLParamForExtendedData('pub_make', 'audi', filters);
+      expect(validParam).toEqual({ pub_make: 'audi' });
     });
 
     it('takes empty params', () => {
-      const validParam = validURLParamForExtendedData('pub_category', '', filters);
+      const validParam = validURLParamForExtendedData('pub_,make', '', filters);
       expect(validParam).toEqual({});
     });
 
     it('drops an invalid param value', () => {
-      const validParam = validURLParamForExtendedData('pub_category', 'invalid', filters);
+      const validParam = validURLParamForExtendedData('pub_make', 'invalid', filters);
       expect(validParam).toEqual({});
     });
 
@@ -56,15 +56,15 @@ describe('SearchPage.helpers', () => {
     });
 
     it('drops an invalid filter param value', () => {
-      const params = { pub_category: 'smoke', pub_amenities: 'invalid1,invalid2' };
+      const params = { pub_make: 'audi', pub_amenities: 'invalid1,invalid2' };
       const validParams = validFilterParams(params, filters);
-      expect(validParams).toEqual({ pub_category: 'smoke' });
+      expect(validParams).toEqual({ pub_make: 'audi' });
     });
 
     it('drops non-filter params', () => {
-      const params = { pub_category: 'smoke', other_param: 'somevalue' };
+      const params = { pub_make: 'audi', other_param: 'somevalue' };
       const validParams = validFilterParams(params, filters);
-      expect(validParams).toEqual({ pub_category: 'smoke' });
+      expect(validParams).toEqual({ pub_make: 'audi' });
     });
   });
 
@@ -80,13 +80,13 @@ describe('SearchPage.helpers', () => {
     });
 
     it('drops an invalid filter param value', () => {
-      const params = { pub_category: 'smoke', pub_amenities: 'invalid1,invalid2' };
+      const params = { pub_make: 'smoke', pub_amenities: 'invalid1,invalid2' };
       const validParams = validURLParamsForExtendedData(params, filters);
-      expect(validParams).toEqual({ pub_category: 'smoke' });
+      expect(validParams).toEqual({ pub_make: 'audi' });
     });
 
     it('returns non-filter params', () => {
-      const params = { pub_category: 'smoke', other_param: 'somevalue' };
+      const params = { pub_make: 'audi', other_param: 'somevalue' };
       const validParams = validURLParamsForExtendedData(params, filters);
       expect(validParams).toEqual(params);
     });
@@ -109,15 +109,15 @@ describe('SearchPage.helpers', () => {
     });
 
     it('drops an invalid filter param value', () => {
-      const params = { pub_category: 'smoke', pub_amenities: 'invalid1,invalid2' };
+      const params = { pub_make: 'audi', pub_amenities: 'invalid1,invalid2' };
       const validParams = pickSearchParamsOnly(params, filters);
-      expect(validParams).toEqual({ pub_category: 'smoke' });
+      expect(validParams).toEqual({ pub_make: 'audi' });
     });
 
     it('drops non-search params', () => {
-      const params = { pub_category: 'smoke', other_param: 'somevalue' };
+      const params = { pub_make: 'audi', other_param: 'somevalue' };
       const validParams = pickSearchParamsOnly(params, filters);
-      expect(validParams).toEqual({ pub_category: 'smoke' });
+      expect(validParams).toEqual({ pub_make: 'audi' });
     });
   });
 });

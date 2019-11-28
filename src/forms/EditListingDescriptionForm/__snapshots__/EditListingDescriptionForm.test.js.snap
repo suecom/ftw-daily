@@ -54,14 +54,14 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
     className=""
   >
     <label
-      htmlFor="category"
+      htmlFor="make"
     >
-      EditListingDescriptionForm.categoryLabel
+      EditListingDescriptionForm.makeLabel
     </label>
     <select
       className=""
-      id="category"
-      name="category"
+      id="make"
+      name="make"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -71,7 +71,7 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
         disabled={true}
         value=""
       >
-        EditListingDescriptionForm.categoryPlaceholder
+        EditListingDescriptionForm.makePlaceholder
       </option>
       <option
         key="cat1"

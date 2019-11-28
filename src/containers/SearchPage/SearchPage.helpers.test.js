@@ -5,20 +5,11 @@ import {
   pickSearchParamsOnly,
 } from './SearchPage.helpers.js';
 
-const urlParams = {
-  pub_make: 'audi',
-  pub_amenities: 'towels,bathroom',
-};
-
 const filters = {
   makeFilter: {
     paramName: 'pub_make',
     options: [{ key: 'audi' }, { key: 'alvis' }],
-  },
-  amenitiesFilter: {
-    paramName: 'pub_amenities',
-    options: [{ key: 'towels' }, { key: 'bathroom' }],
-  },
+  }
 };
 
 describe('SearchPage.helpers', () => {
@@ -56,7 +47,7 @@ describe('SearchPage.helpers', () => {
     });
 
     it('drops an invalid filter param value', () => {
-      const params = { pub_make: 'audi', pub_amenities: 'invalid1,invalid2' };
+      const params = { pub_make: 'audi' };
       const validParams = validFilterParams(params, filters);
       expect(validParams).toEqual({ pub_make: 'audi' });
     });
@@ -80,7 +71,7 @@ describe('SearchPage.helpers', () => {
     });
 
     it('drops an invalid filter param value', () => {
-      const params = { pub_make: 'smoke', pub_amenities: 'invalid1,invalid2' };
+      const params = { pub_make: 'smoke' };
       const validParams = validURLParamsForExtendedData(params, filters);
       expect(validParams).toEqual({ pub_make: 'audi' });
     });
@@ -109,7 +100,7 @@ describe('SearchPage.helpers', () => {
     });
 
     it('drops an invalid filter param value', () => {
-      const params = { pub_make: 'audi', pub_amenities: 'invalid1,invalid2' };
+      const params = { pub_make: 'audi' };
       const validParams = pickSearchParamsOnly(params, filters);
       expect(validParams).toEqual({ pub_make: 'audi' });
     });

@@ -54,13 +54,12 @@ export class SearchPageComponent extends Component {
   filters() {
     const {
       make,
-      amenities,
       priceFilterConfig,
       dateRangeFilterConfig,
       keywordFilterConfig,
     } = this.props;
 
-    // Note: "make" and "amenities" filters are not actually filtering anything by default.
+    // Note: "make" filter is not actually filtering anything by default.
     // Currently, if you want to use them, we need to manually configure them to be available
     // for search queries. Read more from extended data document:
     // https://www.sharetribe.com/docs/references/extended-data/#data-schema
@@ -69,10 +68,6 @@ export class SearchPageComponent extends Component {
       makeFilter: {
         paramName: 'pub_make',
         options: make,
-      },
-      amenitiesFilter: {
-        paramName: 'pub_amenities',
-        options: amenities,
       },
       priceFilter: {
         paramName: 'price',
@@ -227,7 +222,6 @@ export class SearchPageComponent extends Component {
             showAsModalMaxWidth={MODAL_BREAKPOINT}
             primaryFilters={{
               makeFilter: filters.makeFilter,
-              amenitiesFilter: filters.amenitiesFilter,
               priceFilter: filters.priceFilter,
               dateRangeFilter: filters.dateRangeFilter,
               keywordFilter: filters.keywordFilter,
@@ -275,7 +269,6 @@ SearchPageComponent.defaultProps = {
   searchParams: {},
   tab: 'listings',
   make: config.custom.make,
-  amenities: config.custom.amenities,
   priceFilterConfig: config.custom.priceFilterConfig,
   dateRangeFilterConfig: config.custom.dateRangeFilterConfig,
   keywordFilterConfig: config.custom.keywordFilterConfig,
@@ -295,7 +288,6 @@ SearchPageComponent.propTypes = {
   searchParams: object,
   tab: oneOf(['filters', 'listings', 'map']).isRequired,
   make: array,
-  amenities: array,
   priceFilterConfig: shape({
     min: number.isRequired,
     max: number.isRequired,

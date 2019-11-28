@@ -156,25 +156,6 @@ exports[`ListingPage matches snapshot 1`] = `
             <SectionDescriptionMaybe
               description="listing1 description"
             />
-            <SectionFeaturesMaybe
-              options={
-                Array [
-                  Object {
-                    "key": "feat1",
-                    "label": "Feat 1",
-                  },
-                  Object {
-                    "key": "feat2",
-                    "label": "Feat 2",
-                  },
-                  Object {
-                    "key": "feat3",
-                    "label": "Feat 3",
-                  },
-                ]
-              }
-              publicData={Object {}}
-            />
             <SectionRulesMaybe
               className={null}
               publicData={Object {}}

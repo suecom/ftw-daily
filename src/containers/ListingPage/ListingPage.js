@@ -46,7 +46,6 @@ import SectionImages from './SectionImages';
 import SectionAvatar from './SectionAvatar';
 import SectionHeading from './SectionHeading';
 import SectionDescriptionMaybe from './SectionDescriptionMaybe';
-import SectionFeaturesMaybe from './SectionFeaturesMaybe';
 import SectionReviews from './SectionReviews';
 import SectionHostMaybe from './SectionHostMaybe';
 import SectionRulesMaybe from './SectionRulesMaybe';
@@ -189,7 +188,6 @@ export class ListingPageComponent extends Component {
       timeSlots,
       fetchTimeSlotsError,
       makeConfig,
-      amenitiesConfig,
     } = this.props;
 
     const listingId = new UUID(rawParams.id);
@@ -427,7 +425,6 @@ export class ListingPageComponent extends Component {
                     onContactUser={this.onContactUser}
                   />
                   <SectionDescriptionMaybe description={description} />
-                  <SectionFeaturesMaybe options={amenitiesConfig} publicData={publicData} />
                   <SectionRulesMaybe publicData={publicData} />
                   <SectionMapMaybe
                     geolocation={geolocation}
@@ -485,7 +482,6 @@ ListingPageComponent.defaultProps = {
   fetchTimeSlotsError: null,
   sendEnquiryError: null,
   makeConfig: config.custom.make,
-  amenitiesConfig: config.custom.amenities,
 };
 
 ListingPageComponent.propTypes = {
@@ -526,7 +522,6 @@ ListingPageComponent.propTypes = {
   onInitializeCardPaymentData: func.isRequired,
 
   makeConfig: array,
-  amenitiesConfig: array,
 };
 
 const mapStateToProps = state => {

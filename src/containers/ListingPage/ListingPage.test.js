@@ -30,7 +30,8 @@ import ActionBarMaybe from './ActionBarMaybe';
 const { UUID } = sdkTypes;
 const noop = () => null;
 
-const makeConfig = [{ key: 'cat1', label: 'Cat 1' }, { key: 'cat2', label: 'Cat 2' }];
+const makeConfig = [{ key: 'aud', label: 'Audi' }, { key: 'alvis', label: 'Alvis' }];
+const yearConfig = [{ key: '2004', label: '2004' }, { key: '2003', label: '2003' }];
 
 describe('ListingPage', () => {
   it('matches snapshot', () => {
@@ -70,7 +71,8 @@ describe('ListingPage', () => {
       onInitializeCardPaymentData: noop,
       sendEnquiryInProgress: false,
       onSendEnquiry: noop,
-      makeConfig
+      makeConfig,
+      yearConfig
     };
 
     const tree = renderShallow(<ListingPageComponent {...props} />);

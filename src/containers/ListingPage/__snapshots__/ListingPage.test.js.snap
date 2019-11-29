@@ -121,6 +121,7 @@ exports[`ListingPage matches snapshot 1`] = `
           <div>
             <SectionHeading
               make={null}
+              year={null}
               formattedPrice={55}
               hostLink={
                 <NamedLink

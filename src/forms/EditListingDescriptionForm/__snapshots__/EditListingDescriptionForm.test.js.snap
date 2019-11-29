@@ -62,6 +62,7 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
       className=""
       id="make"
       name="make"
+      year="year"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}

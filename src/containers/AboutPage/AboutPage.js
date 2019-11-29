@@ -43,7 +43,7 @@ const AboutPage = () => {
               <p>
                 OldenCars is the Airbnb of memorable motoring. We connect car enthusiasts, 
                 offering owners a secure way to earn money from their car and a commitment-free 
-                way for drivers to experience memorable drives.
+                way for drivers to experience classic motoring
               </p>
             </div>
 

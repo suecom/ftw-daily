@@ -74,6 +74,11 @@ const makeLabel = (make, key) => {
   return cat ? cat.label : key;
 };
 
+const yearLabel = (year, key) => {
+  const cat = year.find(c => c.key === key);
+  return cat ? cat.label : key;
+};
+
 export class ListingPageComponent extends Component {
   constructor(props) {
     super(props);
@@ -187,7 +192,8 @@ export class ListingPageComponent extends Component {
       sendEnquiryError,
       timeSlots,
       fetchTimeSlotsError,
-      makeConfig
+      makeConfig,
+      yearConfig
     } = this.props;
 
     const listingId = new UUID(rawParams.id);
@@ -375,6 +381,14 @@ export class ListingPageComponent extends Component {
           <span className={css.separator}>•</span>
         </span>
       ) : null;
+
+    const year =
+      publicData && publicData.year ? (
+        <span>
+          {yearLabel(yearConfig, publicData.year)}
+          <span className={css.separator}>•</span>
+        </span>
+      ) : null;
   
     const model =
     publicData && publicData.model ? (
@@ -427,6 +441,7 @@ export class ListingPageComponent extends Component {
                     priceTitle={priceTitle}
                     formattedPrice={formattedPrice}
                     richTitle={richTitle}
+                    year={year}
                     make={make}
                     model={model}
                     hostLink={hostLink}
@@ -491,7 +506,8 @@ ListingPageComponent.defaultProps = {
   fetchTimeSlotsError: null,
   sendEnquiryError: null,
   makeConfig: config.custom.make,
-  modelConfig: ''
+  modelConfig: '',
+  yearConfig: config.custom.year
 };
 
 ListingPageComponent.propTypes = {
@@ -530,7 +546,8 @@ ListingPageComponent.propTypes = {
   sendEnquiryError: propTypes.error,
   onSendEnquiry: func.isRequired,
   onInitializeCardPaymentData: func.isRequired,
-  makeConfig: array
+  makeConfig: array,
+  yearConfig: array
 };
 
 const mapStateToProps = state => {

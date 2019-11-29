@@ -13,6 +13,7 @@ const SectionHeading = props => {
     richTitle,
     make,
     model,
+    year,
     hostLink,
     showContactUser,
     onContactUser,
@@ -41,6 +42,7 @@ const SectionHeading = props => {
       <div className={css.heading}>
         <h1 className={css.title}>{richTitle}</h1>
         <div className={css.author}>
+          {year}
           {make} 
           {model}
           <FormattedMessage id="ListingPage.hostedBy" values={{ name: hostLink }} />

@@ -8,6 +8,7 @@ import { propTypes } from '../../util/types';
 import { maxLength, required, composeValidators } from '../../util/validators';
 import { Form, Button, FieldTextInput } from '../../components';
 import CustomMakeSelectFieldMaybe from './CustomMakeSelectFieldMaybe';
+import CustomYearSelectFieldMaybe from './CustomYearSelectFieldMaybe';
 
 import css from './EditListingDescriptionForm.css';
 
@@ -20,6 +21,7 @@ const EditListingDescriptionFormComponent = props => (
       const {
         make,
         model,
+        year,
         className,
         disabled,
         handleSubmit,
@@ -127,6 +129,14 @@ const EditListingDescriptionFormComponent = props => (
             validate={composeValidators(required(modelRequiredMessage))}
           />
 
+          <CustomYearSelectFieldMaybe
+            id="year"
+            name="year"
+            classname={css.year}
+            year={year}
+            intl={intl}
+          />
+
           <FieldTextInput
             id="description"
             name="description"
@@ -168,6 +178,12 @@ EditListingDescriptionFormComponent.propTypes = {
   }),
   model: string,
   make: arrayOf(
+    shape({
+      key: string.isRequired,
+      label: string.isRequired,
+    })
+  ),
+  year: arrayOf(
     shape({
       key: string.isRequired,
       label: string.isRequired,

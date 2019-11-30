@@ -185,8 +185,8 @@ EditListingDescriptionFormComponent.propTypes = {
   ),
   year: arrayOf(
     shape({
-      key: string.isRequired,
-      label: string.isRequired,
+      key: Number.isRequired,
+      label: Number.isRequired,
     })
   )
 };

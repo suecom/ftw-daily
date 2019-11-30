@@ -336,7 +336,6 @@ SearchFiltersMobileComponent.defaultProps = {
   selectedFiltersCount: 0,
   filterParamNames: [],
   makeFilter: null,
-  amenitiesFilter: null,
   priceFilter: null,
   dateRangeFilter: null,
 };
@@ -356,7 +355,6 @@ SearchFiltersMobileComponent.propTypes = {
   selectedFiltersCount: number,
   filterParamNames: array,
   makeFilter: propTypes.filterConfig,
-  amenitiesFilter: propTypes.filterConfig,
   priceFilter: propTypes.filterConfig,
   dateRangeFilter: propTypes.filterConfig,
 

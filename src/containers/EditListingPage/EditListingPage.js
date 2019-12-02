@@ -207,7 +207,7 @@ EditListingPageComponent.defaultProps = {
   listing: null,
   listingDraft: null,
   notificationCount: 0,
-  sendVerificationEmailError: null,
+  sendVerificationEmailError: null
 };
 
 EditListingPageComponent.propTypes = {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { array, bool, func, number, object, oneOf, shape, string } from 'prop-types';
 import { compose } from 'redux';
-import { FormattedMessage, injectIntl, intlShape } from '../../util/reactIntl';
+import { injectIntl, intlShape } from '../../util/reactIntl';
 import classNames from 'classnames';
 import config from '../../config';
 import { withViewport } from '../../util/contextHelpers';
@@ -10,9 +10,8 @@ import {
   LISTING_PAGE_PARAM_TYPE_NEW,
   LISTING_PAGE_PARAM_TYPES,
 } from '../../util/urlHelpers';
-import { ensureListing, ensureCurrentUser } from '../../util/data';
-import { PayoutDetailsForm } from '../../forms';
-import { Modal, NamedRedirect, Tabs } from '../../components';
+import { ensureListing } from '../../util/data';
+import { NamedRedirect, Tabs } from '../../components';
 
 import EditListingWizardTab, {
   AVAILABILITY,
@@ -151,14 +150,19 @@ class EditListingWizard extends Component {
     const { onPublishListingDraft, currentUser } = this.props;
     const stripeConnected =
       currentUser && currentUser.stripeAccount && !!currentUser.stripeAccount.id;
+
+    /*
     if (stripeConnected) {
+    */
       onPublishListingDraft(id);
+    /*
     } else {
       this.setState({
         draftId: id,
         showPayoutDetails: true,
       });
     }
+    */
   }
 
   handlePayoutModalClose() {
@@ -263,31 +267,6 @@ class EditListingWizard extends Component {
             );
           })}
         </Tabs>
-        <Modal
-          id="EditListingWizard.payoutModal"
-          isOpen={this.state.showPayoutDetails}
-          onClose={this.handlePayoutModalClose}
-          onManageDisableScrolling={onManageDisableScrolling}
-        >
-          <div className={css.modalPayoutDetailsWrapper}>
-            <h1 className={css.modalTitle}>
-              <FormattedMessage id="EditListingPhotosPanel.payoutModalTitleOneMoreThing" />
-              <br />
-              <FormattedMessage id="EditListingPhotosPanel.payoutModalTitlePayoutPreferences" />
-            </h1>
-            <p className={css.modalMessage}>
-              <FormattedMessage id="EditListingPhotosPanel.payoutModalInfo" />
-            </p>
-            <PayoutDetailsForm
-              className={css.payoutDetails}
-              inProgress={fetchInProgress}
-              createStripeAccountError={errors ? errors.createStripeAccountError : null}
-              currentUserId={ensureCurrentUser(this.props.currentUser).id}
-              onChange={onPayoutDetailsFormChange}
-              onSubmit={this.handlePayoutSubmit}
-            />
-          </div>
-        </Modal>
       </div>
     );
   }

@@ -9,7 +9,7 @@ import omit from 'lodash/omit';
 import {
   BookingDateRangeFilter,
   SelectSingleFilter,
-  SelectMultipleFilter,
+//  SelectMultipleFilter,
   PriceFilter,
   KeywordFilter,
 } from '../../components';
@@ -29,9 +29,9 @@ const initialValue = (queryParams, paramName) => {
 };
 
 // resolve initial values for a multi value filter
-const initialValues = (queryParams, paramName) => {
-  return !!queryParams[paramName] ? queryParams[paramName].split(',') : [];
-};
+//const initialValues = (queryParams, paramName) => {
+//  return !!queryParams[paramName] ? queryParams[paramName].split(',') : [];
+//};
 
 const initialPriceRangeValue = (queryParams, paramName) => {
   const price = queryParams[paramName];
@@ -68,7 +68,7 @@ const SearchFiltersComponent = props => {
     resultsCount,
     searchInProgress,
     makeFilter,
-    amenitiesFilter,
+//    amenitiesFilter,
     priceFilter,
     dateRangeFilter,
     keywordFilter,
@@ -86,17 +86,9 @@ const SearchFiltersComponent = props => {
     id: 'SearchFilters.makeLabel',
   });
 
-  const amenitiesLabel = intl.formatMessage({
-    id: 'SearchFilters.amenitiesLabel',
-  });
-
   const keywordLabel = intl.formatMessage({
     id: 'SearchFilters.keywordLabel',
   });
-
-  const initialAmenities = amenitiesFilter
-    ? initialValues(urlQueryParams, amenitiesFilter.paramName)
-    : null;
 
   const initialMake = makeFilter
     ? initialValue(urlQueryParams, makeFilter.paramName)
@@ -114,14 +106,14 @@ const SearchFiltersComponent = props => {
     ? initialValue(urlQueryParams, keywordFilter.paramName)
     : null;
 
-  const handleSelectOptions = (urlParam, options) => {
-    const queryParams =
-      options && options.length > 0
-        ? { ...urlQueryParams, [urlParam]: options.join(',') }
-        : omit(urlQueryParams, urlParam);
-
-    history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
-  };
+  //const handleSelectOptions = (urlParam, options) => {
+  //  const queryParams =
+  //    options && options.length > 0
+  //      ? { ...urlQueryParams, [urlParam]: options.join(',') }
+  //      : omit(urlQueryParams, urlParam);
+  //
+  //  history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
+  //};
 
   const handleSelectOption = (urlParam, option) => {
     // query parameters after selecting the option
@@ -173,20 +165,6 @@ const SearchFiltersComponent = props => {
       showAsPopup
       options={makeFilter.options}
       initialValue={initialMake}
-      contentPlacementOffset={FILTER_DROPDOWN_OFFSET}
-    />
-  ) : null;
-
-  const amenitiesFilterElement = amenitiesFilter ? (
-    <SelectMultipleFilter
-      id={'SearchFilters.amenitiesFilter'}
-      name="amenities"
-      urlParam={amenitiesFilter.paramName}
-      label={amenitiesLabel}
-      onSubmit={handleSelectOptions}
-      showAsPopup
-      options={amenitiesFilter.options}
-      initialValues={initialAmenities}
       contentPlacementOffset={FILTER_DROPDOWN_OFFSET}
     />
   ) : null;
@@ -250,7 +228,6 @@ const SearchFiltersComponent = props => {
     <div className={classes}>
       <div className={css.filters}>
         {makeFilterElement}
-        {amenitiesFilterElement}
         {priceFilterElement}
         {dateRangeFilterElement}
         {keywordFilterElement}

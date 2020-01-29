@@ -12,7 +12,6 @@ import {
   LISTING_PAGE_PARAM_TYPE_NEW,
   LISTING_PAGE_PARAM_TYPES,
 } from '../../util/urlHelpers';
-import { ensureListing } from '../../util/data';
 import { NamedRedirect, Tabs } from '../../components';
 import { ensureCurrentUser, ensureListing } from '../../util/data';
 

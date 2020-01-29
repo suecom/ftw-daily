@@ -3,6 +3,7 @@ import { array, bool, func, number, object, oneOf, shape, string } from 'prop-ty
 import { compose } from 'redux';
 import { injectIntl, intlShape } from '../../util/reactIntl';
 import classNames from 'classnames';
+import { FormattedMessage } from '../../util/reactIntl';
 import config from '../../config';
 import routeConfiguration from '../../routeConfiguration';
 import { createResourceLocatorString } from '../../util/routes';
@@ -12,9 +13,7 @@ import {
   LISTING_PAGE_PARAM_TYPE_NEW,
   LISTING_PAGE_PARAM_TYPES,
 } from '../../util/urlHelpers';
-import { NamedRedirect, Tabs } from '../../components';
 import { ensureCurrentUser, ensureListing } from '../../util/data';
-
 import { Modal, NamedRedirect, Tabs, StripeConnectAccountStatusBox } from '../../components';
 import { StripeConnectAccountForm } from '../../forms';
 
@@ -219,7 +218,6 @@ class EditListingWizard extends Component {
         showPayoutDetails: true,
       });
     }
-    */
   }
 
   handlePayoutModalClose() {

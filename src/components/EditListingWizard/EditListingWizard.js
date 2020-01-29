@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { array, bool, func, number, object, oneOf, shape, string } from 'prop-types';
 import { compose } from 'redux';
-import { injectIntl, intlShape } from '../../util/reactIntl';
+import { FormattedMessage, injectIntl, intlShape } from '../../util/reactIntl';
 import classNames from 'classnames';
-import { FormattedMessage } from '../../util/reactIntl';
 import config from '../../config';
 import routeConfiguration from '../../routeConfiguration';
 import { createResourceLocatorString } from '../../util/routes';
@@ -14,6 +13,7 @@ import {
   LISTING_PAGE_PARAM_TYPES,
 } from '../../util/urlHelpers';
 import { ensureCurrentUser, ensureListing } from '../../util/data';
+
 import { Modal, NamedRedirect, Tabs, StripeConnectAccountStatusBox } from '../../components';
 import { StripeConnectAccountForm } from '../../forms';
 

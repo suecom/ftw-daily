@@ -199,7 +199,7 @@ class EditListingWizard extends Component {
 
   handlePublishListing(id) {
     const { onPublishListingDraft, currentUser, stripeAccount } = this.props;
-
+    /*
     const stripeConnected =
       currentUser && currentUser.stripeAccount && !!currentUser.stripeAccount.id;
 
@@ -211,13 +211,16 @@ class EditListingWizard extends Component {
         hasRequirements(stripeAccountData, 'currently_due'));
 
     if (stripeConnected && !requirementsMissing) {
+    */
       onPublishListingDraft(id);
+    /*
     } else {
       this.setState({
         draftId: id,
         showPayoutDetails: true,
       });
     }
+    */
   }
 
   handlePayoutModalClose() {

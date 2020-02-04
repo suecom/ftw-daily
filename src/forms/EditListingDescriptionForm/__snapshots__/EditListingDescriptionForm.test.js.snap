@@ -33,6 +33,100 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
     className=""
   >
     <label
+      htmlFor="make"
+    >
+      EditListingDescriptionForm.makeLabel
+    </label>
+    <select
+      className=""
+      id="make"
+      name="make"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      value=""
+    >
+      <option
+        disabled={true}
+        value=""
+      >
+        EditListingDescriptionForm.makePlaceholder
+      </option>
+      <option
+        key="audi"
+        value="audi"
+      >
+        Audi
+      </option>
+      <option
+        key="alvis"
+        value="alvis"
+      >
+        Alvis
+      </option>
+    </select>
+  </div>
+  <div
+    className=""
+  >
+    <label
+      htmlFor="model"
+    >
+      EditListingDescriptionForm.model
+    </label>
+    <input
+      className=""
+      id="model"
+      name="model"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="EditListingDescriptionForm.modelPlaceholder"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className=""
+  >
+    <label
+      htmlFor="year"
+    >
+      EditListingDescriptionForm.yearLabel
+    </label>
+    <select
+      className=""
+      id="year"
+      name="year"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      value=""
+    >
+      <option
+        disabled={true}
+        value=""
+      >
+        EditListingDescriptionForm.yearPlaceholder
+      </option>
+      <option
+        key="2004"
+        value={2004}
+      >
+        2004
+      </option>
+      <option
+        key="2003"
+        value={2003}
+      >
+        2003
+      </option>
+    </select>
+  </div>
+  <div
+    className=""
+  >
+    <label
       htmlFor="description"
     >
       EditListingDescriptionForm.description
@@ -49,44 +143,6 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
       rows={1}
       value=""
     />
-  </div>
-  <div
-    className=""
-  >
-    <label
-      htmlFor="make"
-    >
-      EditListingDescriptionForm.makeLabel
-    </label>
-    <select
-      className=""
-      id="make"
-      name="make"
-      year=2004
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      value=""
-    >
-      <option
-        disabled={true}
-        value=""
-      >
-        EditListingDescriptionForm.makePlaceholder
-      </option>
-      <option
-        key="cat1"
-        value="cat1"
-      >
-        Cat 1
-      </option>
-      <option
-        key="cat2"
-        value="cat2"
-      >
-        Cat 2
-      </option>
-    </select>
   </div>
   <button
     className=""

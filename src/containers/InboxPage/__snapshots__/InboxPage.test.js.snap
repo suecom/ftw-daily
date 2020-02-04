@@ -396,65 +396,103 @@ exports[`InboxPage matches snapshot 1`] = `
 exports[`InboxPage matches snapshot 2`] = `
 <div>
   <div>
-    <a
+    <Link
       className=""
-      href="/u/provider-user-id"
-      onClick={[Function]}
       style={Object {}}
       title="provider-user-id display name"
+      to={
+        Object {
+          "pathname": "/u/provider-user-id",
+        }
+      }
     >
-      <span>
-        TT
-      </span>
-    </a>
+      <LinkAnchor
+        className=""
+        href="/u/provider-user-id"
+        navigate={[Function]}
+        style={Object {}}
+        title="provider-user-id display name"
+      >
+        <a
+          className=""
+          href="/u/provider-user-id"
+          onClick={[Function]}
+          style={Object {}}
+          title="provider-user-id display name"
+        >
+          <span>
+            TT
+          </span>
+        </a>
+      </LinkAnchor>
+    </Link>
   </div>
-  <a
+  <Link
     className=""
-    href="/order/order-1/details"
-    onClick={[Function]}
     style={Object {}}
     title={null}
+    to={
+      Object {
+        "pathname": "/order/order-1/details",
+      }
+    }
   >
-    <div />
-    <div>
-      <div
+    <LinkAnchor
+      className=""
+      href="/order/order-1/details"
+      navigate={[Function]}
+      style={Object {}}
+      title={null}
+    >
+      <a
         className=""
+        href="/order/order-1/details"
+        onClick={[Function]}
+        style={Object {}}
+        title={null}
       >
-        <span
-          className=""
-        >
-          provider-user-id display name
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <div
-          className=""
-        >
-          <span>
-            Feb 15 -
-          </span>
-          <span>
-            Feb 16
-          </span>
+        <div />
+        <div>
+          <div
+            className=""
+          >
+            <span
+              className=""
+            >
+              provider-user-id display name
+            </span>
+          </div>
+          <div
+            className=""
+          >
+            <div
+              className=""
+            >
+              <span>
+                Feb 15 -
+              </span>
+              <span>
+                Feb 16
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div>
-      <div
-        className=""
-      >
-        InboxPage.stateRequested
-      </div>
-      <div
-        className=""
-        title="2017-01-15 00:00"
-      >
-        2017-01-15
-      </div>
-    </div>
-  </a>
+        <div>
+          <div
+            className=""
+          >
+            InboxPage.stateRequested
+          </div>
+          <div
+            className=""
+            title="2017-01-15 00:00"
+          >
+            2017-01-15
+          </div>
+        </div>
+      </a>
+    </LinkAnchor>
+  </Link>
 </div>
 `;
 
@@ -854,66 +892,104 @@ exports[`InboxPage matches snapshot 3`] = `
 exports[`InboxPage matches snapshot 4`] = `
 <div>
   <div>
-    <a
+    <Link
       className=""
-      href="/u/customer-user-id"
-      onClick={[Function]}
       style={Object {}}
       title="customer-user-id display name"
+      to={
+        Object {
+          "pathname": "/u/customer-user-id",
+        }
+      }
     >
-      <span>
-        TT
-      </span>
-    </a>
+      <LinkAnchor
+        className=""
+        href="/u/customer-user-id"
+        navigate={[Function]}
+        style={Object {}}
+        title="customer-user-id display name"
+      >
+        <a
+          className=""
+          href="/u/customer-user-id"
+          onClick={[Function]}
+          style={Object {}}
+          title="customer-user-id display name"
+        >
+          <span>
+            TT
+          </span>
+        </a>
+      </LinkAnchor>
+    </Link>
   </div>
-  <a
+  <Link
     className=""
-    href="/sale/sale-1/details"
-    onClick={[Function]}
     style={Object {}}
     title={null}
+    to={
+      Object {
+        "pathname": "/sale/sale-1/details",
+      }
+    }
   >
-    <div>
-      <div />
-    </div>
-    <div>
-      <div
+    <LinkAnchor
+      className=""
+      href="/sale/sale-1/details"
+      navigate={[Function]}
+      style={Object {}}
+      title={null}
+    >
+      <a
         className=""
+        href="/sale/sale-1/details"
+        onClick={[Function]}
+        style={Object {}}
+        title={null}
       >
-        <span
-          className=""
-        >
-          customer-user-id display name
-        </span>
-      </div>
-      <div
-        className=""
-      >
-        <div
-          className=""
-        >
-          <span>
-            Feb 15 -
-          </span>
-          <span>
-            Feb 16
-          </span>
+        <div>
+          <div />
         </div>
-      </div>
-    </div>
-    <div>
-      <div
-        className=""
-      >
-        InboxPage.statePending
-      </div>
-      <div
-        className=""
-        title="2017-01-15 00:00"
-      >
-        2017-01-15
-      </div>
-    </div>
-  </a>
+        <div>
+          <div
+            className=""
+          >
+            <span
+              className=""
+            >
+              customer-user-id display name
+            </span>
+          </div>
+          <div
+            className=""
+          >
+            <div
+              className=""
+            >
+              <span>
+                Feb 15 -
+              </span>
+              <span>
+                Feb 16
+              </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            className=""
+          >
+            InboxPage.statePending
+          </div>
+          <div
+            className=""
+            title="2017-01-15 00:00"
+          >
+            2017-01-15
+          </div>
+        </div>
+      </a>
+    </LinkAnchor>
+  </Link>
 </div>
 `;

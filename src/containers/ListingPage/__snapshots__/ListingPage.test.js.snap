@@ -120,8 +120,6 @@ exports[`ListingPage matches snapshot 1`] = `
           />
           <div>
             <SectionHeading
-              make={null}
-              year={null}
               formattedPrice={55}
               hostLink={
                 <NamedLink
@@ -141,6 +139,8 @@ exports[`ListingPage matches snapshot 1`] = `
                   user-1 display name
                 </NamedLink>
               }
+              make={null}
+              model={null}
               onContactUser={[Function]}
               priceTitle={55}
               richTitle={
@@ -153,6 +153,7 @@ exports[`ListingPage matches snapshot 1`] = `
                 </span>
               }
               showContactUser={true}
+              year={null}
             />
             <SectionDescriptionMaybe
               description="listing1 description"

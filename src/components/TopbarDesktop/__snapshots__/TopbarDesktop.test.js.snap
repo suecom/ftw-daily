@@ -4,19 +4,38 @@ exports[`TopbarDesktop data matches snapshot 1`] = `
 <nav
   className=""
 >
-  <a
+  <Link
     className="NamedLink_active"
-    href="/"
-    onClick={[Function]}
     style={Object {}}
     title={null}
+    to={
+      Object {
+        "pathname": "/",
+      }
+    }
   >
-    <img
-      alt="TopbarDesktop.logo"
-      className={null}
-      src="saunatime-logo.png"
-    />
-  </a>
+    <LinkAnchor
+      className="NamedLink_active"
+      href="/"
+      navigate={[Function]}
+      style={Object {}}
+      title={null}
+    >
+      <a
+        className="NamedLink_active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+        title={null}
+      >
+        <img
+          alt="TopbarDesktop.logo"
+          className={null}
+          src="oldencars-logo.png"
+        />
+      </a>
+    </LinkAnchor>
+  </Link>
   <form
     action="/"
     className=""
@@ -70,32 +89,70 @@ exports[`TopbarDesktop data matches snapshot 1`] = `
       />
     </div>
   </form>
-  <a
+  <Link
     className=""
-    href="/l/new"
-    onClick={[Function]}
     style={Object {}}
     title={null}
+    to={
+      Object {
+        "pathname": "/l/new",
+      }
+    }
   >
-    <span>
-      <span>
-        TopbarDesktop.createListing
-      </span>
-    </span>
-  </a>
-  <a
+    <LinkAnchor
+      className=""
+      href="/l/new"
+      navigate={[Function]}
+      style={Object {}}
+      title={null}
+    >
+      <a
+        className=""
+        href="/l/new"
+        onClick={[Function]}
+        style={Object {}}
+        title={null}
+      >
+        <span>
+          <span>
+            TopbarDesktop.createListing
+          </span>
+        </span>
+      </a>
+    </LinkAnchor>
+  </Link>
+  <Link
     className=""
-    href="/inbox/sales"
-    onClick={[Function]}
     style={Object {}}
     title={null}
+    to={
+      Object {
+        "pathname": "/inbox/sales",
+      }
+    }
   >
-    <span>
-      <span>
-        TopbarDesktop.inbox
-      </span>
-    </span>
-  </a>
+    <LinkAnchor
+      className=""
+      href="/inbox/sales"
+      navigate={[Function]}
+      style={Object {}}
+      title={null}
+    >
+      <a
+        className=""
+        href="/inbox/sales"
+        onClick={[Function]}
+        style={Object {}}
+        title={null}
+      >
+        <span>
+          <span>
+            TopbarDesktop.inbox
+          </span>
+        </span>
+      </a>
+    </LinkAnchor>
+  </Link>
   <div
     className=""
     onBlur={[Function]}
@@ -125,52 +182,109 @@ exports[`TopbarDesktop data matches snapshot 1`] = `
           className=""
           role="menuitem"
         >
-          <a
+          <Link
             className=""
-            href="/listings"
-            onClick={[Function]}
             style={Object {}}
             title={null}
+            to={
+              Object {
+                "pathname": "/listings",
+              }
+            }
           >
-            <span />
-            <span>
-              TopbarDesktop.yourListingsLink
-            </span>
-          </a>
+            <LinkAnchor
+              className=""
+              href="/listings"
+              navigate={[Function]}
+              style={Object {}}
+              title={null}
+            >
+              <a
+                className=""
+                href="/listings"
+                onClick={[Function]}
+                style={Object {}}
+                title={null}
+              >
+                <span />
+                <span>
+                  TopbarDesktop.yourListingsLink
+                </span>
+              </a>
+            </LinkAnchor>
+          </Link>
         </li>
         <li
           className=""
           role="menuitem"
         >
-          <a
+          <Link
             className=""
-            href="/profile-settings"
-            onClick={[Function]}
             style={Object {}}
             title={null}
+            to={
+              Object {
+                "pathname": "/profile-settings",
+              }
+            }
           >
-            <span />
-            <span>
-              TopbarDesktop.profileSettingsLink
-            </span>
-          </a>
+            <LinkAnchor
+              className=""
+              href="/profile-settings"
+              navigate={[Function]}
+              style={Object {}}
+              title={null}
+            >
+              <a
+                className=""
+                href="/profile-settings"
+                onClick={[Function]}
+                style={Object {}}
+                title={null}
+              >
+                <span />
+                <span>
+                  TopbarDesktop.profileSettingsLink
+                </span>
+              </a>
+            </LinkAnchor>
+          </Link>
         </li>
         <li
           className=""
           role="menuitem"
         >
-          <a
+          <Link
             className=""
-            href="/account"
-            onClick={[Function]}
             style={Object {}}
             title={null}
+            to={
+              Object {
+                "pathname": "/account",
+              }
+            }
           >
-            <span />
-            <span>
-              TopbarDesktop.accountSettingsLink
-            </span>
-          </a>
+            <LinkAnchor
+              className=""
+              href="/account"
+              navigate={[Function]}
+              style={Object {}}
+              title={null}
+            >
+              <a
+                className=""
+                href="/account"
+                onClick={[Function]}
+                style={Object {}}
+                title={null}
+              >
+                <span />
+                <span>
+                  TopbarDesktop.accountSettingsLink
+                </span>
+              </a>
+            </LinkAnchor>
+          </Link>
         </li>
         <li
           className=""

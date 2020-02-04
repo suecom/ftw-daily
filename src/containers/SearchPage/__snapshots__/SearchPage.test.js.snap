@@ -40,19 +40,6 @@ exports[`SearchPageComponent matches snapshot 1`] = `
       }
       primaryFilters={
         Object {
-          "makeFilter": Object {
-            "options": Array [
-              Object {
-                "key": "cat1",
-                "label": "Cat 1",
-              },
-              Object {
-                "key": "cat2",
-                "label": "Cat 2",
-              },
-            ],
-            "paramName": "pub_make",
-          },
           "dateRangeFilter": Object {
             "config": Object {
               "active": true,
@@ -65,10 +52,23 @@ exports[`SearchPageComponent matches snapshot 1`] = `
             },
             "paramName": "keywords",
           },
+          "makeFilter": Object {
+            "options": Array [
+              Object {
+                "key": "audi",
+                "label": "Audi",
+              },
+              Object {
+                "key": "alvis",
+                "label": "Alvis",
+              },
+            ],
+            "paramName": "pub_make",
+          },
           "priceFilter": Object {
             "config": Object {
-              "max": 1000,
-              "min": 0,
+              "max": 500,
+              "min": 50,
               "step": 5,
             },
             "paramName": "price",

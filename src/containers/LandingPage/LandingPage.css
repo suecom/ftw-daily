@@ -12,7 +12,7 @@
 
   --LandingPage_sectionMarginTop: 40px;
   --LandingPage_sectionMarginTopMedium: 60px;
-  --LandingPage_sectionMarginTopLarge: 94px;
+  --LandingPage_sectionMarginTopLarge: 44px;
 }
 
 .root {
@@ -82,17 +82,17 @@
 }
 
 .sectionContent {
-  margin: var(--LandingPage_sectionMarginTop) 24px 51px 24px;
+  margin: var(--LandingPage_sectionMarginTop) 24px 21px 24px;
 
   @media (--viewportMedium) {
     max-width: 100%;
-    margin: var(--LandingPage_sectionMarginTopMedium) 24px 60px 24px;
+    margin: var(--LandingPage_sectionMarginTopMedium) 24px 40px 24px;
   }
 
   @media (--viewportLarge) {
     max-width: 1128px;
     padding: 0 36px 0 36px;
-    margin: var(--LandingPage_sectionMarginTopLarge) auto 93px auto;
+    margin: var(--LandingPage_sectionMarginTopLarge) auto 43px auto;
   }
 
   @media (--viewportXLarge) {
@@ -107,11 +107,11 @@
 }
 
 /* A bar on top of light sections */
-.section:nth-of-type(2n) .sectionContent::before {
+.sectionContent::before {
   background: var(--marketplaceColor);
   content: '';
   display: block;
-  width: 109px;
+  width: 100%;
   height: 6px;
 
   /* Place the bar on top of .sectionContent top margin */
@@ -119,7 +119,7 @@
   top: calc(-1 * var(--LandingPage_sectionMarginTop));
 
   @media (--viewportMedium) {
-    width: 192px;
+    width: 100%;
     height: 8px;
     top: calc(-1 * var(--LandingPage_sectionMarginTopMedium));
   }

@@ -317,7 +317,7 @@ const PrivacyPolicy = props => {
         visits activity.<br/>
         <br/>
         For more information on the privacy practices of Google, please visit the Google Privacy &amp; Terms 
-        web page: http://www.google.com/intl/en/policies/privacy/
+        web page: <a href="http://www.google.com/intl/en/policies/privacy/">http://www.google.com/intl/en/policies/privacy/</a>
       </p>
 
       <h2>Payments</h2>
@@ -332,7 +332,7 @@ const PrivacyPolicy = props => {
         and Discover. PCI-DSS requirements help ensure the secure handling of payment information.<br/>
         <br/>
         The payment processor we work with is Stripe. Stripe's Privacy Policy can be viewed 
-        at: https://stripe.com/us/privacy
+        at: <a href="https://stripe.com/privacy">https://stripe.com/privacy</a>
       </p>
       
       <h2>Links to Other Sites</h2>

@@ -57,6 +57,7 @@ const Footer = props => {
   const { rootClassName, className, intl } = props;
   const socialMediaLinks = renderSocialMediaLinks(intl);
   const classes = classNames(rootClassName || css.root, className);
+  const goToContact = intl.formatMessage({ id: 'Footer.toContactPage' });
 
   return (
     <div className={classes}>
@@ -96,16 +97,6 @@ const Footer = props => {
                     <FormattedMessage id="Footer.toFAQPage" />
                   </NamedLink>
                 </li>
-                <li className={css.listItem}>
-                  <NamedLink name="LandingPage" className={css.link}>
-                    <FormattedMessage id="Footer.toHelpPage" />
-                  </NamedLink>
-                </li>
-                <li className={css.listItem}>
-                  <NamedLink name="AboutPage" to={{ hash: '#contact' }} className={css.link}>
-                    <FormattedMessage id="Footer.toContactPage" />
-                  </NamedLink>
-                </li>
               </ul>
             </div>
             <div className={css.extraLinks}>
@@ -121,6 +112,15 @@ const Footer = props => {
                     <NamedLink name="PrivacyPolicyPage" className={css.legalLink}>
                       <FormattedMessage id="Footer.privacyPolicy" />
                     </NamedLink>
+                  </li>
+                  <li>
+                    <ExternalLink
+                      key="linkToContactUs"
+                      href="mailto:support@oldencars.com"
+                      className={css.legalLink}
+                      title={goToContact}>
+                        <FormattedMessage id="Footer.toContactPage" />
+                    </ExternalLink>
                   </li>
                 </ul>
               </div>

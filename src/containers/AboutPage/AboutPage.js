@@ -41,29 +41,29 @@ const AboutPage = () => {
           <div className={css.contentWrapper}>
             <div className={css.contentSide}>
               <p>
-                OldenCars is the Airbnb of memorable motoring. We connect car enthusiasts, 
-                offering owners a secure way to earn money from their car and a commitment-free 
-                way for drivers to experience classic motoring
+                OldenCars is the Airbnb of fun motoring. We connect car enthusiasts, 
+                offering owners a secure way to earn money from their car, and drivers a commitment-free 
+                way to experience classic motoring
               </p>
             </div>
 
             <div className={css.contentMain}>
               <p>
-                For car owners we provide a secure way to earn money from their car and 
-                meet fellow enthusiasts, keeping their cars on the road, not stuck in the 
-                garage. We provide the platform, marketing, payment gateway and support between 
-                Owners and Drivers, as well as bespoke insurance through our insurance partner.
+                For owners we provide a secure way to earn from your car and 
+                meet fellow enthusiasts. Keeping your car on the road, and not stuck in the 
+                garage is a win-win for everybody. We provide the platform, security, marketing, payment gateway and 
+                support between Owner and Driver, as well as insurance through Lancaster - the leading classic insurer.
               </p>
 
               <p>
-                For people who want to enjoy a different driving experience, we provide easy 
-                and secure access to a wide choice of interesting cars, with the convenience 
+                For drivers who want to enjoy a different experience, we provide easy 
+                and secure access to a wide choice of fun cars, with the convenience 
                 of local locations and like-minded enthusiasts. 
               </p>
               
               <p>
                 Whether you're looking for a fun weekend, a bit of nostalgia, or a chance to 
-                experience something new, OldenCars connects owners with drivers.
+                experience something new, OldenCars connects owners and drivers.
               </p>
 
               <p>

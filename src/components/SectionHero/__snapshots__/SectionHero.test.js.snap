@@ -22,20 +22,21 @@ exports[`SectionHero matches snapshot 1`] = `
       to={
         Object {
           "pathname": "/s",
-          "search": "address=Newbury&bounds=51.416825%2C-1.311836%2C51.396002%2C-1.343088",
+          "search": "address=UK&bounds=58.442019%2C2.002627%2C49.906251%2C-6.296976,
         }
       }
     >
       <LinkAnchor
         className=""
-        href="/s?address=Newbury&bounds=51.416825%2C-1.311836%2C51.396002%2C-1.343088"
+        href="/s?address=UK&bounds=58.442019%2C2.002627%2C49.906251%2C-6.296976"
+        54.2355576,-3.5326976 49.831608 2.485801
         navigate={[Function]}
         style={Object {}}
         title={null}
       >
         <a
           className=""
-          href="/s?address=Newbury&bounds=51.416825%2C-1.311836%2C51.396002%2C-1.343088"
+          href="/s?address=UK&bounds=58.442019%2C2.002627%2C49.906251%2C-6.296976"
           onClick={[Function]}
           style={Object {}}
           title={null}

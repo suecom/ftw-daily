@@ -11,7 +11,7 @@ const PrivacyPolicy = props => {
   // prettier-ignore
   return (
     <div className={classes}>
-      <p className={css.lastUpdated}>Last updated: November 28, 2019</p>
+      <p className={css.lastUpdated}>Last updated: February 28, 2020</p>
 
       <p>
         OldenCars Ltd ("us", "we", or "our") operates the www.oldencars.com website (the "Service").

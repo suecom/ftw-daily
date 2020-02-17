@@ -43,6 +43,10 @@
 }
 
 .contentMain {
+  & p {
+    @apply --marketplaceH4FontStyles;
+  }
+  
   width: 90%;
 
   @media (--viewportMedium) {
@@ -54,4 +58,8 @@
   @apply --marketplaceH3FontStyles;
   margin-top: 48px;
   margin-bottom: 24px;
+}
+
+.root {
+  
 }

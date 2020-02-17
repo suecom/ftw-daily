@@ -43,6 +43,14 @@
 }
 
 .contentMain {
+  & p {
+    @apply --marketplaceH4FontStyles;
+  }
+
+  & h1 {
+    color: var(--marketplaceColor);
+  }
+
   width: 90%;
 
   @media (--viewportMedium) {
@@ -57,7 +65,26 @@
 }
 
 .column {
-  background-color: #016f32;
+  background-color: var(--marketplaceColor);
   width: 50%; 
   text-align: center;
+}
+
+.list {
+   @apply --marketplaceH4FontStyles;
+
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.ulist {
+  @apply --marketplaceH4FontStyles;
+
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }

@@ -43,7 +43,7 @@ const FAQPage = () => {
             </div>
 
             <div className={css.contentMain}>
-              <h1><font color="#016f32">How it works</font></h1>
+              <h1>How it works</h1>
               <div>
                 <table cellSpacing="0">
                   <tbody>
@@ -164,9 +164,9 @@ const FAQPage = () => {
                 </table>
               </div>
               
-              <h1><font color="#016f32">FAQ - Owners</font></h1>
-              <Accordion atomic={true}>
-                <AccordionItem title="How Do I Know My Car Is Safe?">
+              <h1>FAQ - Owners</h1>
+              <Accordion atomic={false}>
+                <AccordionItem className={css.subtitle} title="How Do I Know My Car Is Safe?">
                   <p>
                     We first ensure the Driver is who they say they are and lives 
                     at the address on their driving licence. We operate a peer review system so both 
@@ -196,14 +196,15 @@ const FAQPage = () => {
                   <p>
                     OldenCars focuses on fully roadworthy ‘everyday’ practical classics, the 
                     type that can and should be driven like modern cars, not the super-expensive, 
-                    high-end rarities. Specific criteria: 
-                    <ul>
-                      <li>Built after 1950</li>
-                      <li>Replacement value not to exceed £75,000</li>
-                      <li>Expiry date of vehicle tax and MOT (if applicable) must be more than 30 days away</li>
-                      <li>Car currently comprehensively insured in the UK (we will not use this insurance for hire)</li>
-                    </ul>
-                    <br/>
+                    high-end rarities. Specific criteria:
+                  </p>
+                  <ul className={css.ulist}>
+                    <li className={css.list}>Built after 1950</li>
+                    <li className={css.list}>Replacement value not to exceed £75,000</li>
+                    <li className={css.list}>Expiry date of vehicle tax and MOT (if applicable) must be more than 30 days away</li>
+                    <li className={css.list}>Car currently comprehensively insured in the UK (we will not use this insurance for hire)</li>
+                  </ul>
+                  <p>
                     You are responsible for making sure that your car is roadworthy, clean and 
                     that any personal items and valuables have been removed before each rental.
                   </p>
@@ -213,7 +214,7 @@ const FAQPage = () => {
                     It is straightforward to sign up as a car Owner. Simply go to www.oldencars.com 
                     and register your details. As soon as you've confirmed your registration you can 
                     start creating listings for your car(s). 
-                    <br/>
+                    <br/><br/>
                     When you receive your first rental request, you'll need to enter your banking 
                     details to receive funds from us. Our payment provider will deal with (and store) 
                     the details, but it's very simple.
@@ -227,7 +228,7 @@ const FAQPage = () => {
                 <AccordionItem title="How Long Can I Remain a Member of OldenCars?">
                   <p>
                     Once registered, you can remain a member of OldenCars for as long as you wish.
-                    <br/>
+                    <br/><br/>
                     We reserve the right to suspend or cancel membership in case of misconduct or 
                     inappropriate behaviour. We’ll also have to end your membership if you cease to 
                     meet our eligibility criteria. You are free to delete your account at any time.
@@ -256,7 +257,7 @@ const FAQPage = () => {
                     OldenCars Drivers are not strangers. All Drivers’ identities are verified 
                     and we only accept Drivers who meet the driving record and claim history 
                     stipulated by our insurers.
-                    <br/>
+                    <br/><br/>
                     Despite these checks we believe it is critical for you to retain full 
                     control over who drives your car. You have the option to accept or reject 
                     individual booking requests as you wish.
@@ -303,14 +304,14 @@ const FAQPage = () => {
                     staff, online booking systems, administrative support and marketing costs. In 
                     cases where the value of the rental is low, we have a minimum fee per day, to 
                     recoup our administration costs.
-                    <br/>
+                    <br/><br/>
                     Here is a sample transaction for a car owner asking £100 per day for their car:
-                    <br/>
+                    <br/><br/>
                     Upon the Owner accepting the booking request, the Driver pays OldenCars 
                     £100 + insurance cost + service fee + deposit (this is in place to protect 
                     owners from any potential disputes over fuel, cleanliness, delay or minor 
                     damage and depends on the value of the car).
-                    <br/>
+                    <br/><br/>
                     At the end of the booking, OldenCars refunds the Driver the deposit (assuming 
                     there are no charges to be made) and pays the owner £80 (£100 less the 20% commission).
                   </p>
@@ -319,7 +320,7 @@ const FAQPage = () => {
                   <p>
                     We promote OldenCars widely within the classic car community and wider 
                     automotive market so you’ll benefit directly from our marketing.
-                    <br/>
+                    <br/><br/>
                     What you write about your car can make a big difference to its popularity. 
                     We recommend you make sure your car profile information is up-to-date and 
                     completed in full. Use your profile description to highlight the condition 
@@ -328,7 +329,7 @@ const FAQPage = () => {
                     well you’ve maintained it. Be honest and make sure the information you provide 
                     is accurate. You may want to mention any minor bodywork scratches to make the 
                     walk-around inspection easier and quicker.
-                    <br/>
+                    <br/><br/>
                     Take a range of good photos to show your car in its true light – both , 
                     external shots - front, side, rear - and interior - to show size of boot, 
                     back seat space and the cockpit.
@@ -358,18 +359,17 @@ const FAQPage = () => {
                 </AccordionItem>
               </Accordion>
 
-              <h1><font color="#016f32">FAQ - Drivers</font></h1>
-
-              <Accordion atomic={true}>
+              <h1>FAQ - Drivers</h1>
+              <Accordion atomic={false}>
                 <AccordionItem title="Am I Eligible to Join OldenCars?">
                   <p>
                     To rent a car through OldenCars you must fulfil the following criteria:
-                    <ul>
-                      <li>Be at least 25 years old.</li>
-                      <li>Be a UK resident and have held a full valid driving licence for a minimum of 12 months.</li>
-                      <li>Have no more than 6 points on your licence, with no more than two fault claims in the last 3 years and no non-motoring criminal convictions.</li>
-                    </ul>
                   </p>
+                  <ul className={css.ulist}>
+                    <li className={css.list}>Be at least 25 years old.</li>
+                    <li className={css.list}>Be a UK resident and have held a full valid driving licence for a minimum of 12 months.</li>
+                    <li className={css.list}>Have no more than 6 points on your licence, with no more than two fault claims in the last 3 years and no non-motoring criminal convictions.</li>
+                  </ul>
                 </AccordionItem>
                 <AccordionItem title="How do I Join OldenCars?">
                   <p>
@@ -397,7 +397,7 @@ const FAQPage = () => {
                     You search for cars by location on the OldenCars website and make a booking 
                     request for your desired vehicle. The Owner will need to accept your booking 
                     before it can be confirmed. 
-                    <br/>
+                    <br/><br/>
                     If the Owner doesn’t respond within a reasonable time you are free to search 
                     and book for an alternative car. You will not be charged unless the Owner 
                     accepts your booking request. If the Owner accepts your request you will be 
@@ -442,7 +442,7 @@ const FAQPage = () => {
                     condition and any existing damage including scuffs, marks and scratches. The 
                     Owner is obliged to provide a Condition Report – you should review this and point 
                     out any omissions.
-                    <br/>
+                    <br/><br/>
                     The car Owner is responsible for making sure that your car is roadworthy, 
                     full of fuel, clean and that any personal items and valuables have been 
                     removed before each rental. Do not accept a car that is dangerous or very 
@@ -453,7 +453,7 @@ const FAQPage = () => {
                   <p>
                     If you are involved in an accident, we ask that you telephone our 
                     insurance company as soon as possible.
-                    <br/>
+                    <br/><br/>
                     If you break down, please notify the Owner and call the insurance company, 
                     quoting the car registration number. Please note that if any new parts or 
                     costs are required you should contact the owner for approval first.
@@ -462,13 +462,13 @@ const FAQPage = () => {
                 <AccordionItem title="What is the payment flow?">
                   <p>
                     OldenCars handles all booking payments through our secure online booking facility.
-                    <br/>
+                    <br/><br/>
                     Here is a sample transaction for a car that costs £100 per day to rent:
-                    <br/>
+                    <br/><br/>
                     Upon the Owner accepting your booking request, you pay OldenCars £100 + insurance 
                     cost + service fee + deposit (to cover any potential disputes over fuel, 
                     cleanliness, delay or minor damage and depends on the value of the car).
-                    <br/>
+                    <br/><br/>
                     At the end of the rental, OldenCars refunds you the deposit (assuming 
                     there are no charges to be made) and pays the Owner their fee.
                   </p>

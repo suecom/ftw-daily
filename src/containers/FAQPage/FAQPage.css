@@ -43,20 +43,23 @@
 }
 
 .contentMain {
-  & p {
-    @apply --marketplaceH4FontStyles;
-  }
-
-  & h1 {
-    color: var(--marketplaceColor);
-  }
-
   width: 90%;
 
   @media (--viewportMedium) {
     max-width: 650px;
+  };
+
+  & p {
+    @apply --marketplaceH4FontStyles;
+    margin-left: 25px;
+    margin-right: 25px;
   }
+
+  & h1 {
+    color: var(--marketplaceColor);
+  }  
 }
+
 
 .subtitle {
   @apply --marketplaceH3FontStyles;

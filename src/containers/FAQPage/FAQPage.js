@@ -166,7 +166,7 @@ const FAQPage = () => {
               
               <h1>FAQ - Owners</h1>
               <Accordion atomic={false}>
-                <AccordionItem className={css.subtitle} title="How Do I Know My Car Is Safe?">
+                <AccordionItem title="How Do I Know My Car Is Safe?">
                   <p>
                     We first ensure the Driver is who they say they are and lives 
                     at the address on their driving licence. We operate a peer review system so both 

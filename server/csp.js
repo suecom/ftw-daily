@@ -95,9 +95,28 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // const { imgSrc = [self] } = defaultDirectives;
   // const exampleImgSrc = imgSrc.concat('my-custom-domain.example.com');
 
+  const { scriptSrc = [self], imgSrc = [self], frameSrc = [self] } = defaultDirectives;
+
   const customDirectives = {
     // Example: Add custom directive override
     // imgSrc: exampleImgSrc,
+    
+    frameSrc:
+      frameSrc.concat([
+        'www.youtube.com',
+        'js.stripe.com'
+      ]),
+    imgSrc:
+      imgSrc.concat([
+        'www.youtube.com',
+        '*.ytimg.com'
+      ]),
+    scriptSrc:
+      scriptSrc.concat([
+        'www.youtube.com',
+        '*.ytimg.com',
+        'api.mapbox.com'
+      ])
   };
 
   // ================ END CUSTOM CSP URLs ================ //

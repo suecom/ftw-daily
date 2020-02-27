@@ -11,10 +11,10 @@ const TermsOfService = props => {
   // prettier-ignore
   return (
     <div className={classes}>
-      <p className={css.lastUpdated}>Last updated: November 28, 2019</p>
+      <p className={css.lastUpdated}>Last updated: March 1st, 2020</p>
 
       <p>
-        OldenCars is a social media service that allows its users to exchange favours and items 
+        OldenCars is a marketplace that allows its users to share cars 
         and communicate with each other. The OldenCars-service may only be used in accordance 
         with these terms of use. The service provider reserves the right to change these terms 
         of use if required. Valid terms of use can be found from OldenCars’s website.

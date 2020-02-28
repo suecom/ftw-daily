@@ -952,7 +952,7 @@
   "TopbarMobileMenu.signupOrLogin": "{signup} or {login}",
   "TopbarMobileMenu.unauthorizedGreeting": "Hello there,{lineBreak}would you like to {signupOrLogin}?",
   "TopbarMobileMenu.yourListingsLink": "Your listings",
-  "TopbarSearchForm.placeholder": "Search cars…",
+  "TopbarSearchForm.placeholder": "Search location…",
   "TopbarSearchForm.searchHelp": "Tip: You can also search cars by post code, for example \"BM1\" or city district \"Leeds\".",
   "TransactionPage.deletedListing": "deleted listing",
   "TransactionPage.fetchOrderFailed": "Fetching order data failed.",

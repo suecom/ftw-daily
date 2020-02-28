@@ -109,7 +109,9 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
     imgSrc:
       imgSrc.concat([
         'www.youtube.com',
-        '*.ytimg.com'
+        '*.ytimg.com',
+        '*.google.co.uk',
+        '*.google.com'
       ]),
     scriptSrc:
       scriptSrc.concat([

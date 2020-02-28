@@ -14,6 +14,7 @@ const SectionHeading = props => {
     make,
     model,
     year,
+    insurance,
     hostLink,
     showContactUser,
     onContactUser,
@@ -54,6 +55,9 @@ const SectionHeading = props => {
               </InlineTextButton>
             </span>
           ) : null}
+        </div>
+        <div className={css.author}>
+          {insurance}
         </div>
       </div>
     </div>

@@ -356,6 +356,7 @@
   "ListingPage.schemaTitle": "{title} - {price} | {siteTitle}",
   "ListingPage.viewImagesButton": "View photos ({count})",
   "ListingPage.yourHostHeading": "Owner",
+  "ListingPage.indicativeInsurance": "Insurance range: ",
   "LocationAutocompleteInput.currentLocation": "Current location",
   "LocationSearchForm.placeholder": "Search cars...",
   "LoginForm.emailInvalid": "A valid email address is required",

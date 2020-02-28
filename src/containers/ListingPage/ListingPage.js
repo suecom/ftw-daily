@@ -238,6 +238,7 @@ export class ListingPageComponent extends Component {
       price = null,
       title = '',
       publicData,
+      metadata
     } = currentListing.attributes;
 
     const richTitle = (
@@ -398,6 +399,14 @@ export class ListingPageComponent extends Component {
       </span>
     ) : null;
 
+    const insurance =
+    metadata && metadata.indicativeInsurance ? (
+      <span>
+        <FormattedMessage id="ListingPage.indicativeInsurance"/>
+        {metadata.indicativeInsurance}
+      </span>
+    ) : null;
+
     return (
       <Page
         title={schemaTitle}
@@ -444,6 +453,7 @@ export class ListingPageComponent extends Component {
                     year={year}
                     make={make}
                     model={model}
+                    insurance={insurance}
                     hostLink={hostLink}
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}

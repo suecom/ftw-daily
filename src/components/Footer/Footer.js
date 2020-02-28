@@ -114,7 +114,7 @@ const Footer = props => {
                   <li>
                     <ExternalLink
                       key="linkToContactUs"
-                      href="mailto:support@oldencars.com"
+                      href="mailto:admin@oldencars.com"
                       className={css.legalLink}
                       title={goToContact}>
                         <FormattedMessage id="Footer.toContactPage" />

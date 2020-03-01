@@ -111,6 +111,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
         'www.youtube.com',
         '*.ytimg.com',
         '*.google.co.uk',
+        '*.google.fr',
         '*.google.com'
       ]),
     scriptSrc:

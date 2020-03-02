@@ -36,7 +36,7 @@ const FAQPage = () => {
           <div className={css.contentWrapper}>
             <div className={css.contentSide}>
               <p>
-                We want to make sharing classics as easy and enjoable as possible. These are some of
+                We want to make sharing classics as easy and enjoyable as possible. These are some of
                 the most common questions we get asked. If there's anything else you'd like to know
                 don't hesitate to contact us - we want to ensure there are no surprises!
               </p>
@@ -177,7 +177,7 @@ const FAQPage = () => {
                     Owners they've dealt with.
                   </p>
                 </AccordionItem>
-                <AccordionItem title="How do I know who I'm lending too?">
+                <AccordionItem title="How do I know who I'm lending to?">
                   <p>
                     We operate a peer review system so both Owners and Drivers can review each 
                     other for the benefit of all. If you don't feel happy with the Driver's previous 
@@ -288,14 +288,6 @@ const FAQPage = () => {
                     during a booking let us know.
                   </p>
                 </AccordionItem>
-                <AccordionItem title="What Happens if My Car Is Returned in a Dirty Condition?">
-                  <p>
-                    We insist all members treat the cars as if they were their own. 
-                    If a Driver fails to do so, we need to know. We protect Owners by imposing 
-                    fines on messy and inconsiderate renters. This money can be used to get your 
-                    car professionally cleaned.
-                  </p>
-                </AccordionItem>
                 <AccordionItem title="What Is the Payment Flow?">
                   <p>
                     OldenCars handles all booking payments through our secure online booking 
@@ -349,14 +341,6 @@ const FAQPage = () => {
                     car professionally cleaned.
                   </p>
                 </AccordionItem>
-                <AccordionItem title="What Happens if My Car Is Returned in a Dirty Condition?">
-                  <p>
-                    We encourage all members to treat the cars as if they were their own. 
-                    If a Driver fails to do so, we need to know. We protect Owners by imposing 
-                    fines on messy and inconsiderate renters. This money can be used to get your 
-                    car professionally cleaned.
-                  </p>
-                </AccordionItem>
               </Accordion>
 
               <h1>FAQ - Drivers</h1>
@@ -366,7 +350,7 @@ const FAQPage = () => {
                     To rent a car through OldenCars you must fulfil the following criteria:
                   </p>
                   <ul className={css.ulist}>
-                    <li className={css.list}>Be at least 25 years old.</li>
+                    <li className={css.list}>Be at least 30 years old.</li>
                     <li className={css.list}>Be a UK resident and have held a full valid driving licence for a minimum of 12 months.</li>
                     <li className={css.list}>Have no more than 6 points on your licence, with no more than two fault claims in the last 3 years and no non-motoring criminal convictions.</li>
                   </ul>
@@ -388,8 +372,8 @@ const FAQPage = () => {
                   <p>
                     No. Every rental is covered by comprehensive insurance arranged by OldenCars' 
                     insurance partner. Drivers are covered by fully comprehensive insurance. 
-                    The daily cost of this insurance will be around £30 - £40 per day, 
-                    depending on the value of the car.
+                    The daily cost of this insurance will be around £30 - £60 per day, 
+                    depending on the value of the car and your age.
                   </p>
                 </AccordionItem>
                 <AccordionItem title="How Do I Book a Car?">

@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl, intlShape } from '../../util/reactIntl';
 import { Form as FinalForm } from 'react-final-form';
 import classNames from 'classnames';
 import * as validators from '../../util/validators';
-import { Form, PrimaryButton, FieldTextInput } from '../../components';
+import { Form, PrimaryButton, FieldTextInput, FieldSelect } from '../../components';
 
 import css from './SignupForm.css';
 
@@ -107,6 +107,15 @@ const SignupFormComponent = props => (
       });
       const lastNameRequired = validators.required(lastNameRequiredMessage);
 
+      // channel
+      const channelLabel = intl.formatMessage({
+        id: 'SignupForm.channel',
+      });
+      const channelRequiredMessage = intl.formatMessage({
+        id: 'SignupForm.channelRequired',
+      });
+      const channelValidators = validators.required(channelRequiredMessage);
+
       const classes = classNames(rootClassName || css.root, className);
       const submitInProgress = inProgress;
       const submitDisabled = invalid || submitInProgress;
@@ -173,6 +182,16 @@ const SignupFormComponent = props => (
               placeholder={passwordPlaceholder}
               validate={passwordValidators}
             />
+            <FieldSelect className={css.channel} id={formId ? `${formId}.channel` : 'channel'} name="channel" label={channelLabel} validate={channelValidators}>
+              <option value="">Please help...</option>
+              <option value='Referral'>Word of mouth</option>
+              <option value="Google">Google</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Magazine">Magazine</option>
+              <option value="Email">Email</option>
+              <option value="Club">Car Club</option>
+              <option value="Other">Other?</option>
+            </FieldSelect>
           </div>
 
           <div className={css.bottomWrapper}>

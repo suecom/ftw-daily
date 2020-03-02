@@ -112,6 +112,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
         '*.ytimg.com',
         '*.google.co.uk',
         '*.google.fr',
+        '*.google.fi',
         '*.google.com'
       ]),
     scriptSrc:

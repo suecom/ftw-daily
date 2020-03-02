@@ -32,6 +32,10 @@
   @apply --marketplaceModalPasswordMargins;
 }
 
+.channel {
+  @apply --marketplaceModalPasswordMargins;
+}
+
 .bottomWrapper {
   @apply --marketplaceModalBottomWrapper;
 }

@@ -26,7 +26,7 @@ import css from './ContactDetailsPage.css';
 export const ContactDetailsPageComponent = props => {
   const {
     saveEmailError,
-    savePhoneNumberError,
+    saveContactError,
     saveContactDetailsInProgress,
     currentUser,
     contactDetailsChanged,
@@ -43,15 +43,21 @@ export const ContactDetailsPageComponent = props => {
   const currentEmail = user.attributes.email || '';
   const protectedData = user.attributes.profile.protectedData || {};
   const currentPhoneNumber = protectedData.phoneNumber || '';
+  const currentAddressLine1 = protectedData.addressLine1 || '';
+  const currentAddressLine2 = protectedData.addressLine2 || '';
+  const currentPostalCode = protectedData.postalCode || '';
+  const currentCity = protectedData.city || '';
+  const currentState = protectedData.state || '';
+  const currentCountry = protectedData.country || '';
   const contactInfoForm = user.id ? (
     <ContactDetailsForm
       className={css.form}
-      initialValues={{ email: currentEmail, phoneNumber: currentPhoneNumber }}
+      initialValues={{ email: currentEmail, phoneNumber: currentPhoneNumber, addressLine1: currentAddressLine1, addressLine2: currentAddressLine2, postalCode: currentPostalCode, city: currentCity, state: currentState, country:  currentCountry}}
       saveEmailError={saveEmailError}
-      savePhoneNumberError={savePhoneNumberError}
+      saveContactError={saveContactError}
       currentUser={currentUser}
       onResendVerificationEmail={onResendVerificationEmail}
-      onSubmit={values => onSubmitContactDetails({ ...values, currentEmail, currentPhoneNumber })}
+      onSubmit={values => onSubmitContactDetails({ ...values, currentEmail, currentPhoneNumber, currentAddressLine1, currentAddressLine2, currentPostalCode, currentCity, currentState, currentCountry})}
       onChange={onChange}
       inProgress={saveContactDetailsInProgress}
       ready={contactDetailsChanged}
@@ -92,7 +98,7 @@ export const ContactDetailsPageComponent = props => {
 
 ContactDetailsPageComponent.defaultProps = {
   saveEmailError: null,
-  savePhoneNumberError: null,
+  saveContactError: null,
   currentUser: null,
   sendVerificationEmailError: null,
 };
@@ -101,7 +107,7 @@ const { bool, func } = PropTypes;
 
 ContactDetailsPageComponent.propTypes = {
   saveEmailError: propTypes.error,
-  savePhoneNumberError: propTypes.error,
+  saveContactError: propTypes.error,
   saveContactDetailsInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   contactDetailsChanged: bool.isRequired,
@@ -121,13 +127,13 @@ const mapStateToProps = state => {
   const { currentUser, sendVerificationEmailInProgress, sendVerificationEmailError } = state.user;
   const {
     saveEmailError,
-    savePhoneNumberError,
+    saveContactError,
     saveContactDetailsInProgress,
     contactDetailsChanged,
   } = state.ContactDetailsPage;
   return {
     saveEmailError,
-    savePhoneNumberError,
+    saveContactError,
     saveContactDetailsInProgress,
     currentUser,
     contactDetailsChanged,

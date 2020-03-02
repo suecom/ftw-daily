@@ -8,7 +8,7 @@ import { currentUserShowSuccess } from '../../ducks/user.duck';
 export const SAVE_CONTACT_DETAILS_REQUEST = 'app/ContactDetailsPage/SAVE_CONTACT_DETAILS_REQUEST';
 export const SAVE_CONTACT_DETAILS_SUCCESS = 'app/ContactDetailsPage/SAVE_CONTACT_DETAILS_SUCCESS';
 export const SAVE_EMAIL_ERROR = 'app/ContactDetailsPage/SAVE_EMAIL_ERROR';
-export const SAVE_PHONE_NUMBER_ERROR = 'app/ContactDetailsPage/SAVE_PHONE_NUMBER_ERROR';
+export const SAVE_CONTACT_ERROR = 'app/ContactDetailsPage/SAVE_CONTACT_ERROR';
 
 export const SAVE_CONTACT_DETAILS_CLEAR = 'app/ContactDetailsPage/SAVE_CONTACT_DETAILS_CLEAR';
 
@@ -36,15 +36,15 @@ export default function reducer(state = initialState, action = {}) {
       return { ...state, saveContactDetailsInProgress: false, contactDetailsChanged: true };
     case SAVE_EMAIL_ERROR:
       return { ...state, saveContactDetailsInProgress: false, saveEmailError: payload };
-    case SAVE_PHONE_NUMBER_ERROR:
-      return { ...state, saveContactDetailsInProgress: false, savePhoneNumberError: payload };
+    case SAVE_CONTACT_ERROR:
+      return { ...state, saveContactDetailsInProgress: false, saveContactError: payload };
 
     case SAVE_CONTACT_DETAILS_CLEAR:
       return {
         ...state,
         saveContactDetailsInProgress: false,
         saveEmailError: null,
-        savePhoneNumberError: null,
+        saveContactError: null,
         contactDetailsChanged: false,
       };
 
@@ -62,8 +62,8 @@ export const saveEmailError = error => ({
   payload: error,
   error: true,
 });
-export const savePhoneNumberError = error => ({
-  type: SAVE_PHONE_NUMBER_ERROR,
+export const saveContactError = error => ({
+  type: SAVE_CONTACT_ERROR,
   payload: error,
   error: true,
 });
@@ -75,12 +75,18 @@ export const saveContactDetailsClear = () => ({ type: SAVE_CONTACT_DETAILS_CLEAR
 /**
  * Make a phone number update request to the API and return the current user.
  */
-const requestSavePhoneNumber = params => (dispatch, getState, sdk) => {
+const requestSaveContact = params => (dispatch, getState, sdk) => {
   const phoneNumber = params.phoneNumber;
+  const addressLine1 = params.addressLine1;
+  const addressLine2 = params.addressLine2;
+  const postalCode = params.postalCode;
+  const city = params.city;
+  const state = params.state;
+  const country = params.country;
 
   return sdk.currentUser
     .updateProfile(
-      { protectedData: { phoneNumber } },
+      { protectedData: { phoneNumber, addressLine1, addressLine2, postalCode, city, state, country } },
       {
         expand: true,
         include: ['profileImage'],
@@ -97,7 +103,7 @@ const requestSavePhoneNumber = params => (dispatch, getState, sdk) => {
       return currentUser;
     })
     .catch(e => {
-      dispatch(savePhoneNumberError(storableError(e)));
+      dispatch(saveContactError(storableError(e)));
       // pass the same error so that the SAVE_CONTACT_DETAILS_SUCCESS
       // action will not be fired
       throw e;
@@ -152,16 +158,16 @@ const saveEmail = params => (dispatch, getState, sdk) => {
 };
 
 /**
- * Save phone number and update the current user.
+ * Save contact details and update the current user.
  */
-const savePhoneNumber = params => (dispatch, getState, sdk) => {
+const saveContact = params => (dispatch, getState, sdk) => {
   return (
-    dispatch(requestSavePhoneNumber(params))
+    dispatch(requestSaveContact(params))
       .then(user => {
         dispatch(currentUserShowSuccess(user));
         dispatch(saveContactDetailsSuccess());
       })
-      // error action dispatched in requestSavePhoneNumber
+      // error action dispatched in requestSaveContact
       .catch(e => null)
   );
 };
@@ -169,13 +175,13 @@ const savePhoneNumber = params => (dispatch, getState, sdk) => {
 /**
  * Save email and phone number and update the current user.
  */
-const saveEmailAndPhoneNumber = params => (dispatch, getState, sdk) => {
-  const { email, phoneNumber, currentPassword } = params;
+const saveEmailAndContact = params => (dispatch, getState, sdk) => {
+  const { email, phoneNumber, currentPassword, addressLine1, addressLine2, postalCode, city, state, country } = params;
 
   // order of promises: 1. email, 2. phone number
   const promises = [
     dispatch(requestSaveEmail({ email, currentPassword })),
-    dispatch(requestSavePhoneNumber({ phoneNumber })),
+    dispatch(requestSaveContact({ phoneNumber, addressLine1, addressLine2, postalCode, city, state, country })),
   ];
 
   return Promise.all(promises)
@@ -205,15 +211,21 @@ const saveEmailAndPhoneNumber = params => (dispatch, getState, sdk) => {
 export const saveContactDetails = params => (dispatch, getState, sdk) => {
   dispatch(saveContactDetailsRequest());
 
-  const { email, currentEmail, phoneNumber, currentPhoneNumber, currentPassword } = params;
+  const { email, currentEmail, phoneNumber, currentPhoneNumber, addressLine1, currentAddressLine1, addressLine2, currentAddressLine2, postalCode, currentPostalCode, city, currentCity, state, currentState, country, currentCountry, currentPassword } = params;
   const emailChanged = email !== currentEmail;
-  const phoneNumberChanged = phoneNumber !== currentPhoneNumber;
+  const contactChanged = phoneNumber !== currentPhoneNumber ||
+    addressLine1 !== currentAddressLine1 ||
+    addressLine2 !== currentAddressLine2 ||
+    postalCode !== currentPostalCode ||
+    city !== currentCity ||
+    state !== currentState ||
+    country !== currentCountry;
 
-  if (emailChanged && phoneNumberChanged) {
-    return dispatch(saveEmailAndPhoneNumber({ email, currentPassword, phoneNumber }));
+  if (emailChanged && contactChanged) {
+    return dispatch(saveEmailAndContact({ email, currentPassword, phoneNumber, addressLine1, addressLine2, postalCode, city, state, country }));
   } else if (emailChanged) {
     return dispatch(saveEmail({ email, currentPassword }));
-  } else if (phoneNumberChanged) {
-    return dispatch(savePhoneNumber({ phoneNumber }));
+  } else if (contactChanged) {
+    return dispatch(saveContact({ phoneNumber, addressLine1, addressLine2, postalCode, city, state, country }));
   }
 };

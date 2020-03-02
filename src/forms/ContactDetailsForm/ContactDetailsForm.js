@@ -8,12 +8,14 @@ import classNames from 'classnames';
 import { propTypes } from '../../util/types';
 import * as validators from '../../util/validators';
 import { ensureCurrentUser } from '../../util/data';
+import config from '../../config';
+import getCountryCodes from '../../translations/countryCodes';
 import {
   isChangeEmailTakenError,
   isChangeEmailWrongPassword,
   isTooManyEmailVerificationRequestsError,
 } from '../../util/errors';
-import { FieldPhoneNumberInput, Form, PrimaryButton, FieldTextInput } from '../../components';
+import { FieldPhoneNumberInput, Form, PrimaryButton, FieldTextInput, FieldSelect } from '../../components';
 
 import css from './ContactDetailsForm.css';
 
@@ -63,7 +65,7 @@ class ContactDetailsFormComponent extends Component {
             sendVerificationEmailInProgress,
             values,
           } = fieldRenderProps;
-          const { email, phoneNumber } = values;
+          const { email, phoneNumber, addressLine1, addressLine2, postalCode, city, state, country } = values;
 
           const user = ensureCurrentUser(currentUser);
 
@@ -188,6 +190,89 @@ class ContactDetailsFormComponent extends Component {
           });
           const phoneLabel = intl.formatMessage({ id: 'ContactDetailsForm.phoneLabel' });
 
+          // has addressLine1 changed
+          const currentAddressLine1 = protectedData.addressLine1;
+          const addressLine1Changed = currentAddressLine1 !== addressLine1;
+
+          const optionalText = intl.formatMessage({
+            id: 'ContactDetailsForm.optionalText',
+          });
+
+          const addressLine1Label = intl.formatMessage({
+            id: 'ContactDetailsForm.addressLine1Label',
+          });
+          const addressLine1Placeholder = intl.formatMessage({
+            id: 'ContactDetailsForm.addressLine1Placeholder',
+          });
+          const addressLine1Required = validators.required(
+            intl.formatMessage({
+              id: 'ContactDetailsForm.addressLine1Required',
+            })
+          );
+        
+          // has addressLine2 changed
+          const currentAddressLine2 = protectedData.addressLine2;
+          const addressLine2Changed = currentAddressLine2 !== addressLine2;
+
+          const addressLine2Label = intl.formatMessage(
+            { id: 'ContactDetailsForm.addressLine2Label' },
+            { optionalText: optionalText }
+          );
+          const addressLine2Placeholder = intl.formatMessage({
+            id: 'ContactDetailsForm.addressLine2Placeholder',
+          });
+
+          // has postalCode changed
+          const currentPostalCode = protectedData.postalCode;
+          const postalCodeChanged = currentPostalCode !== postalCode;
+
+          const postalCodeLabel = intl.formatMessage({ id: 'ContactDetailsForm.postalCodeLabel' });
+          const postalCodePlaceholder = intl.formatMessage({
+            id: 'ContactDetailsForm.postalCodePlaceholder',
+          });
+          const postalCodeRequired = validators.required(
+            intl.formatMessage({
+              id: 'ContactDetailsForm.postalCodeRequired',
+            })
+          );
+
+          // has city changed
+          const currentCity = protectedData.city;
+          const cityChanged = currentCity !== city;
+
+          const cityLabel = intl.formatMessage({ id: 'ContactDetailsForm.cityLabel' });
+          const cityPlaceholder = intl.formatMessage({ id: 'ContactDetailsForm.cityPlaceholder' });
+          const cityRequired = validators.required(
+            intl.formatMessage({
+              id: 'ContactDetailsForm.cityRequired',
+            })
+          );
+
+          // has state changed
+          const currentState = protectedData.state;
+          const stateChanged = currentState !== state;
+
+          const stateLabel = intl.formatMessage(
+            { id: 'StripePaymentAddress.stateLabel' },
+            { optionalText: optionalText }
+          );
+          const statePlaceholder = intl.formatMessage({ id: 'StripePaymentAddress.statePlaceholder' });
+        
+          // Use tha language set in config.locale to get the correct translations of the country names
+          const countryCodes = getCountryCodes(config.locale);
+
+          // has country changed
+          const currentCountry = protectedData.country;
+          const countryChanged = currentCountry !== country;
+
+          const countryLabel = intl.formatMessage({ id: 'StripePaymentAddress.countryLabel' });
+          const countryPlaceholder = intl.formatMessage({ id: 'StripePaymentAddress.countryPlaceholder' });
+          const countryRequired = validators.required(
+            intl.formatMessage({
+              id: 'StripePaymentAddress.countryRequired',
+            })
+          );
+
           // password
           const passwordLabel = intl.formatMessage({
             id: 'ContactDetailsForm.passwordLabel',
@@ -263,7 +348,8 @@ class ContactDetailsFormComponent extends Component {
             invalid ||
             pristineSinceLastSubmit ||
             inProgress ||
-            !(emailChanged || phoneNumberChanged);
+            !(emailChanged || phoneNumberChanged || addressLine1Changed || addressLine2Changed
+                || postalCodeChanged || cityChanged || stateChanged || countryChanged );
 
           return (
             <Form
@@ -291,6 +377,80 @@ class ContactDetailsFormComponent extends Component {
                   label={phoneLabel}
                   placeholder={phonePlaceholder}
                 />
+                <div className={css.formRow}>
+                  <FieldTextInput
+                    id={formId ? `${formId}.addressLine1` : 'addressLine1'}
+                    name="addressLine1"
+                    className={css.field}
+                    type="text"
+                    autoComplete="billing address-line1"
+                    label={addressLine1Label}
+                    placeholder={addressLine1Placeholder}
+                    validate={addressLine1Required}
+                  />
+                  <FieldTextInput
+                    id={formId ? `${formId}.addressLine2` : 'addressLine2'}
+                    name="addressLine2"
+                    className={css.field}
+                    type="text"
+                    autoComplete="billing address-line2"
+                    label={addressLine2Label}
+                    placeholder={addressLine2Placeholder}
+                  />
+                </div>
+                <div className={css.formRow}>
+                  <FieldTextInput
+                    id={formId ? `${formId}.postalCode` : 'postalCode'}
+                    name="postalCode"
+                    className={css.field}
+                    type="text"
+                    autoComplete="billing postal-code"
+                    label={postalCodeLabel}
+                    placeholder={postalCodePlaceholder}
+                    validate={postalCodeRequired}
+                  />
+
+                  <FieldTextInput
+                    id={formId ? `${formId}.city` : 'city'}
+                    name="city"
+                    className={css.field}
+                    type="text"
+                    autoComplete="billing address-level2"
+                    label={cityLabel}
+                    placeholder={cityPlaceholder}
+                    validate={cityRequired}
+                  />
+                </div>
+                <div className={css.formRow}>
+                  <FieldTextInput
+                    id={formId ? `${formId}.state` : 'state'}
+                    name="state"
+                    className={css.field}
+                    type="text"
+                    autoComplete="billing address-level1"
+                    label={stateLabel}
+                    placeholder={statePlaceholder}
+                  />
+
+                  <FieldSelect
+                    id={formId ? `${formId}.country` : 'country'}
+                    name="country"
+                    className={css.field}
+                    label={countryLabel}
+                    validate={countryRequired}
+                  >
+                    <option disabled value="">
+                      {countryPlaceholder}
+                    </option>
+                    {countryCodes.map(country => {
+                      return (
+                        <option key={country.code} value={country.code}>
+                          {country.name}
+                        </option>
+                      );
+                    })}
+                  </FieldSelect>
+                </div>
               </div>
 
               <div className={confirmClasses}>
@@ -343,6 +503,12 @@ ContactDetailsFormComponent.defaultProps = {
   sendVerificationEmailInProgress: false,
   email: null,
   phoneNumber: null,
+  addressLine1: null,
+  addressLine2: null,
+  postalCode: null,
+  city: null,
+  state: null,
+  country: null
 };
 
 const { bool, func, string } = PropTypes;

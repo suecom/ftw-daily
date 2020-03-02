@@ -187,8 +187,8 @@ const SignupFormComponent = props => (
               <option value='Referral'>Word of mouth</option>
               <option value="Google">Google</option>
               <option value="Facebook">Facebook</option>
-              <option value="Instagram">Facebook</option>
-              <option value="YouTube">Facebook</option>
+              <option value="Instagram">Instagram</option>
+              <option value="YouTube">YouTube</option>
               <option value="Magazine">Magazine</option>
               <option value="Email">Email</option>
               <option value="Club">Car Club</option>

@@ -123,6 +123,7 @@
   "ContactDetailsForm.pendingEmailUnverified": "You have not verified your new address yet. {pendingEmailCheckInbox} {resendEmailMessage}",
   "ContactDetailsForm.phoneLabel": "Phone number",
   "ContactDetailsForm.phonePlaceholder": "Enter your phone number",
+  "ContactDetailsForm.phoneNumberRequired": "Valid UK telephone number required",
   "ContactDetailsForm.addressLine1Label": "Street address",
   "ContactDetailsForm.addressLine1Placeholder": "123 Example Street",
   "ContactDetailsForm.addressLine1Required": "Street address is required",

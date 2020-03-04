@@ -1,8 +1,11 @@
 import moment from 'moment';
 import { types as sdkTypes } from './sdkLoader';
 import toPairs from 'lodash/toPairs';
+import { PhoneNumberUtil } from 'google-libphonenumber';
 
 const { LatLng, Money } = sdkTypes;
+
+const phoneUtil = PhoneNumberUtil.getInstance();
 
 export const PASSWORD_MIN_LENGTH = 8;
 export const PASSWORD_MAX_LENGTH = 256;
@@ -109,6 +112,27 @@ const EMAIL_RE = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 export const emailFormatValid = message => value => {
   return value && EMAIL_RE.test(value) ? VALID : message;
 };
+
+export const phoneNumberValid = message => value => {
+  if (typeof value === 'undefined' || value === null) {
+    // undefined or null values are invalid
+    return message;
+  }
+  if (typeof value === 'string') {
+    try {
+      var number = phoneUtil.parse(value, 'GB');
+      
+      if(phoneUtil.isValidNumberForRegion(number, 'GB'))
+        return VALID;
+      else
+        return message;
+    }
+    catch(e) {
+      return message;
+    }
+  }
+  return VALID;  
+}
 
 export const moneySubUnitAmountAtLeast = (message, minValue) => value => {
   return value instanceof Money && value.amount >= minValue ? VALID : message;

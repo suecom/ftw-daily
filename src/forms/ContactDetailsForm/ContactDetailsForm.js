@@ -190,6 +190,12 @@ class ContactDetailsFormComponent extends Component {
           });
           const phoneLabel = intl.formatMessage({ id: 'ContactDetailsForm.phoneLabel' });
 
+          const phoneValid = validators.phoneNumberValid(
+            intl.formatMessage({
+              id: 'ContactDetailsForm.phoneNumberRequired',
+            })
+          );
+
           // has addressLine1 changed
           const currentAddressLine1 = protectedData.addressLine1;
           const addressLine1Changed = currentAddressLine1 !== addressLine1;
@@ -376,6 +382,7 @@ class ContactDetailsFormComponent extends Component {
                   id={formId ? `${formId}.phoneNumber` : 'phoneNumber'}
                   label={phoneLabel}
                   placeholder={phonePlaceholder}
+                  validate={phoneValid}
                 />
                 <div className={css.formRow}>
                   <FieldTextInput

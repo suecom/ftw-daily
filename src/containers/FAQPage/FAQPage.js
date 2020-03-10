@@ -19,7 +19,7 @@ const FAQPage = () => {
       title="FAQ"
       schema={{
         '@context': 'http://schema.org',
-        "@type": "FAQPage",
+        "@type": "FAQ-Page",
         "mainEntity": [{
           "@type": "Question",
           "name": "How Do I Know My Car Is Safe?",

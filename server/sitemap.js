@@ -61,7 +61,9 @@ exports.sitemapStructure = () => {
       '/': ['get'],
       '/signup': ['get'],
       '/login': ['get'],
-      '/s?address=London%2C%20United%20Kingdom&bounds=51.609847%2C0.022835%2C51.419624%2C-0.27496%26country=UK': [
+      '/faq': ['get'],
+      '/about': ['get'],
+      '/s?address=London%2C%20United%20Kingdom': [
         'get',
       ],
       '/account': ['get'],
@@ -85,6 +87,14 @@ exports.sitemapStructure = () => {
         priority: 1.0,
       },
       '/s?address=address=London%2C%20United%20Kingdom&bounds=51.609847%2C0.022835%2C51.419624%2C-0.27496%26country=UK': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/faq': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/about': {
         changefreq: 'always',
         priority: 1.0,
       },

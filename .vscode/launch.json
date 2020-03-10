@@ -17,11 +17,13 @@
         "name": "yarn",
         "runtimeExecutable": "yarn",
         "runtimeArgs": [
-          "dev-debug"
+        // "dev-debug"
+          "dev-server"
         ],
-        "port": 9229,
+        //"port": 9229,
+        "port": 5858,
         "cwd": "${workspaceRoot}",
-        "timeout": 10000,
+        "timeout": 100000,
         "sourceMaps": true,
         "stopOnEntry": true
       }

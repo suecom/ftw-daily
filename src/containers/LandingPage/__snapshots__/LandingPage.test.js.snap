@@ -8,7 +8,7 @@ exports[`LandingPage matches snapshot 1`] = `
     Array [
       Object {
         "height": 630,
-        "url": "saunatimeFacebook-1200x630.jpg",
+        "url": "miniFacebook-1200x630.jpg",
         "width": 1200,
       },
     ]

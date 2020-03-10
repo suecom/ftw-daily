@@ -113,7 +113,13 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
         '*.google.co.uk',
         '*.google.fr',
         '*.google.fi',
-        '*.google.com'
+        '*.google.com',
+        '*.google.ie',
+        '*.google.ch',
+        '*.google.nl',
+        '*.google.de',
+        '*.google.co.nz',
+        'gateway.zscloud.net'
       ]),
     scriptSrc:
       scriptSrc.concat([

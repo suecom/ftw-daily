@@ -19,9 +19,22 @@ const FAQPage = () => {
       title="FAQ"
       schema={{
         '@context': 'http://schema.org',
-        '@type': 'FAQPage',
-        description: 'Frequently Asked Questions',
-        name: 'FAQ page',
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "How Do I Know My Car Is Safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We first ensure the Driver is who they say they are and lives at the address on their driving licence. We operate a peer review system so both Owners and Drivers can review each other for the benefit of all. If you don't feel happy with the Driver's previous reviews (or they have none), then you can simply decline the booking request. You are always in control of who drives your car. You can directly ask questions of both the Driver and any previous Owners they've dealt with."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Do I Need to Take Out Special Insurance Cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every rental is covered by comprehensive insurance arranged by OldenCars' insurance partner. Drivers are covered by fully comprehensive insurance. The daily cost of this insurance will be around £30 - £60 per day, depending on the value of the car and your age."
+          }
+        }]
       }}
     >
       <LayoutSingleColumn>

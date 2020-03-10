@@ -161,7 +161,11 @@ export const createStripeAccount = params => (dispatch, getState, sdk) => {
 
   return sdk.stripeAccount
     .create(
-      { country, bankAccountToken, requestedCapabilities: ['card_payments', 'transfers'] },
+      { country, bankAccountToken,
+        businessProfileMCC: '4789',
+        businessProfileURL: 'https://oldencars.com',
+        requestedCapabilities: ['card_payments', 'transfers'] },
+
       { expand: true }
     )
     .then(response => {

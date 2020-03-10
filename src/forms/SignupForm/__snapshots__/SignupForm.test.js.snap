@@ -94,6 +94,75 @@ exports[`SignupForm matches snapshot 1`] = `
         value=""
       />
     </div>
+    <div
+      className=""
+    >
+      <label
+        htmlFor="channel"
+      >
+        SignupForm.channel
+      </label>
+      <select
+        className=""
+        id="channel"
+        name="channel"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        value=""
+      >
+        <option
+          value=""
+        >
+          Please help...
+        </option>
+        <option
+          value="Referral"
+        >
+          Word of mouth
+        </option>
+        <option
+          value="Google"
+        >
+          Google
+        </option>
+        <option
+          value="Facebook"
+        >
+          Facebook
+        </option>
+        <option
+          value="Instagram"
+        >
+          Instagram
+        </option>
+        <option
+          value="YouTube"
+        >
+          YouTube
+        </option>
+        <option
+          value="Magazine"
+        >
+          Magazine
+        </option>
+        <option
+          value="Email"
+        >
+          Email
+        </option>
+        <option
+          value="Club"
+        >
+          Car Club
+        </option>
+        <option
+          value="Other"
+        >
+          Other?
+        </option>
+      </select>
+    </div>
   </div>
   <div>
     <p>

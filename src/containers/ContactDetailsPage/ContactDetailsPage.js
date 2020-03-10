@@ -52,12 +52,33 @@ export const ContactDetailsPageComponent = props => {
   const contactInfoForm = user.id ? (
     <ContactDetailsForm
       className={css.form}
-      initialValues={{ email: currentEmail, phoneNumber: currentPhoneNumber, addressLine1: currentAddressLine1, addressLine2: currentAddressLine2, postalCode: currentPostalCode, city: currentCity, state: currentState, country:  currentCountry}}
+      initialValues={{
+        email: currentEmail,
+        phoneNumber: currentPhoneNumber,
+        addressLine1: currentAddressLine1,
+        addressLine2: currentAddressLine2,
+        postalCode: currentPostalCode,
+        city: currentCity,
+        state: currentState,
+        country: currentCountry,
+      }}
       saveEmailError={saveEmailError}
       saveContactError={saveContactError}
       currentUser={currentUser}
       onResendVerificationEmail={onResendVerificationEmail}
-      onSubmit={values => onSubmitContactDetails({ ...values, currentEmail, currentPhoneNumber, currentAddressLine1, currentAddressLine2, currentPostalCode, currentCity, currentState, currentCountry})}
+      onSubmit={values =>
+        onSubmitContactDetails({
+          ...values,
+          currentEmail,
+          currentPhoneNumber,
+          currentAddressLine1,
+          currentAddressLine2,
+          currentPostalCode,
+          currentCity,
+          currentState,
+          currentCountry,
+        })
+      }
       onChange={onChange}
       inProgress={saveContactDetailsInProgress}
       ready={contactDetailsChanged}

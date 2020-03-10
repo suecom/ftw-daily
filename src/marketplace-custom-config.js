@@ -155,7 +155,7 @@ export const make = [
   { key: 'Zastava', label: 'Zastava' },
   { key: 'Zaz', label: 'Zaz' },
   { key: 'Zenvo', label: 'Zenvo' },
-  { key: 'Zil', label: 'Zil' }
+  { key: 'Zil', label: 'Zil' },
 ];
 
 export const year = [
@@ -228,7 +228,7 @@ export const year = [
   { key: 1939, label: 1939 },
   { key: 1938, label: 1938 },
   { key: 1937, label: 1937 },
-  { key: 1936, label: 1936 }
+  { key: 1936, label: 1936 },
 ];
 
 // Price filter configuration

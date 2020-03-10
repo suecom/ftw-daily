@@ -12,7 +12,7 @@ export default [
     id: 'default-england',
     predictionPlace: {
       address: 'London, United Kingdom',
-      bounds: new LatLngBounds(new LatLng(51.609847, 0.022835), new LatLng(51.419624,-0.274960)),
+      bounds: new LatLngBounds(new LatLng(51.609847, 0.022835), new LatLng(51.419624, -0.27496)),
     },
   },
   {
@@ -40,7 +40,7 @@ export default [
     id: 'default-wales',
     predictionPlace: {
       address: 'Cardiff, United Kingdom',
-      bounds: new LatLngBounds(new LatLng(51.565230, -3.099630), new LatLng(51.385606, -3.298071)),
+      bounds: new LatLngBounds(new LatLng(51.56523, -3.09963), new LatLng(51.385606, -3.298071)),
     },
-  }
+  },
 ];

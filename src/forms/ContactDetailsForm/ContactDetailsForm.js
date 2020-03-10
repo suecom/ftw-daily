@@ -15,7 +15,13 @@ import {
   isChangeEmailWrongPassword,
   isTooManyEmailVerificationRequestsError,
 } from '../../util/errors';
-import { FieldPhoneNumberInput, Form, PrimaryButton, FieldTextInput, FieldSelect } from '../../components';
+import {
+  FieldPhoneNumberInput,
+  Form,
+  PrimaryButton,
+  FieldTextInput,
+  FieldSelect,
+} from '../../components';
 
 import css from './ContactDetailsForm.css';
 
@@ -65,7 +71,16 @@ class ContactDetailsFormComponent extends Component {
             sendVerificationEmailInProgress,
             values,
           } = fieldRenderProps;
-          const { email, phoneNumber, addressLine1, addressLine2, postalCode, city, state, country } = values;
+          const {
+            email,
+            phoneNumber,
+            addressLine1,
+            addressLine2,
+            postalCode,
+            city,
+            state,
+            country,
+          } = values;
 
           const user = ensureCurrentUser(currentUser);
 
@@ -215,7 +230,7 @@ class ContactDetailsFormComponent extends Component {
               id: 'ContactDetailsForm.addressLine1Required',
             })
           );
-        
+
           // has addressLine2 changed
           const currentAddressLine2 = protectedData.addressLine2;
           const addressLine2Changed = currentAddressLine2 !== addressLine2;
@@ -262,8 +277,10 @@ class ContactDetailsFormComponent extends Component {
             { id: 'StripePaymentAddress.stateLabel' },
             { optionalText: optionalText }
           );
-          const statePlaceholder = intl.formatMessage({ id: 'StripePaymentAddress.statePlaceholder' });
-        
+          const statePlaceholder = intl.formatMessage({
+            id: 'StripePaymentAddress.statePlaceholder',
+          });
+
           // Use tha language set in config.locale to get the correct translations of the country names
           const countryCodes = getCountryCodes(config.locale);
 
@@ -272,7 +289,9 @@ class ContactDetailsFormComponent extends Component {
           const countryChanged = currentCountry !== country;
 
           const countryLabel = intl.formatMessage({ id: 'StripePaymentAddress.countryLabel' });
-          const countryPlaceholder = intl.formatMessage({ id: 'StripePaymentAddress.countryPlaceholder' });
+          const countryPlaceholder = intl.formatMessage({
+            id: 'StripePaymentAddress.countryPlaceholder',
+          });
           const countryRequired = validators.required(
             intl.formatMessage({
               id: 'StripePaymentAddress.countryRequired',
@@ -354,8 +373,16 @@ class ContactDetailsFormComponent extends Component {
             invalid ||
             pristineSinceLastSubmit ||
             inProgress ||
-            !(emailChanged || phoneNumberChanged || addressLine1Changed || addressLine2Changed
-                || postalCodeChanged || cityChanged || stateChanged || countryChanged );
+            !(
+              emailChanged ||
+              phoneNumberChanged ||
+              addressLine1Changed ||
+              addressLine2Changed ||
+              postalCodeChanged ||
+              cityChanged ||
+              stateChanged ||
+              countryChanged
+            );
 
           return (
             <Form
@@ -515,7 +542,7 @@ ContactDetailsFormComponent.defaultProps = {
   postalCode: null,
   city: null,
   state: null,
-  country: null
+  country: null,
 };
 
 const { bool, func, string } = PropTypes;

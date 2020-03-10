@@ -121,18 +121,15 @@ export const phoneNumberValid = message => value => {
   if (typeof value === 'string') {
     try {
       var number = phoneUtil.parse(value, 'GB');
-      
-      if(phoneUtil.isValidNumberForRegion(number, 'GB'))
-        return VALID;
-      else
-        return message;
-    }
-    catch(e) {
+
+      if (phoneUtil.isValidNumberForRegion(number, 'GB')) return VALID;
+      else return message;
+    } catch (e) {
       return message;
     }
   }
-  return VALID;  
-}
+  return VALID;
+};
 
 export const moneySubUnitAmountAtLeast = (message, minValue) => value => {
   return value instanceof Money && value.amount >= minValue ? VALID : message;

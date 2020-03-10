@@ -22,7 +22,7 @@ const EditListingDescriptionPanel = props => {
     submitButtonText,
     panelUpdated,
     updateInProgress,
-    errors
+    errors,
   } = props;
 
   const classes = classNames(rootClassName || css.root, className);
@@ -44,7 +44,13 @@ const EditListingDescriptionPanel = props => {
       <h1 className={css.title}>{panelTitle}</h1>
       <EditListingDescriptionForm
         className={css.form}
-        initialValues={{ title, description, make: publicData.make, model: publicData.model, year: publicData.year }}
+        initialValues={{
+          title,
+          description,
+          make: publicData.make,
+          model: publicData.model,
+          year: publicData.year,
+        }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
           const { title, description, make, model, year } = values;
@@ -52,7 +58,7 @@ const EditListingDescriptionPanel = props => {
           const updateValues = {
             title: title.trim(),
             description,
-            publicData: { make, model, year: iYear}
+            publicData: { make, model, year: iYear },
           };
           onSubmit(updateValues);
         }}

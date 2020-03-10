@@ -15,7 +15,7 @@
     }
   }
   & li {
-    @apply --marketplaceH4FontStyles; 
+    @apply --marketplaceH4FontStyles;
   }
   & ul {
     list-style-type: disc;

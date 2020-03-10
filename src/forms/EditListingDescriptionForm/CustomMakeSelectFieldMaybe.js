@@ -18,13 +18,7 @@ const CustomMakeSelectFieldMaybe = props => {
     })
   );
   return make ? (
-    <FieldSelect
-      className={css.make}
-      name={name}
-      id={id}
-      label={makeLabel}
-      validate={makeRequired}
-    >
+    <FieldSelect className={css.make} name={name} id={id} label={makeLabel} validate={makeRequired}>
       <option disabled value="">
         {makePlaceholder}
       </option>

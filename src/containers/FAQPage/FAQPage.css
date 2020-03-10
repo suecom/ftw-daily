@@ -48,7 +48,7 @@
 
   @media (--viewportMedium) {
     max-width: 650px;
-  };
+  }
 
   & p {
     @apply --marketplaceH4FontStyles;
@@ -58,9 +58,8 @@
 
   & h1 {
     color: var(--marketplaceColor);
-  }  
+  }
 }
-
 
 .subtitle {
   @apply --marketplaceH3FontStyles;
@@ -70,12 +69,12 @@
 
 .column {
   background-color: var(--marketplaceColor);
-  width: 50%; 
+  width: 50%;
   text-align: center;
 }
 
 .list {
-   @apply --marketplaceH4FontStyles;
+  @apply --marketplaceH4FontStyles;
 
   display: list-item;
   text-align: -webkit-match-parent;

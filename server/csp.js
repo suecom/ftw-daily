@@ -100,32 +100,22 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   const customDirectives = {
     // Example: Add custom directive override
     // imgSrc: exampleImgSrc,
-    
-    frameSrc:
-      frameSrc.concat([
-        'www.youtube.com',
-        'js.stripe.com'
-      ]),
-    imgSrc:
-      imgSrc.concat([
-        'www.youtube.com',
-        '*.ytimg.com',
-        '*.google.co.uk',
-        '*.google.fr',
-        '*.google.fi',
-        '*.google.com',
-        '*.google.ie',
-        '*.google.ch',
-        '*.google.nl',
-        '*.google.de',
-        '*.google.co.nz',
-      ]),
-    scriptSrc:
-      scriptSrc.concat([
-        'www.youtube.com',
-        '*.ytimg.com',
-        'api.mapbox.com'
-      ])
+
+    frameSrc: frameSrc.concat(['www.youtube.com', 'js.stripe.com']),
+    imgSrc: imgSrc.concat([
+      'www.youtube.com',
+      '*.ytimg.com',
+      '*.google.co.uk',
+      '*.google.fr',
+      '*.google.fi',
+      '*.google.com',
+      '*.google.ie',
+      '*.google.ch',
+      '*.google.nl',
+      '*.google.de',
+      '*.google.co.nz',
+    ]),
+    scriptSrc: scriptSrc.concat(['www.youtube.com', '*.ytimg.com', 'api.mapbox.com']),
   };
 
   // ================ END CUSTOM CSP URLs ================ //

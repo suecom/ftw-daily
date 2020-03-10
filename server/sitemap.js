@@ -63,9 +63,7 @@ exports.sitemapStructure = () => {
       '/login': ['get'],
       '/faq': ['get'],
       '/about': ['get'],
-      '/s?address=London%2C%20United%20Kingdom': [
-        'get',
-      ],
+      '/s?address=London%2C%20United%20Kingdom': ['get'],
       '/account': ['get'],
       '/reset-password': ['get'],
       '/verify-email': ['get'],

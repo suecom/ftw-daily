@@ -12,12 +12,10 @@ export const format = value => {
       const val = phoneUtil.formatInOriginalFormat(number, 'GB');
 
       return val;
-    }
-    catch(e) {
+    } catch (e) {
       return value;
     }
-  }
-  else {
+  } else {
     return value;
   }
 };

@@ -182,9 +182,15 @@ const SignupFormComponent = props => (
               placeholder={passwordPlaceholder}
               validate={passwordValidators}
             />
-            <FieldSelect className={css.channel} id={formId ? `${formId}.channel` : 'channel'} name="channel" label={channelLabel} validate={channelValidators}>
+            <FieldSelect
+              className={css.channel}
+              id={formId ? `${formId}.channel` : 'channel'}
+              name="channel"
+              label={channelLabel}
+              validate={channelValidators}
+            >
               <option value="">Please help...</option>
-              <option value='Referral'>Word of mouth</option>
+              <option value="Referral">Word of mouth</option>
               <option value="Google">Google</option>
               <option value="Facebook">Facebook</option>
               <option value="Instagram">Instagram</option>

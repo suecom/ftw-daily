@@ -13,18 +13,16 @@ const Video = props => {
   const opts = {
     height: '100%',
     width: '100%',
-    playerVars: { // https://developers.google.com/youtube/player_parameters
-      autoplay: 0
-    }
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
   };
 
   return (
     <div className={classes}>
       <div className={css.video}>
-        <YouTube 
-          videoId="tFvW5rWgYUs"
-          opts={opts}
-        />
+        <YouTube videoId="tFvW5rWgYUs" opts={opts} />
       </div>
     </div>
   );

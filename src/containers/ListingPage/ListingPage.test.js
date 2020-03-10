@@ -72,7 +72,7 @@ describe('ListingPage', () => {
       sendEnquiryInProgress: false,
       onSendEnquiry: noop,
       makeConfig,
-      yearConfig
+      yearConfig,
     };
 
     const tree = renderShallow(<ListingPageComponent {...props} />);

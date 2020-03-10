@@ -191,7 +191,7 @@ EditListingDescriptionFormComponent.propTypes = {
       key: Number.isRequired,
       label: Number.isRequired,
     })
-  )
+  ),
 };
 
 export default compose(injectIntl)(EditListingDescriptionFormComponent);

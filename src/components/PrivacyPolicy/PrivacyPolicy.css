@@ -9,7 +9,7 @@
     margin: 23px 0 19px 0;
 
     color: var(--marketplaceColor);
-    
+
     @media (--viewportMedium) {
       margin: 24px 0 24px 0;
     }

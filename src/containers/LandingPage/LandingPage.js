@@ -16,7 +16,7 @@ import {
   LayoutWrapperMain,
   LayoutWrapperFooter,
   Footer,
-  Video
+  Video,
 } from '../../components';
 import { TopbarContainer } from '../../containers';
 

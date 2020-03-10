@@ -9,7 +9,7 @@ const filters = {
   makeFilter: {
     paramName: 'pub_make',
     options: [{ key: 'audi' }, { key: 'alvis' }],
-  }
+  },
 };
 
 describe('SearchPage.helpers', () => {

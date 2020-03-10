@@ -38,7 +38,7 @@
       border-radius: 40px;
       border: solid 36px var(--matterColorBright);
     }
-  };
+  }
 
   /* ================ Colors ================ */
 
@@ -131,8 +131,8 @@
       content: '';
       display: table;
       clear: both;
-    };
-  };
+    }
+  }
 
   /* ================ Links ================ */
 
@@ -154,8 +154,8 @@
     &:hover {
       text-decoration: underline;
       cursor: pointer;
-    };
-  };
+    }
+  }
 
   /* ================ Buttons ================ */
 

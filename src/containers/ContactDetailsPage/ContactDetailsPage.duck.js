@@ -86,7 +86,17 @@ const requestSaveContact = params => (dispatch, getState, sdk) => {
 
   return sdk.currentUser
     .updateProfile(
-      { protectedData: { phoneNumber, addressLine1, addressLine2, postalCode, city, state, country } },
+      {
+        protectedData: {
+          phoneNumber,
+          addressLine1,
+          addressLine2,
+          postalCode,
+          city,
+          state,
+          country,
+        },
+      },
       {
         expand: true,
         include: ['profileImage'],
@@ -176,12 +186,32 @@ const saveContact = params => (dispatch, getState, sdk) => {
  * Save email and phone number and update the current user.
  */
 const saveEmailAndContact = params => (dispatch, getState, sdk) => {
-  const { email, phoneNumber, currentPassword, addressLine1, addressLine2, postalCode, city, state, country } = params;
+  const {
+    email,
+    phoneNumber,
+    currentPassword,
+    addressLine1,
+    addressLine2,
+    postalCode,
+    city,
+    state,
+    country,
+  } = params;
 
   // order of promises: 1. email, 2. phone number
   const promises = [
     dispatch(requestSaveEmail({ email, currentPassword })),
-    dispatch(requestSaveContact({ phoneNumber, addressLine1, addressLine2, postalCode, city, state, country })),
+    dispatch(
+      requestSaveContact({
+        phoneNumber,
+        addressLine1,
+        addressLine2,
+        postalCode,
+        city,
+        state,
+        country,
+      })
+    ),
   ];
 
   return Promise.all(promises)
@@ -211,9 +241,28 @@ const saveEmailAndContact = params => (dispatch, getState, sdk) => {
 export const saveContactDetails = params => (dispatch, getState, sdk) => {
   dispatch(saveContactDetailsRequest());
 
-  const { email, currentEmail, phoneNumber, currentPhoneNumber, addressLine1, currentAddressLine1, addressLine2, currentAddressLine2, postalCode, currentPostalCode, city, currentCity, state, currentState, country, currentCountry, currentPassword } = params;
+  const {
+    email,
+    currentEmail,
+    phoneNumber,
+    currentPhoneNumber,
+    addressLine1,
+    currentAddressLine1,
+    addressLine2,
+    currentAddressLine2,
+    postalCode,
+    currentPostalCode,
+    city,
+    currentCity,
+    state,
+    currentState,
+    country,
+    currentCountry,
+    currentPassword,
+  } = params;
   const emailChanged = email !== currentEmail;
-  const contactChanged = phoneNumber !== currentPhoneNumber ||
+  const contactChanged =
+    phoneNumber !== currentPhoneNumber ||
     addressLine1 !== currentAddressLine1 ||
     addressLine2 !== currentAddressLine2 ||
     postalCode !== currentPostalCode ||
@@ -222,10 +271,24 @@ export const saveContactDetails = params => (dispatch, getState, sdk) => {
     country !== currentCountry;
 
   if (emailChanged && contactChanged) {
-    return dispatch(saveEmailAndContact({ email, currentPassword, phoneNumber, addressLine1, addressLine2, postalCode, city, state, country }));
+    return dispatch(
+      saveEmailAndContact({
+        email,
+        currentPassword,
+        phoneNumber,
+        addressLine1,
+        addressLine2,
+        postalCode,
+        city,
+        state,
+        country,
+      })
+    );
   } else if (emailChanged) {
     return dispatch(saveEmail({ email, currentPassword }));
   } else if (contactChanged) {
-    return dispatch(saveContact({ phoneNumber, addressLine1, addressLine2, postalCode, city, state, country }));
+    return dispatch(
+      saveContact({ phoneNumber, addressLine1, addressLine2, postalCode, city, state, country })
+    );
   }
 };

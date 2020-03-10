@@ -52,12 +52,7 @@ export class SearchPageComponent extends Component {
   }
 
   filters() {
-    const {
-      make,
-      priceFilterConfig,
-      dateRangeFilterConfig,
-      keywordFilterConfig,
-    } = this.props;
+    const { make, priceFilterConfig, dateRangeFilterConfig, keywordFilterConfig } = this.props;
 
     // Note: "make" filter is not actually filtering anything by default.
     // Currently, if you want to use them, we need to manually configure them to be available

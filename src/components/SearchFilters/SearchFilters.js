@@ -9,7 +9,7 @@ import omit from 'lodash/omit';
 import {
   BookingDateRangeFilter,
   SelectSingleFilter,
-//  SelectMultipleFilter,
+  //  SelectMultipleFilter,
   PriceFilter,
   KeywordFilter,
 } from '../../components';
@@ -68,7 +68,7 @@ const SearchFiltersComponent = props => {
     resultsCount,
     searchInProgress,
     makeFilter,
-//    amenitiesFilter,
+    //    amenitiesFilter,
     priceFilter,
     dateRangeFilter,
     keywordFilter,
@@ -90,9 +90,7 @@ const SearchFiltersComponent = props => {
     id: 'SearchFilters.keywordLabel',
   });
 
-  const initialMake = makeFilter
-    ? initialValue(urlQueryParams, makeFilter.paramName)
-    : null;
+  const initialMake = makeFilter ? initialValue(urlQueryParams, makeFilter.paramName) : null;
 
   const initialPriceRange = priceFilter
     ? initialPriceRangeValue(urlQueryParams, priceFilter.paramName)

@@ -44,7 +44,7 @@ const SectionHeading = props => {
         <h1 className={css.title}>{richTitle}</h1>
         <div className={css.author}>
           {year}
-          {make} 
+          {make}
           {model}
           <FormattedMessage id="ListingPage.hostedBy" values={{ name: hostLink }} />
           {showContactUser ? (
@@ -56,9 +56,7 @@ const SectionHeading = props => {
             </span>
           ) : null}
         </div>
-        <div className={css.author}>
-          {insurance}
-        </div>
+        <div className={css.author}>{insurance}</div>
       </div>
     </div>
   );

@@ -139,6 +139,7 @@ exports[`ListingPage matches snapshot 1`] = `
                   user-1 display name
                 </NamedLink>
               }
+              insurance={null}
               make={null}
               model={null}
               onContactUser={[Function]}

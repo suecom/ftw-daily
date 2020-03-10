@@ -19,7 +19,7 @@ exports[`LandingPage matches snapshot 1`] = `
       "@type": "WebPage",
       "description": "LandingPage.schemaDescription",
       "image": Array [
-        "http://localhost:3000/miniFacebook-1200x630.jpg",
+        "http://localhost:3000miniFacebook-1200x630.jpg",
       ],
       "name": "LandingPage.schemaTitle",
     }
@@ -30,7 +30,7 @@ exports[`LandingPage matches snapshot 1`] = `
     Array [
       Object {
         "height": 314,
-        "url": "http://localhost:3000/miniTwitter-600x314.jpg",
+        "url": "http://localhost:3000miniTwitter-600x314.jpg",
         "width": 600,
       },
     ]
@@ -78,6 +78,14 @@ exports[`LandingPage matches snapshot 1`] = `
         <li>
           <div>
             <SectionHowItWorks
+              className={null}
+              rootClassName={null}
+            />
+          </div>
+        </li>
+        <li>
+          <div>
+            <Video
               className={null}
               rootClassName={null}
             />

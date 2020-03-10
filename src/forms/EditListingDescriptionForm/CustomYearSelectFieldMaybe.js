@@ -18,13 +18,7 @@ const CustomYearSelectFieldMaybe = props => {
     })
   );
   return year ? (
-    <FieldSelect
-      className={css.year}
-      name={name}
-      id={id}
-      label={yearLabel}
-      validate={yearRequired}
-    >
+    <FieldSelect className={css.year} name={name} id={id} label={yearLabel} validate={yearRequired}>
       <option disabled value="">
         {yearPlaceholder}
       </option>

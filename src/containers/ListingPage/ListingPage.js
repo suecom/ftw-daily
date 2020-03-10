@@ -193,7 +193,7 @@ export class ListingPageComponent extends Component {
       timeSlots,
       fetchTimeSlotsError,
       makeConfig,
-      yearConfig
+      yearConfig,
     } = this.props;
 
     const listingId = new UUID(rawParams.id);
@@ -238,7 +238,7 @@ export class ListingPageComponent extends Component {
       price = null,
       title = '',
       publicData,
-      metadata
+      metadata,
     } = currentListing.attributes;
 
     const richTitle = (
@@ -390,22 +390,22 @@ export class ListingPageComponent extends Component {
           <span className={css.separator}>•</span>
         </span>
       ) : null;
-  
+
     const model =
-    publicData && publicData.model ? (
-      <span>
-        {publicData.model}
-        <span className={css.separator}>•</span>
-      </span>
-    ) : null;
+      publicData && publicData.model ? (
+        <span>
+          {publicData.model}
+          <span className={css.separator}>•</span>
+        </span>
+      ) : null;
 
     const insurance =
-    metadata && metadata.indicativeInsurance ? (
-      <span>
-        <FormattedMessage id="ListingPage.indicativeInsurance"/>
-        {metadata.indicativeInsurance}
-      </span>
-    ) : null;
+      metadata && metadata.indicativeInsurance ? (
+        <span>
+          <FormattedMessage id="ListingPage.indicativeInsurance" />
+          {metadata.indicativeInsurance}
+        </span>
+      ) : null;
 
     return (
       <Page
@@ -517,7 +517,7 @@ ListingPageComponent.defaultProps = {
   sendEnquiryError: null,
   makeConfig: config.custom.make,
   modelConfig: '',
-  yearConfig: config.custom.year
+  yearConfig: config.custom.year,
 };
 
 ListingPageComponent.propTypes = {
@@ -557,7 +557,7 @@ ListingPageComponent.propTypes = {
   onSendEnquiry: func.isRequired,
   onInitializeCardPaymentData: func.isRequired,
   makeConfig: array,
-  yearConfig: array
+  yearConfig: array,
 };
 
 const mapStateToProps = state => {

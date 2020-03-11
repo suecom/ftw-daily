@@ -132,7 +132,6 @@ class TokenInputFieldComponent extends Component {
     let accountData = {
       country,
       currency,
-      account_holder_type: 'individual',
     };
 
     // Include input values with correct stripe keys

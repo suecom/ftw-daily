@@ -115,7 +115,8 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.de',
       '*.google.co.nz',
       '*.intercomcdn.com',
-      '*.intercomassets.com'
+      '*.intercomassets.com',
+      '*.intercom.io',
     ]),
     scriptSrc: scriptSrc.concat([
       'www.youtube.com', 
@@ -128,12 +129,15 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
     ]),
     connectSrc: connectSrc.concat([
       '*.intercom.io',
+      'wss://nexus-websocket-a.intercom.io',
     ]),
     fontSrc: fontSrc.concat([
+      '*.intercom.io',
       '*.intercomcdn.com',
     ]),
     mediaSrc: [
       self, 
+      '*.intercom.io',
       '*.intercomcdn.com',
     ]
   };

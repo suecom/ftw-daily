@@ -62,13 +62,13 @@ class PageComponent extends Component {
         ? {
             email: currentUser.attributes.email,
             user_id: currentUser.id.uuid,
+            created_at: Math.round(currentUser.attributes.createdAt.getTime() / 1000),
           }
         : null;
 
     const data = {
       app_id: process.env.REACT_APP_INTERCOM_APP_ID,
       ...userInfoMaybe,
-      OldenCar_demo: true,
     };
 
     return data;

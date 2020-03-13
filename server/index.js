@@ -116,6 +116,7 @@ app.use(compression());
 app.use('/static', express.static(path.join(buildPath, 'static')));
 // server robots.txt from the root
 app.use('/robots.txt', express.static(path.join(buildPath, 'robots.txt')));
+app.use('/sitemap.xml', express.static(path.join(buildPath, 'static', 'sitemap.xml')));
 app.use(cookieParser());
 
 // Use basic authentication when not in dev mode. This is

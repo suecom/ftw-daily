@@ -95,7 +95,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // const { imgSrc = [self] } = defaultDirectives;
   // const exampleImgSrc = imgSrc.concat('my-custom-domain.example.com');
 
-  const { scriptSrc = [self], imgSrc = [self], frameSrc = [self] } = defaultDirectives;
+  const { scriptSrc = [self], imgSrc = [self], frameSrc = [self], connectSrc = [self], fontSrc = [self] } = defaultDirectives;
 
   const customDirectives = {
     // Example: Add custom directive override
@@ -114,8 +114,28 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.nl',
       '*.google.de',
       '*.google.co.nz',
+      '*.intercomcdn.com',
+      '*.intercomassets.com'
     ]),
-    scriptSrc: scriptSrc.concat(['www.youtube.com', '*.ytimg.com', 'api.mapbox.com']),
+    scriptSrc: scriptSrc.concat([
+      'www.youtube.com', 
+      '*.ytimg.com', 
+      'api.mapbox.com',
+      '*.intercom.com',
+      '*.intercom.io',
+      '*.intercomassets.com',
+      '*.intercomcdn.com',
+    ]),
+    connectSrc: connectSrc.concat([
+      '*.intercom.io',
+    ]),
+    fontSrc: fontSrc.concat([
+      '*.intercomcdn.com',
+    ]),
+    mediaSrc: [
+      self, 
+      '*.intercomcdn.com',
+    ]
   };
 
   // ================ END CUSTOM CSP URLs ================ //

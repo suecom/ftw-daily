@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { injectIntl, intlShape } from '../../util/reactIntl';
 import classNames from 'classnames';
@@ -43,7 +45,34 @@ class PageComponent extends Component {
     // handling both dragover and drop events.
     document.addEventListener('dragover', preventDefault);
     document.addEventListener('drop', preventDefault);
+
+    const intercomData = this.getIntercomData();
+    window.Intercom('boot', intercomData);
   }
+
+  componentDidUpdate() {
+    const intercomData = this.getIntercomData();
+    window.Intercom('update', intercomData);
+  }
+
+  getIntercomData = () => {
+    const { isAuthenticated, currentUser } = this.props;
+    const userInfoMaybe =
+      isAuthenticated && currentUser
+        ? {
+            email: currentUser.attributes.email,
+            user_id: currentUser.id.uuid,
+          }
+        : null;
+
+    const data = {
+      app_id: process.env.REACT_APP_INTERCOM_APP_ID,
+      ...userInfoMaybe,
+      OldenCar_demo: true,
+    };
+
+    return data;
+  };
 
   componentWillUnmount() {
     document.removeEventListener('dragover', preventDefault);
@@ -279,7 +308,24 @@ PageComponent.propTypes = {
   intl: intlShape.isRequired,
 };
 
-const Page = injectIntl(withRouter(PageComponent));
+const mapStateToProps = state => {
+  // Intercom widget needs isAuthenticated
+  const { isAuthenticated } = state.Auth;
+  const { currentUser } = state.user;
+
+  return {
+    isAuthenticated,
+    currentUser,
+  };
+};
+
+const Page = injectIntl(
+  compose(
+    withRouter,
+    connect(mapStateToProps)
+  )(PageComponent)
+);
+
 Page.displayName = 'Page';
 
 export default Page;

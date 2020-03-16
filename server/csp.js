@@ -113,6 +113,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.ch',
       '*.google.nl',
       '*.google.de',
+      '*.google.es',
       '*.google.co.nz',
       '*.intercomcdn.com',
       '*.intercomassets.com',

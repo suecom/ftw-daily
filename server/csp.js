@@ -147,6 +147,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.intercomcdn.com',
     ],
     manifestSrc: [
+      self,
       'gateway.zscloud.net',
     ],
   };

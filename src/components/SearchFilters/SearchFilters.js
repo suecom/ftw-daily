@@ -6,13 +6,8 @@ import classNames from 'classnames';
 import { withRouter } from 'react-router-dom';
 import omit from 'lodash/omit';
 
-import {
-  BookingDateRangeFilter,
-  SelectSingleFilter,
-  //  SelectMultipleFilter,
-  PriceFilter,
-  KeywordFilter,
-} from '../../components';
+import config from '../../config';
+import { BookingDateRangeFilter, PriceFilter, KeywordFilter, SortBy } from '../../components';
 import routeConfiguration from '../../routeConfiguration';
 import { parseDateFromISO8601, stringifyDateToISO8601 } from '../../util/dates';
 import { createResourceLocatorString } from '../../util/routes';
@@ -27,11 +22,6 @@ const RADIX = 10;
 const initialValue = (queryParams, paramName) => {
   return queryParams[paramName];
 };
-
-// resolve initial values for a multi value filter
-//const initialValues = (queryParams, paramName) => {
-//  return !!queryParams[paramName] ? queryParams[paramName].split(',') : [];
-//};
 
 const initialPriceRangeValue = (queryParams, paramName) => {
   const price = queryParams[paramName];
@@ -64,11 +54,10 @@ const SearchFiltersComponent = props => {
     rootClassName,
     className,
     urlQueryParams,
+    sort,
     listingsAreLoaded,
     resultsCount,
     searchInProgress,
-    makeFilter,
-    //    amenitiesFilter,
     priceFilter,
     dateRangeFilter,
     keywordFilter,
@@ -80,17 +69,11 @@ const SearchFiltersComponent = props => {
   } = props;
 
   const hasNoResult = listingsAreLoaded && resultsCount === 0;
-  const classes = classNames(rootClassName || css.root, { [css.longInfo]: hasNoResult }, className);
-
-  const makeLabel = intl.formatMessage({
-    id: 'SearchFilters.makeLabel',
-  });
+  const classes = classNames(rootClassName || css.root, className);
 
   const keywordLabel = intl.formatMessage({
     id: 'SearchFilters.keywordLabel',
   });
-
-  const initialMake = makeFilter ? initialValue(urlQueryParams, makeFilter.paramName) : null;
 
   const initialPriceRange = priceFilter
     ? initialPriceRangeValue(urlQueryParams, priceFilter.paramName)
@@ -104,24 +87,7 @@ const SearchFiltersComponent = props => {
     ? initialValue(urlQueryParams, keywordFilter.paramName)
     : null;
 
-  //const handleSelectOptions = (urlParam, options) => {
-  //  const queryParams =
-  //    options && options.length > 0
-  //      ? { ...urlQueryParams, [urlParam]: options.join(',') }
-  //      : omit(urlQueryParams, urlParam);
-  //
-  //  history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
-  //};
-
-  const handleSelectOption = (urlParam, option) => {
-    // query parameters after selecting the option
-    // if no option is passed, clear the selection for the filter
-    const queryParams = option
-      ? { ...urlQueryParams, [urlParam]: option }
-      : omit(urlQueryParams, urlParam);
-
-    history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
-  };
+  const isKeywordFilterActive = !!initialKeyword;
 
   const handlePrice = (urlParam, range) => {
     const { minPrice, maxPrice } = range || {};
@@ -154,18 +120,6 @@ const SearchFiltersComponent = props => {
 
     history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
   };
-
-  const makeFilterElement = makeFilter ? (
-    <SelectSingleFilter
-      urlParam={makeFilter.paramName}
-      label={makeLabel}
-      onSelect={handleSelectOption}
-      showAsPopup
-      options={makeFilter.options}
-      initialValue={initialMake}
-      contentPlacementOffset={FILTER_DROPDOWN_OFFSET}
-    />
-  ) : null;
 
   const priceFilterElement = priceFilter ? (
     <PriceFilter
@@ -222,23 +176,44 @@ const SearchFiltersComponent = props => {
       />
     </button>
   ) : null;
+
+  const handleSortBy = (urlParam, values) => {
+    const queryParams = values
+      ? { ...urlQueryParams, [urlParam]: values }
+      : omit(urlQueryParams, urlParam);
+
+    history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
+  };
+
+  const sortBy = config.custom.sortConfig.active ? (
+    <SortBy
+      sort={sort}
+      showAsPopup
+      isKeywordFilterActive={isKeywordFilterActive}
+      onSelect={handleSortBy}
+      contentPlacementOffset={FILTER_DROPDOWN_OFFSET}
+    />
+  ) : null;
+
   return (
     <div className={classes}>
-      <div className={css.filters}>
-        {makeFilterElement}
-        {priceFilterElement}
-        {dateRangeFilterElement}
-        {keywordFilterElement}
-        {toggleSearchFiltersPanelButton}
-      </div>
-
-      {listingsAreLoaded && resultsCount > 0 ? (
-        <div className={css.searchResultSummary}>
-          <span className={css.resultsFound}>
-            <FormattedMessage id="SearchFilters.foundResults" values={{ count: resultsCount }} />
-          </span>
+      <div className={css.filterWrapper}>
+        <div className={css.filters}>
+          {priceFilterElement}
+          {dateRangeFilterElement}
+          {keywordFilterElement}
+          {toggleSearchFiltersPanelButton}
         </div>
-      ) : null}
+
+        {listingsAreLoaded && resultsCount > 0 ? (
+          <div className={css.searchResultSummary}>
+            <span className={css.resultsFound}>
+              <FormattedMessage id="SearchFilters.foundResults" values={{ count: resultsCount }} />
+            </span>
+          </div>
+        ) : null}
+        {sortBy}
+      </div>
 
       {hasNoResult ? (
         <div className={css.noSearchResults}>
@@ -260,8 +235,6 @@ SearchFiltersComponent.defaultProps = {
   className: null,
   resultsCount: null,
   searchingInProgress: false,
-  makeFilter: null,
-  amenitiesFilter: null,
   priceFilter: null,
   dateRangeFilter: null,
   isSearchFiltersPanelOpen: false,
@@ -277,8 +250,6 @@ SearchFiltersComponent.propTypes = {
   resultsCount: number,
   searchingInProgress: bool,
   onManageDisableScrolling: func.isRequired,
-  makeFilter: propTypes.filterConfig,
-  amenitiesFilter: propTypes.filterConfig,
   priceFilter: propTypes.filterConfig,
   dateRangeFilter: propTypes.filterConfig,
   isSearchFiltersPanelOpen: bool,

@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import omit from 'lodash/omit';
 
 import config from '../../config';
-import { BookingDateRangeFilter, PriceFilter, KeywordFilter, SortBy } from '../../components';
+import { SelectSingleFilter, BookingDateRangeFilter, PriceFilter, KeywordFilter, SortBy } from '../../components';
 import routeConfiguration from '../../routeConfiguration';
 import { parseDateFromISO8601, stringifyDateToISO8601 } from '../../util/dates';
 import { createResourceLocatorString } from '../../util/routes';
@@ -61,6 +61,7 @@ const SearchFiltersComponent = props => {
     priceFilter,
     dateRangeFilter,
     keywordFilter,
+    makeFilter,
     isSearchFiltersPanelOpen,
     toggleSearchFiltersPanel,
     searchFiltersPanelSelectedCount,
@@ -75,6 +76,10 @@ const SearchFiltersComponent = props => {
     id: 'SearchFilters.keywordLabel',
   });
 
+  const makeLabel = intl.formatMessage({
+    id: 'SearchFilters.makeLabel',
+  });
+
   const initialPriceRange = priceFilter
     ? initialPriceRangeValue(urlQueryParams, priceFilter.paramName)
     : null;
@@ -85,6 +90,10 @@ const SearchFiltersComponent = props => {
 
   const initialKeyword = keywordFilter
     ? initialValue(urlQueryParams, keywordFilter.paramName)
+    : null;
+  
+  const initialMake = makeFilter 
+    ? initialValue(urlQueryParams, makeFilter.paramName) 
     : null;
 
   const isKeywordFilterActive = !!initialKeyword;
@@ -98,6 +107,28 @@ const SearchFiltersComponent = props => {
 
     history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
   };
+
+  const handleSelectOption = (urlParam, option) => {
+    // query parameters after selecting the option
+    // if no option is passed, clear the selection for the filter
+    const queryParams = option
+      ? { ...urlQueryParams, [urlParam]: option }
+      : omit(urlQueryParams, urlParam);
+
+    history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, queryParams));
+  };
+
+  const makeFilterElement = makeFilter ? (
+    <SelectSingleFilter
+      urlParam={makeFilter.paramName}
+      label={makeLabel}
+      onSelect={handleSelectOption}
+      showAsPopup
+      options={makeFilter.options}
+      initialValue={initialMake}
+      contentPlacementOffset={FILTER_DROPDOWN_OFFSET}
+    />
+  ) : null;
 
   const handleDateRange = (urlParam, dateRange) => {
     const hasDates = dateRange && dateRange.dates;
@@ -199,6 +230,7 @@ const SearchFiltersComponent = props => {
     <div className={classes}>
       <div className={css.filterWrapper}>
         <div className={css.filters}>
+          {makeFilterElement}
           {priceFilterElement}
           {dateRangeFilterElement}
           {keywordFilterElement}
@@ -235,6 +267,7 @@ SearchFiltersComponent.defaultProps = {
   className: null,
   resultsCount: null,
   searchingInProgress: false,
+  makeFilter: null,
   priceFilter: null,
   dateRangeFilter: null,
   isSearchFiltersPanelOpen: false,
@@ -250,6 +283,7 @@ SearchFiltersComponent.propTypes = {
   resultsCount: number,
   searchingInProgress: bool,
   onManageDisableScrolling: func.isRequired,
+  makeFilter: propTypes.filterConfig,
   priceFilter: propTypes.filterConfig,
   dateRangeFilter: propTypes.filterConfig,
   isSearchFiltersPanelOpen: bool,

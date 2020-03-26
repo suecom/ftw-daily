@@ -218,6 +218,7 @@ export class SearchPageComponent extends Component {
             showAsModalMaxWidth={MODAL_BREAKPOINT}
             primaryFilters={{
               priceFilter: filters.priceFilter,
+              makeFilter: filters.makeFilter,
               dateRangeFilter: filters.dateRangeFilter,
               keywordFilter: filters.keywordFilter,
             }}

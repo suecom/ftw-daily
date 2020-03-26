@@ -714,6 +714,7 @@
   "SavedCardDetails.savedPaymentMethodPlaceholderDesktop": "•••• •••• •••• {last4Digits}",
   "SavedCardDetails.savedPaymentMethodPlaceholderMobile": "…{last4Digits}",
   "SearchFilters.filtersButtonLabel": "Filters",
+  "SearchFilters.makeLabel": "Make",
   "SearchFilters.foundResults": "{count, number} {count, plural, one {result} other {results}}",
   "SearchFilters.keywordLabel": "Keyword",
   "SearchFilters.loadingResults": "Loading search results…",

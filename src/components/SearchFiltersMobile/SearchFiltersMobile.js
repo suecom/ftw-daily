@@ -16,7 +16,6 @@ import {
   KeywordFilter,
   PriceFilter,
   SelectSingleFilter,
-  SelectMultipleFilter,
   SortBy,
   BookingDateRangeFilter,
 } from '../../components';

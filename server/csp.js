@@ -95,13 +95,17 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // const { imgSrc = [self] } = defaultDirectives;
   // const exampleImgSrc = imgSrc.concat('my-custom-domain.example.com');
 
-  const { scriptSrc = [self], imgSrc = [self], frameSrc = [self], connectSrc = [self], fontSrc = [self], styleSrc = [self] } = defaultDirectives;
+  const { defaultSrc = [self], scriptSrc = [self], imgSrc = [self], frameSrc = [self], connectSrc = [self], fontSrc = [self], styleSrc = [self] } = defaultDirectives;
 
   const customDirectives = {
     // Example: Add custom directive override
     // imgSrc: exampleImgSrc,
 
-    frameSrc: frameSrc.concat(['www.youtube.com', 'js.stripe.com']),
+    frameSrc: frameSrc.concat([
+      'www.youtube.com', 
+      'js.stripe.com',
+      '*.tawk.to',
+    ]),
     imgSrc: imgSrc.concat([
       'www.youtube.com',
       '*.ytimg.com',
@@ -124,6 +128,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       'cdn.jsdelivr.net',
       'https://tawk.link/',
       '*.amazonaws.com',
+      '*.tawk.to',
     ]),
     scriptSrc: scriptSrc.concat([
       'www.youtube.com', 
@@ -141,6 +146,9 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
     ]),
     styleSrc: styleSrc.concat([
       'cdn.jsdelivr.net',
+    ]),
+    defaultSrc: defaultSrc.concat([
+      '*.tawk.to',
     ]),
     manifestSrc: [
       self,

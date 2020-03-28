@@ -95,7 +95,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // const { imgSrc = [self] } = defaultDirectives;
   // const exampleImgSrc = imgSrc.concat('my-custom-domain.example.com');
 
-  const { scriptSrc = [self], imgSrc = [self], frameSrc = [self], connectSrc = [self], fontSrc = [self], manifestSrc = [self] } = defaultDirectives;
+  const { scriptSrc = [self], imgSrc = [self], frameSrc = [self], connectSrc = [self], fontSrc = [self], styleSrc = [self] } = defaultDirectives;
 
   const customDirectives = {
     // Example: Add custom directive override
@@ -117,35 +117,31 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.cz',
       '*.google.es',
       '*.google.ca',
+      '*.google.ae',
       '*.google.co.nz',
       '*.google.com.au',
-      '*.intercomcdn.com',
-      '*.intercomassets.com',
-      '*.intercom.io',
       'gateway.zscloud.net',
+      'cdn.jsdelivr.net',
+      'tawk.link',
+      '*.amazonaws.com',
     ]),
     scriptSrc: scriptSrc.concat([
       'www.youtube.com', 
       '*.ytimg.com', 
       'api.mapbox.com',
-      '*.intercom.com',
-      '*.intercom.io',
-      '*.intercomassets.com',
-      '*.intercomcdn.com',
+      '*.tawk.to',
+      'cdn.jsdelivr.net',
     ]),
     connectSrc: connectSrc.concat([
-      '*.intercom.io',
-      'wss://nexus-websocket-a.intercom.io',
+      '*.tawk.to',
+      'wss://*.tawk.to/',
     ]),
     fontSrc: fontSrc.concat([
-      '*.intercom.io',
-      '*.intercomcdn.com',
+      '*.tawk.to',
     ]),
-    mediaSrc: [
-      self, 
-      '*.intercom.io',
-      '*.intercomcdn.com',
-    ],
+    styleSrc: styleSrc.concat([
+      'cdn.jsdelivr.net',
+    ]),
     manifestSrc: [
       self,
       'gateway.zscloud.net',

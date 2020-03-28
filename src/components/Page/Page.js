@@ -11,6 +11,7 @@ import config from '../../config';
 import { metaTagProps } from '../../util/seo';
 import { canonicalRoutePath } from '../../util/routes';
 import { CookieConsent } from '../../components';
+import crypto from 'crypto';
 
 import facebookImage from '../../assets/miniFacebook-1200x630.jpg';
 import twitterImage from '../../assets/miniTwitter-600x314.jpg';
@@ -46,33 +47,27 @@ class PageComponent extends Component {
     document.addEventListener('dragover', preventDefault);
     document.addEventListener('drop', preventDefault);
 
-    const intercomData = this.getIntercomData();
-    window.Intercom('boot', intercomData);
+    this.setVisitor();
   }
 
   componentDidUpdate() {
-    const intercomData = this.getIntercomData();
-    window.Intercom('update', intercomData);
+    this.setVisitor();
   }
 
-  getIntercomData = () => {
+  setVisitor() {
     const { isAuthenticated, currentUser } = this.props;
-    const userInfoMaybe =
-      isAuthenticated && currentUser
-        ? {
-            email: currentUser.attributes.email,
-            user_id: currentUser.id.uuid,
-            created_at: Math.round(currentUser.attributes.createdAt.getTime() / 1000),
-          }
-        : null;
 
-    const data = {
-      app_id: process.env.REACT_APP_INTERCOM_APP_ID,
-      ...userInfoMaybe,
-    };
-
-    return data;
-  };
+    if(isAuthenticated && currentUser)
+    {
+      window.Tawk_API.setAttributes({
+        'name'  : currentUser.attributes.profile.displayName,
+        'email' : currentUser.attributes.email,
+        'hash'  : crypto.createHmac('sha256', '06a0ec17310baeb4837c6662f8d600c7ea8a54a8').update(currentUser.attributes.email).digest('hex')
+      }, function(error) {
+        console.log(error);
+      });
+    }
+  }
 
   componentWillUnmount() {
     document.removeEventListener('dragover', preventDefault);
@@ -309,7 +304,7 @@ PageComponent.propTypes = {
 };
 
 const mapStateToProps = state => {
-  // Intercom widget needs isAuthenticated
+  // chat widget needs isAuthenticated
   const { isAuthenticated } = state.Auth;
   const { currentUser } = state.user;
 

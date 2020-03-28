@@ -122,7 +122,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.com.au',
       'gateway.zscloud.net',
       'cdn.jsdelivr.net',
-      'tawk.link',
+      'https://tawk.link/',
       '*.amazonaws.com',
     ]),
     scriptSrc: scriptSrc.concat([

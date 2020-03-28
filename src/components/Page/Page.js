@@ -59,12 +59,16 @@ class PageComponent extends Component {
 
     if(isAuthenticated && currentUser)
     {
+      const key = process.env.REACT_APP_TAWK_API_KEY;
+
       window.Tawk_API.setAttributes({
         'name'  : currentUser.attributes.profile.displayName,
         'email' : currentUser.attributes.email,
-        'hash'  : crypto.createHmac('sha256', '06a0ec17310baeb4837c6662f8d600c7ea8a54a8').update(currentUser.attributes.email).digest('hex')
+        'hash'  : crypto.createHmac('sha256', key).update(currentUser.attributes.email).digest('hex')
       }, function(error) {
-        console.log(error);
+        if(error) {
+          console.log(error);
+        }
       });
     }
   }

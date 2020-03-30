@@ -1,8 +1,8 @@
 {
-  "name": "Sharetribe Flex Template Demo",
-  "description": "Sharetribe Flex Template Demo - Saunatime!",
+  "name": "OldenCars Flex frontend",
+  "description": "OldenCars Flex frontend based on Saunatime!",
   "keywords": ["node", "react"],
-  "repository": "https://github.com/sharetribe/ftw-daily/",
+  "repository": "https://github.com/suecom/ftw-daily",
   "env": {
     "REACT_APP_MAPBOX_ACCESS_TOKEN": {
       "description": "See: Integrating to map providers documentation https://github.com/sharetribe/ftw-daily/blob/master/docs/map-providers.md"

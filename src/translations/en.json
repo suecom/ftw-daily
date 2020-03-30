@@ -728,7 +728,7 @@
   "SearchFiltersMobile.heading": "Filter cars",
   "SearchFiltersMobile.keywordLabel": "Keyword",
   "SearchFiltersMobile.resetAll": "Reset all",
-  "SearchFiltersMobile.showListings": "Show {count, number} {count, plural, one {sauna} other {saunas}}",
+  "SearchFiltersMobile.showListings": "Show {count, number} {count, plural, one {car} other {cars}}",
   "SearchFiltersPanel.amenitiesLabel": "Amenities",
   "SearchFiltersPanel.apply": "Apply",
   "SearchFiltersPanel.cancel": "Cancel",

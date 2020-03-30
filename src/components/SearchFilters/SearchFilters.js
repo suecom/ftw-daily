@@ -228,16 +228,8 @@ const SearchFiltersComponent = props => {
 
   return (
     <div className={classes}>
-      <div className={css.filterWrapper}>
-        <div className={css.filters}>
-          {makeFilterElement}
-          {priceFilterElement}
-          {dateRangeFilterElement}
-          {keywordFilterElement}
-          {toggleSearchFiltersPanelButton}
-        </div>
-
-        {listingsAreLoaded && resultsCount > 0 ? (
+      <div className={css.searchOptions}>
+        {listingsAreLoaded ? (
           <div className={css.searchResultSummary}>
             <span className={css.resultsFound}>
               <FormattedMessage id="SearchFilters.foundResults" values={{ count: resultsCount }} />
@@ -245,6 +237,14 @@ const SearchFiltersComponent = props => {
           </div>
         ) : null}
         {sortBy}
+      </div>
+
+      <div className={css.filters}>
+        {makeFileElement}
+        {priceFilterElement}
+        {dateRangeFilterElement}
+        {keywordFilterElement}
+        {toggleSearchFiltersPanelButton}
       </div>
 
       {hasNoResult ? (

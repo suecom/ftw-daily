@@ -296,7 +296,10 @@ class SearchFiltersMobileComponent extends Component {
 
     const sortBy = config.custom.sortConfig.active ? (
       <SortBy
+        rootClassName={css.sortBy}
+        menuLabelRootClassName={css.sortByMenuLabel}
         sort={sort}
+        showAsPopup
         isKeywordFilterActive={isKeywordFilterActive}
         onSelect={this.handleSortBy}
       />
@@ -313,6 +316,7 @@ class SearchFiltersMobileComponent extends Component {
           <Button rootClassName={filtersButtonClasses} onClick={this.openFilters}>
             <FormattedMessage id="SearchFilters.filtersButtonLabel" className={css.mapIconText} />
           </Button>
+          {sortBy}
           <div className={css.mapIcon} onClick={onMapIconClick}>
             <FormattedMessage id="SearchFilters.openMapView" className={css.mapIconText} />
           </div>
@@ -338,7 +342,6 @@ class SearchFiltersMobileComponent extends Component {
               {makeFilterElement}
               {priceFilterElement}
               {dateRangeFilterElement}
-              {sortBy}
             </div>
           ) : null}
 

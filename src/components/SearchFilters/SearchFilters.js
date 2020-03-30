@@ -240,7 +240,7 @@ const SearchFiltersComponent = props => {
       </div>
 
       <div className={css.filters}>
-        {makeFileElement}
+        {makeFilterElement}
         {priceFilterElement}
         {dateRangeFilterElement}
         {keywordFilterElement}

@@ -146,6 +146,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
     ]),
     styleSrc: styleSrc.concat([
       'cdn.jsdelivr.net',
+      'gateway.zscloud.net',
     ]),
     defaultSrc: defaultSrc.concat([
       '*.tawk.to',

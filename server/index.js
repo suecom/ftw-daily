@@ -173,7 +173,7 @@ app.get('*', (req, res) => {
   });
 
   const baseUrl = BASE_URL ? { baseUrl: BASE_URL } : {};
-
+  
   const sdk = sharetribeSdk.createInstance({
     transitVerbose: TRANSIT_VERBOSE,
     clientId: CLIENT_ID,

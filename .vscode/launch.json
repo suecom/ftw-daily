@@ -23,6 +23,7 @@
         //"port": 9229,
         "port": 5858,
         "cwd": "${workspaceRoot}",
+        "console": "integratedTerminal",
         "timeout": 100000,
         "sourceMaps": true,
         "stopOnEntry": true

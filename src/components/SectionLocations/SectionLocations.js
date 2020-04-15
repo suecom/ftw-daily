@@ -61,9 +61,9 @@ const SectionLocations = props => {
           '?address=Manchester%2C%20United%20Kingdom&bounds=53.534648%2C-2.140863%2C53.380515%2C-2.360589'
         )}
         {locationLink(
-          'Edinburgh',
+          'Scotland',
           edinburghImage,
-          '?address=Edinburgh%2C%20United%20Kingdom&bounds=55.996255%2C-3.086345%2C55.881652%2C-3.314311'
+          '?address=Scotland%2C%20United%20Kingdom&bounds=59.65582912%2C-0.76262815%2C52.99442956%2C-8.87726533'
         )}
       </div>
     </div>

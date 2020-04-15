@@ -22,6 +22,7 @@ import {
   ProfilePage,
   ProfileSettingsPage,
   SearchPage,
+  SellersPage,
   StyleguidePage,
   TermsOfServicePage,
   TransactionPage,
@@ -74,6 +75,11 @@ const routeConfiguration = () => {
       path: '/hirelondon',
       name: 'HireLondon',
       component: HireLondon,
+    },
+    {
+      path: '/sellerspage',
+      name: 'SellersPage',
+      component: SellersPage,
     },
     {
       path: '/s',

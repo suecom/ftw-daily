@@ -3,6 +3,7 @@ import {
   AboutPage,
   FAQPage,
   HireLondon,
+  HireScotland,
   AuthenticationPage,
   CheckoutPage,
   ContactDetailsPage,
@@ -75,6 +76,11 @@ const routeConfiguration = () => {
       path: '/hirelondon',
       name: 'HireLondon',
       component: HireLondon,
+    },
+    {
+      path: '/hirescotland',
+      name: 'HireScotland',
+      component: HireScotland,
     },
     {
       path: '/sellerspage',

@@ -1,6 +1,7 @@
 export { default as AboutPage } from './AboutPage/AboutPage';
 export { default as FAQPage } from './FAQPage/FAQPage';
 export { default as HireLondon } from './HireLondon/HireLondonPage';
+export { default as HireScotland } from './HireScotland/HireScotlandPage';
 export { default as AuthenticationPage } from './AuthenticationPage/AuthenticationPage';
 export { default as CheckoutPage } from './CheckoutPage/CheckoutPage';
 export { default as ContactDetailsPage } from './ContactDetailsPage/ContactDetailsPage';

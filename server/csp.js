@@ -136,6 +136,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       'api.mapbox.com',
       '*.tawk.to',
       'cdn.jsdelivr.net',
+      'gateway.zscloud.net',
     ]),
     connectSrc: connectSrc.concat([
       '*.tawk.to',

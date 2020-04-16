@@ -312,6 +312,7 @@
   "Footer.toHelpPage": "Help",
   "Footer.toNewListingPage": "Add your car",
   "Footer.toHireLondon": "Classic car hire in London",
+  "Footer.toHireScotland": "Classic car hire in Scotland",
   "ImageCarousel.imageAltText": "Listing image {index}/{count}",
   "ImageFromFile.couldNotReadFile": "Could not read file",
   "InboxPage.fetchFailed": "Could not load all messages. Please try again.",

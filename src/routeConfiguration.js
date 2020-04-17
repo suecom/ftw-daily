@@ -4,6 +4,9 @@ import {
   FAQPage,
   HireLondon,
   HireScotland,
+  HireSouthCoast,
+  HireOxford,
+  HireManchester,
   AuthenticationPage,
   CheckoutPage,
   ContactDetailsPage,
@@ -81,6 +84,21 @@ const routeConfiguration = () => {
       path: '/hirescotland',
       name: 'HireScotland',
       component: HireScotland,
+    },
+    {
+      path: '/hiresouthcoast',
+      name: 'HireSouthCoast',
+      component: HireSouthCoast,
+    },
+    {
+      path: '/hireoxford',
+      name: 'HireOxford',
+      component: HireOxford,
+    },
+    {
+      path: '/hiremanchester',
+      name: 'HireManchester',
+      component: HireManchester,
     },
     {
       path: '/sellerspage',

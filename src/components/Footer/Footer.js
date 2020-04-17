@@ -109,6 +109,21 @@ const Footer = props => {
                     <FormattedMessage id="Footer.toHireScotland" />
                   </NamedLink>
                 </li>
+                <li className={css.listItem}>
+                  <NamedLink name="HireSouthCoast" className={css.link}>
+                    <FormattedMessage id="Footer.toHireSouthCoast" />
+                  </NamedLink>
+                </li>
+                <li className={css.listItem}>
+                  <NamedLink name="HireOxford" className={css.link}>
+                    <FormattedMessage id="Footer.toHireOxford" />
+                  </NamedLink>
+                </li>
+                <li className={css.listItem}>
+                  <NamedLink name="HireManchester" className={css.link}>
+                    <FormattedMessage id="Footer.toHireManchester" />
+                  </NamedLink>
+                </li>
               </ul>
             </div>
             <div className={css.extraLinks}>

@@ -31,7 +31,7 @@ const HireScotland = () => {
 
         <LayoutWrapperMain className={css.staticPageWrapper}>
           <h1 className={css.pageTitle}>Self Drive Classic Car Hire in Scotland</h1>
-          <img className={css.coverImage} src={image} alt="London" />
+          <img className={css.coverImage} src={image} alt="Scotland" />
 
           <div className={css.contentWrapper}>
             <div className={css.contentSide}>

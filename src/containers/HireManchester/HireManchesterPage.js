@@ -61,7 +61,7 @@ const HireManchester = () => {
                 <NamedLink
                   name="SearchPage"
                   to={{
-                  search: 'address=London%2C%20United%20Kingdom&bounds=51.609847%2C0.022835%2C51.419624%2C-0.27496',
+                  search: 'address=Manchester%2C%20United%20Kingdom&bounds=53.534648%2C-2.140863%2C53.380515%2C-2.360589',
                 }}
                 >
                 Manchester

@@ -19,6 +19,17 @@ const MISSING_INFORMATION_MODAL_WHITELIST = [
   'EmailVerificationPage',
   'PasswordResetPage',
   'StripePayoutPage',
+  'SearchPage',
+  'LandingPage',
+  'ProfileSettingsPage',
+  'AboutPage',
+  'FAQPage',
+  'HireLondon',
+  'HireScotland',
+  'HireSouthCoast',
+  'HireOxford',
+  'HireManchester',
+//  'ListingPage',
 ];
 
 const EMAIL_VERIFICATION = 'EMAIL_VERIFICATION';

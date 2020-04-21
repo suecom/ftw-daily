@@ -39,6 +39,7 @@ const fs = require('fs');
 const log = require('./log');
 const { sitemapStructure } = require('./sitemap');
 const csp = require('./csp');
+const zlib = require('zlib');
 
 const buildPath = path.resolve(__dirname, '..', 'build');
 const env = process.env.REACT_APP_ENV;
@@ -117,6 +118,21 @@ app.use('/static', express.static(path.join(buildPath, 'static')));
 // server robots.txt from the root
 app.use('/robots.txt', express.static(path.join(buildPath, 'robots.txt')));
 app.use('/sitemap.xml', express.static(path.join(buildPath, 'static', 'sitemap.xml')));
+
+// Serve compressed sitemap (Google!)
+app.get('/sitemap.xml.gz', function(req, res) {
+    // Set the appropriate HTTP headers to help old and new browsers equally to how to handle the output
+    res.header('Content-Type: application/x-gzip');
+    res.header('Content-Encoding: gzip');
+    res.header('Content-Disposition: attachment; filename="sitemap.xml.gz"');
+
+    zlib.gzip(
+      new Buffer(fs.readFileSync(path.join(buildPath, 'static', 'sitemap.xml'), "utf8"), 'utf8'), 
+      function(error, data) {
+        res.send(data);
+      });
+});
+
 app.use(cookieParser());
 
 // Use basic authentication when not in dev mode. This is

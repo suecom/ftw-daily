@@ -63,10 +63,16 @@ exports.sitemapStructure = () => {
       '/login': ['get'],
       '/faq': ['get'],
       '/about': ['get'],
-      '/s?address=London%2C%20United%20Kingdom': ['get'],
+      '/s': ['get'],
       '/account': ['get'],
       '/reset-password': ['get'],
       '/verify-email': ['get'],
+      '/hirelondon': ['get'],
+      '/hirescotland': ['get'],
+      '/hiresouthcoast': ['get'],
+      '/hireoxford': ['get'],
+      '/hiremanchester': ['get'],
+      '/sellerspage': ['get'],
     },
     route: {
       '/': {
@@ -84,7 +90,7 @@ exports.sitemapStructure = () => {
         changefreq: 'always',
         priority: 1.0,
       },
-      '/s?address=address=London%2C%20United%20Kingdom&bounds=51.609847%2C0.022835%2C51.419624%2C-0.27496%26country=UK': {
+      '/s': {
         changefreq: 'always',
         priority: 1.0,
       },
@@ -104,6 +110,30 @@ exports.sitemapStructure = () => {
       },
       '/verify-email': {
         disallow: true,
+      },
+      '/hirelondon': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/hirescotland': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/hiresouthcoast': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/hireoxford': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/hiremanchester': {
+        changefreq: 'always',
+        priority: 1.0,
+      },
+      '/sellerspage': {
+        changefreq: 'always',
+        priority: 1.0,
       },
     },
   };

@@ -29,6 +29,9 @@ const MISSING_INFORMATION_MODAL_WHITELIST = [
   'HireSouthCoast',
   'HireOxford',
   'HireManchester',
+  'PaymentMethodsPage',
+  'PasswordChangePage',
+  'ManageListingsPage',
 //  'ListingPage',
 ];
 

@@ -57,7 +57,8 @@ class PageComponent extends Component {
   setVisitor() {
     const { isAuthenticated, currentUser } = this.props;
 
-    if(isAuthenticated && currentUser)
+    if(isAuthenticated && currentUser && 
+        window.Tawk_API !== undefined && window.Tawk_API.setAttributes !== undefined)
     {
       const key = process.env.REACT_APP_TAWK_API_KEY;
 

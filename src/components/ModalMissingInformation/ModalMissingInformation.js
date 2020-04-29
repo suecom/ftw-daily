@@ -32,6 +32,9 @@ const MISSING_INFORMATION_MODAL_WHITELIST = [
   'PaymentMethodsPage',
   'PasswordChangePage',
   'ManageListingsPage',
+//  'OrderPage'
+//  'SaleDetailsPage',
+//  'SalePage',
 //  'ListingPage',
 ];
 

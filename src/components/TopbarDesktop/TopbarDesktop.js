@@ -132,6 +132,7 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
+  /*
   return (
     <nav className={classes}>
       <NamedLink className={css.logoLink} name="LandingPage">
@@ -151,6 +152,19 @@ const TopbarDesktop = props => {
       {profileMenu}
       {signupLink}
       {loginLink}
+    </nav>
+  );
+  */
+  return (
+    <nav className={classes}>
+      <NamedLink className={css.logoLink} name="LandingPage">
+        <Logo
+          format="desktop"
+          className={css.logo}
+          alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
+        />
+      </NamedLink>
+      {search}
     </nav>
   );
 };

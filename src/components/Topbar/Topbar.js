@@ -236,15 +236,7 @@ class TopbarComponent extends Component {
             onSearchSubmit={this.handleSubmit}
           />
         </div>
-        <Modal
-          id="TopbarMobileMenu"
-          isOpen={isMobileMenuOpen}
-          onClose={this.handleMobileMenuClose}
-          usePortal
-          onManageDisableScrolling={onManageDisableScrolling}
-        >
-          {authInProgress ? null : mobileMenu}
-        </Modal>
+
         <Modal
           id="TopbarMobileSearch"
           containerClassName={css.modalContainer}

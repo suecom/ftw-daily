@@ -107,7 +107,8 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.tawk.to',
     ]),
     imgSrc: imgSrc.concat([
-      'images.oldencars.com',
+      '*.oldencars.com',
+      '*.oldencars.com:5000', 
       'www.youtube.com',
       '*.ytimg.com',
       '*.google.co.uk',

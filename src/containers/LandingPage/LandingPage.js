@@ -70,12 +70,17 @@ export const LandingPageComponent = props => {
             </li>
             <li className={css.section}>
               <div className={css.sectionContent}>
+                <Video videoId="tFvW5rWgYUs" />
+              </div>
+            </li>
+            <li className={css.section}>
+              <div className={css.sectionContent}>
                 <SectionHowItWorks />
               </div>
             </li>
             <li className={css.section}>
               <div className={css.sectionContent}>
-                <Video />
+                <Video videoId="uzHfPQUeY7Q" />
               </div>
             </li>
           </ul>

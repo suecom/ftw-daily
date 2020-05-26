@@ -22,7 +22,7 @@ const Video = props => {
   return (
     <div className={classes}>
       <div className={css.video}>
-        <YouTube videoId="tFvW5rWgYUs" opts={opts} />
+        <YouTube videoId={props.videoId} opts={opts} />
       </div>
     </div>
   );

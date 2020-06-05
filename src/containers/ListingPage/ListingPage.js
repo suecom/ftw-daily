@@ -47,6 +47,7 @@ import SectionImages from './SectionImages';
 import SectionAvatar from './SectionAvatar';
 import SectionHeading from './SectionHeading';
 import SectionDescriptionMaybe from './SectionDescriptionMaybe';
+//import SectionFeaturesMaybe from './SectionFeaturesMaybe';
 import SectionReviews from './SectionReviews';
 import SectionHostMaybe from './SectionHostMaybe';
 import SectionRulesMaybe from './SectionRulesMaybe';
@@ -375,15 +376,31 @@ export class ListingPageComponent extends Component {
       </NamedLink>
     );
 
-    const amenityOptions = findOptionsForSelectFilter('amenities', filterConfig);
-    const categoryOptions = findOptionsForSelectFilter('category', filterConfig);
-    const category =
-      publicData && publicData.category ? (
+    const makeOptions = findOptionsForSelectFilter('make', filterConfig);
+    const yearOptions = findOptionsForSelectFilter('year', filterConfig);
+    const make =
+      publicData && publicData.make ? (
         <span>
-          {categoryLabel(categoryOptions, publicData.category)}
+          {makeLabel(makeOptions, publicData.make)}
           <span className={css.separator}>•</span>
         </span>
       ) : null;
+
+    const year =
+      publicData && publicData.year ? (
+        <span>
+          {yearLabel(yearOptions, publicData.year)}
+          <span className={css.separator}>•</span>
+        </span>
+      ) : null;
+  
+    const model =
+    publicData && publicData.model ? (
+      <span>
+        {publicData.model}
+        <span className={css.separator}>•</span>
+      </span>
+    ) : null;
 
     const insurance =
       metadata && metadata.indicativeInsurance ? (
@@ -445,7 +462,6 @@ export class ListingPageComponent extends Component {
                     onContactUser={this.onContactUser}
                   />
                   <SectionDescriptionMaybe description={description} />
-                  <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} />
                   <SectionRulesMaybe publicData={publicData} />
                   <SectionMapMaybe
                     geolocation={geolocation}

@@ -40,7 +40,8 @@ const EditListingDescriptionPanel = props => {
     <FormattedMessage id="EditListingDescriptionPanel.createListingTitle" />
   );
 
-  const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
+  const makeOptions = findOptionsForSelectFilter('make', config.custom.filters);
+  const yearOptions = findOptionsForSelectFilter('year', config.custom.filters);
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
@@ -56,11 +57,10 @@ const EditListingDescriptionPanel = props => {
         saveActionMsg={submitButtonText}
         onSubmit={values => {
           const { title, description, make, model, year } = values;
-          const iYear = Number(year);
           const updateValues = {
             title: title.trim(),
             description,
-            publicData: { make, model, year: iYear },
+            publicData: { make, model, year },
           };
           onSubmit(updateValues);
         }}
@@ -70,7 +70,8 @@ const EditListingDescriptionPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
-        categories={categoryOptions}
+        make={makeOptions}
+        year={yearOptions}
       />
     </div>
   );

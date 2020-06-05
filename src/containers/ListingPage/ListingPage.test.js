@@ -30,9 +30,42 @@ import ActionBarMaybe from './ActionBarMaybe';
 const { UUID } = sdkTypes;
 const noop = () => null;
 
-const makeConfig = [{ key: 'audi', label: 'Audi' }, { key: 'alvis', label: 'Alvis' }];
-const yearConfig = [{ key: 2004, label: 2004 }, { key: 2003, label: 2003 }];
-
+const filterConfig = [
+  {
+    id: 'category',
+    label: 'Category',
+    type: 'SelectSingleFilter',
+    group: 'secondary',
+    queryParamName: 'pub_category',
+    config: {
+      options: [{ key: 'cat1', label: 'Cat 1' }, { key: 'cat2', label: 'Cat 2' }],
+    },
+  },
+  {
+    id: 'amenities',
+    label: 'Amenities',
+    type: 'SelectMultipleFilter',
+    group: 'secondary',
+    queryParamName: 'pub_amenities',
+    config: {
+      mode: 'has_all',
+      options: [
+        {
+          key: 'feat1',
+          label: 'Feat 1',
+        },
+        {
+          key: 'feat2',
+          label: 'Feat 2',
+        },
+        {
+          key: 'feat3',
+          label: 'Feat 3',
+        },
+      ],
+    },
+  },
+];
 describe('ListingPage', () => {
   it('matches snapshot', () => {
     const currentUser = createCurrentUser('user-2');
@@ -71,8 +104,7 @@ describe('ListingPage', () => {
       onInitializeCardPaymentData: noop,
       sendEnquiryInProgress: false,
       onSendEnquiry: noop,
-      makeConfig,
-      yearConfig,
+      filterConfig,
     };
 
     const tree = renderShallow(<ListingPageComponent {...props} />);

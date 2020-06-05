@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import config from '../../config';
 import routeConfiguration from '../../routeConfiguration';
+import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_PENDING_APPROVAL, LISTING_STATE_CLOSED, propTypes } from '../../util/types';
 import { types as sdkTypes } from '../../util/sdkLoader';
 import {
@@ -192,8 +193,7 @@ export class ListingPageComponent extends Component {
       sendEnquiryError,
       timeSlots,
       fetchTimeSlotsError,
-      makeConfig,
-      yearConfig,
+      filterConfig,
     } = this.props;
 
     const listingId = new UUID(rawParams.id);
@@ -375,26 +375,12 @@ export class ListingPageComponent extends Component {
       </NamedLink>
     );
 
-    const make =
-      publicData && publicData.make ? (
+    const amenityOptions = findOptionsForSelectFilter('amenities', filterConfig);
+    const categoryOptions = findOptionsForSelectFilter('category', filterConfig);
+    const category =
+      publicData && publicData.category ? (
         <span>
-          {makeLabel(makeConfig, publicData.make)}
-          <span className={css.separator}>•</span>
-        </span>
-      ) : null;
-
-    const year =
-      publicData && publicData.year ? (
-        <span>
-          {yearLabel(yearConfig, publicData.year)}
-          <span className={css.separator}>•</span>
-        </span>
-      ) : null;
-
-    const model =
-      publicData && publicData.model ? (
-        <span>
-          {publicData.model}
+          {categoryLabel(categoryOptions, publicData.category)}
           <span className={css.separator}>•</span>
         </span>
       ) : null;
@@ -459,6 +445,7 @@ export class ListingPageComponent extends Component {
                     onContactUser={this.onContactUser}
                   />
                   <SectionDescriptionMaybe description={description} />
+                  <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} />
                   <SectionRulesMaybe publicData={publicData} />
                   <SectionMapMaybe
                     geolocation={geolocation}
@@ -515,9 +502,7 @@ ListingPageComponent.defaultProps = {
   timeSlots: null,
   fetchTimeSlotsError: null,
   sendEnquiryError: null,
-  makeConfig: config.custom.make,
-  modelConfig: '',
-  yearConfig: config.custom.year,
+  filterConfig: config.custom.filters,
 };
 
 ListingPageComponent.propTypes = {
@@ -556,8 +541,7 @@ ListingPageComponent.propTypes = {
   sendEnquiryError: propTypes.error,
   onSendEnquiry: func.isRequired,
   onInitializeCardPaymentData: func.isRequired,
-  makeConfig: array,
-  yearConfig: array,
+  filterConfig: array,
 };
 
 const mapStateToProps = state => {

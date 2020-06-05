@@ -70,6 +70,10 @@ const currencyConfig = currencyConfiguration(currency);
 // 0 means no restriction to the price
 const listingMinimumPriceSubUnits = 5000;
 
+// Listing minimum and maximum year
+const listingMinimumYear = 1932;
+const listingMaximumYear = 2005;
+
 // Sentry DSN (Data Source Name), a client key for authenticating calls to Sentry
 const sentryDsn = process.env.REACT_APP_SENTRY_DSN;
 
@@ -199,6 +203,8 @@ const config = {
   currency,
   currencyConfig,
   listingMinimumPriceSubUnits,
+  listingMinimumYear,
+  listingMaximumYear,
   stripe: {
     defaultMCC: defaultMCC,
     publishableKey: stripePublishableKey,

@@ -5,10 +5,10 @@ import { Form as FinalForm } from 'react-final-form';
 import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 import classNames from 'classnames';
 import { propTypes } from '../../util/types';
-import { maxLength, required, composeValidators } from '../../util/validators';
+import { maxLength, required, composeValidators, yearAtLeast, yearLessThan } from '../../util/validators';
+import config from '../../config';
 import { Form, Button, FieldTextInput } from '../../components';
 import CustomMakeSelectFieldMaybe from './CustomMakeSelectFieldMaybe';
-import CustomYearSelectFieldMaybe from './CustomYearSelectFieldMaybe';
 
 import css from './EditListingDescriptionForm.css';
 
@@ -59,6 +59,7 @@ const EditListingDescriptionFormComponent = props => (
       const descriptionRequiredMessage = intl.formatMessage({
         id: 'EditListingDescriptionForm.descriptionRequired',
       });
+
       const modelMessage = intl.formatMessage({
         id: 'EditListingDescriptionForm.model',
       });
@@ -68,6 +69,47 @@ const EditListingDescriptionFormComponent = props => (
       const modelRequiredMessage = intl.formatMessage({
         id: 'EditListingDescriptionForm.modelRequired',
       });
+
+      const yearMessage = intl.formatMessage({
+        id: 'EditListingDescriptionForm.year',
+      });
+      const yearPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingDescriptionForm.yearPlaceholder',
+      });
+
+      const yearRequired = required(
+        intl.formatMessage({
+          id: 'EditListingDescriptionForm.yearRequired',
+        })
+      );
+      const minRange = config.listingMinimumYear;
+      const minRangeRequired = yearAtLeast(
+        intl.formatMessage(
+          {
+            id: 'EditListingDescriptionForm.yearTooLow',
+          },
+          {
+            minPrice: minRange,
+          }
+        ),
+        config.listingMinimumYear
+      );
+      const maxRange = config.listingMaximumYear;
+      const maxRangeRequired = yearLessThan(
+        intl.formatMessage(
+          {
+            id: 'EditListingDescriptionForm.yearTooHigh',
+          },
+          {
+            minPrice: maxRange,
+          }
+        ),
+        config.listingMaximumYear
+      );
+      const yearValidators = config.listingMinimumYear && config.listingMaximumYear
+        ? composeValidators(yearRequired, minRangeRequired, maxRangeRequired)
+        : yearRequired;
+
 
       const { updateListingError, createListingDraftError, showListingsError } = fetchErrors || {};
       const errorMessageUpdateListing = updateListingError ? (
@@ -130,12 +172,15 @@ const EditListingDescriptionFormComponent = props => (
             validate={composeValidators(required(modelRequiredMessage))}
           />
 
-          <CustomYearSelectFieldMaybe
+          <FieldTextInput
             id="year"
             name="year"
-            classname={css.year}
-            year={year}
-            intl={intl}
+            className={css.year}
+            type="text"
+            model={year}
+            label={yearMessage}
+            placeholder={yearPlaceholderMessage}
+            validate={yearValidators}
           />
 
           <FieldTextInput

@@ -40,7 +40,7 @@ exports.transactionLineItems = (listing, bookingData) => {
    * By default BookingBreakdown prints line items inside LineItemUnknownItemsMaybe if the lineItem code is not recognized. */
 
   const booking = {
-    code: 'line-item/night',
+    code: 'line-item/day',
     unitPrice,
     quantity: calculateQuantityFromDates(startDate, endDate, unitType),
     includeFor: ['customer', 'provider'],

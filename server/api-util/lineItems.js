@@ -1,5 +1,3 @@
-import config from '../src/config';
-
 const { calculateQuantityFromDates, calculateTotalFromLineItems } = require('./lineItemHelpers');
 const { types } = require('sharetribe-flex-sdk');
 const { Money } = types;
@@ -7,7 +5,7 @@ const { Money } = types;
 
 // This bookingUnitType needs to be one of the following:
 // line-item/night, line-item/day or line-item/units
-const bookingUnitType = config.bookingUnitType;
+const bookingUnitType = 'line-item/day';
 const PROVIDER_COMMISSION_PERCENTAGE = -20;
 
 /** Returns collection of lineItems (max 50)

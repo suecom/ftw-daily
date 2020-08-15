@@ -12,6 +12,7 @@ import {
 import css from './HireLondonPage.css';
 import image from './location_london.jpg';
 import pdf from './pitch32.pdf';
+import pdf2 from './pitch33.pdf';
 
 const HireLondon = () => {
   // prettier-ignore

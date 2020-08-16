@@ -31,9 +31,14 @@ const defaultDirectives = {
 
     'sentry.io',
     '*.stripe.com',
+    'vimeo.com',
   ],
   fontSrc: [self, data, 'assets-sharetribecom.sharetribe.com', 'fonts.gstatic.com'],
-  frameSrc: [self, '*.stripe.com'],
+  frameSrc: [
+    self, 
+    '*.stripe.com',
+    'player.vimeo.com',
+  ],
   imgSrc: [
     self,
     data,
@@ -68,6 +73,7 @@ const defaultDirectives = {
     'api.mapbox.com',
     '*.google-analytics.com',
     'js.stripe.com',
+    'player.vimeo.com',
   ],
   styleSrc: [self, unsafeInline, 'fonts.googleapis.com', 'api.mapbox.com'],
 };

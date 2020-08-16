@@ -1,28 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import YouTube from 'react-youtube';
+import ReactPlayer from 'react-player/lazy'
 
 import css from './Video.css';
 
 const Video = props => {
   const { rootClassName, className } = props;
-
   const classes = classNames(rootClassName || css.root, className);
-
-  const opts = {
-    height: '100%',
-    width: '100%',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 0,
-    },
-  };
 
   return (
     <div className={classes}>
       <div className={css.video}>
-        <YouTube videoId={props.videoId} opts={opts} />
+        <ReactPlayer 
+          width = '100%'
+          height = '100%'
+          controls = 'true'
+          url = { props.url }
+          config = {{
+            youtube: {
+              playerVars: { 
+                autoplay: 0,
+                rel: 0,
+                origin: 'https://oldencars.com'
+              } 
+            }
+          }}
+        />
       </div>
     </div>
   );

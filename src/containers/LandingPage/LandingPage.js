@@ -70,7 +70,7 @@ export const LandingPageComponent = props => {
             </li>
             <li className={css.section}>
               <div className={css.sectionContent}>
-                <Video videoId="tFvW5rWgYUs" />
+                <Video url="https://youtu.be/tFvW5rWgYUss" />
               </div>
             </li>
             <li className={css.section}>
@@ -80,7 +80,7 @@ export const LandingPageComponent = props => {
             </li>
             <li className={css.section}>
               <div className={css.sectionContent}>
-                <Video videoId="uzHfPQUeY7Q" />
+                <Video url="https://vimeo.com/448235553" />
               </div>
             </li>
           </ul>

@@ -6,7 +6,7 @@ const unsafeInline = "'unsafe-inline'";
 const unsafeEval = "'unsafe-eval'";
 const data = 'data:';
 const blob = 'blob:';
-const devImagesMaybe = dev ? ['*.localhost:8000'] : [];
+const devImagesMaybe = dev ? ['*.localhost:8000','localhost:5000'] : [];
 const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://flex-api.sharetribe.com';
 
 // Default CSP whitelist.
@@ -31,13 +31,11 @@ const defaultDirectives = {
 
     'sentry.io',
     '*.stripe.com',
-    'vimeo.com',
   ],
   fontSrc: [self, data, 'assets-sharetribecom.sharetribe.com', 'fonts.gstatic.com'],
   frameSrc: [
     self, 
     '*.stripe.com',
-    'player.vimeo.com',
   ],
   imgSrc: [
     self,
@@ -73,7 +71,6 @@ const defaultDirectives = {
     'api.mapbox.com',
     '*.google-analytics.com',
     'js.stripe.com',
-    'player.vimeo.com',
   ],
   styleSrc: [self, unsafeInline, 'fonts.googleapis.com', 'api.mapbox.com'],
 };
@@ -111,6 +108,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       'www.youtube.com', 
       'js.stripe.com',
       '*.tawk.to',
+      'player.vimeo.com',
     ]),
     imgSrc: imgSrc.concat([
       '*.oldencars.com',
@@ -132,11 +130,13 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.ae',
       '*.google.co.nz',
       '*.google.com.au',
+      '*.google.sk',
       'gateway.zscloud.net',
       'cdn.jsdelivr.net',
       'https://tawk.link/',
       '*.amazonaws.com',
       '*.tawk.to',
+      '*.vimeocdn.com',
     ]),
     scriptSrc: scriptSrc.concat([
       'www.youtube.com', 
@@ -145,10 +145,13 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.tawk.to',
       'cdn.jsdelivr.net',
       'gateway.zscloud.net',
+      'connect.facebook.net',
+      'player.vimeo.com',
     ]),
     connectSrc: connectSrc.concat([
       '*.tawk.to',
       'wss://*.tawk.to/',
+      'vimeo.com',
     ]),
     fontSrc: fontSrc.concat([
       '*.tawk.to',

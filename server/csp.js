@@ -131,12 +131,14 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.co.nz',
       '*.google.com.au',
       '*.google.sk',
+      'www.google.hu',
       'gateway.zscloud.net',
       'cdn.jsdelivr.net',
       'https://tawk.link/',
       '*.amazonaws.com',
       '*.tawk.to',
       '*.vimeocdn.com',
+      'www.facebook.com',
     ]),
     scriptSrc: scriptSrc.concat([
       'www.youtube.com', 
@@ -155,6 +157,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
     ]),
     fontSrc: fontSrc.concat([
       '*.tawk.to',
+      'static3.avast.com',
     ]),
     styleSrc: styleSrc.concat([
       'cdn.jsdelivr.net',

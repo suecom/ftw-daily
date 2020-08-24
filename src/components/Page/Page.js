@@ -47,6 +47,14 @@ class PageComponent extends Component {
     document.addEventListener('dragover', preventDefault);
     document.addEventListener('drop', preventDefault);
 
+    // Remove duplicated server-side rendered page schema.
+    // It's in <body> to improve initial rendering performance,
+    // but after web app is initialized, react-helmet-async operates with <head>
+    const pageSchema = document.getElementById('page-schema');
+    if (pageSchema) {
+      pageSchema.remove();
+    }
+    
     this.setVisitor();
   }
 
@@ -226,7 +234,7 @@ class PageComponent extends Component {
           <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta httpEquiv="Content-Language" content={intl.locale} />
           {metaTags}
-          <script type="application/ld+json">
+          <script id="page-schema" type="application/ld+json">
             {schemaArrayJSONString.replace(/</g, '\\u003c')}
           </script>
         </Helmet>

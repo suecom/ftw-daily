@@ -131,6 +131,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
       '*.google.co.nz',
       '*.google.com.au',
       '*.google.sk',
+      'www.google.be',
       'www.google.hu',
       'gateway.zscloud.net',
       'cdn.jsdelivr.net',

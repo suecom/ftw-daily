@@ -20,7 +20,11 @@ import { ContactDetailsForm } from '../../forms';
 import { TopbarContainer } from '../../containers';
 
 import { isScrollingDisabled } from '../../ducks/UI.duck';
-import { saveContactDetails, saveContactDetailsClear } from './ContactDetailsPage.duck';
+import {
+  saveContactDetails,
+  saveContactDetailsClear,
+  resetPassword,
+} from './ContactDetailsPage.duck';
 import css from './ContactDetailsPage.css';
 
 export const ContactDetailsPageComponent = props => {
@@ -36,6 +40,9 @@ export const ContactDetailsPageComponent = props => {
     sendVerificationEmailError,
     onResendVerificationEmail,
     onSubmitContactDetails,
+    onResetPassword,
+    resetPasswordInProgress,
+    resetPasswordError,
     intl,
   } = props;
 
@@ -79,11 +86,15 @@ export const ContactDetailsPageComponent = props => {
           currentCountry,
         })
       }
+      onResetPassword={onResetPassword}
+      onSubmit={values => onSubmitContactDetails({ ...values, currentEmail, currentPhoneNumber })}
       onChange={onChange}
       inProgress={saveContactDetailsInProgress}
       ready={contactDetailsChanged}
       sendVerificationEmailInProgress={sendVerificationEmailInProgress}
       sendVerificationEmailError={sendVerificationEmailError}
+      resetPasswordInProgress={resetPasswordInProgress}
+      resetPasswordError={resetPasswordError}
     />
   ) : null;
 
@@ -122,6 +133,8 @@ ContactDetailsPageComponent.defaultProps = {
   saveContactError: null,
   currentUser: null,
   sendVerificationEmailError: null,
+  resetPasswordInProgress: false,
+  resetPasswordError: null,
 };
 
 const { bool, func } = PropTypes;
@@ -138,6 +151,8 @@ ContactDetailsPageComponent.propTypes = {
   sendVerificationEmailInProgress: bool.isRequired,
   sendVerificationEmailError: propTypes.error,
   onResendVerificationEmail: func.isRequired,
+  resetPasswordInProgress: bool,
+  resetPasswordError: propTypes.error,
 
   // from injectIntl
   intl: intlShape.isRequired,
@@ -151,6 +166,8 @@ const mapStateToProps = state => {
     saveContactError,
     saveContactDetailsInProgress,
     contactDetailsChanged,
+    resetPasswordInProgress,
+    resetPasswordError,
   } = state.ContactDetailsPage;
   return {
     saveEmailError,
@@ -161,6 +178,8 @@ const mapStateToProps = state => {
     scrollingDisabled: isScrollingDisabled(state),
     sendVerificationEmailInProgress,
     sendVerificationEmailError,
+    resetPasswordInProgress,
+    resetPasswordError,
   };
 };
 
@@ -168,6 +187,7 @@ const mapDispatchToProps = dispatch => ({
   onChange: () => dispatch(saveContactDetailsClear()),
   onResendVerificationEmail: () => dispatch(sendVerificationEmail()),
   onSubmitContactDetails: values => dispatch(saveContactDetails(values)),
+  onResetPassword: values => dispatch(resetPassword(values)),
 });
 
 const ContactDetailsPage = compose(

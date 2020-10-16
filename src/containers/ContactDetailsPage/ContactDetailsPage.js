@@ -87,7 +87,7 @@ export const ContactDetailsPageComponent = props => {
         })
       }
       onResetPassword={onResetPassword}
-      onSubmit={values => onSubmitContactDetails({ ...values, currentEmail, currentPhoneNumber })}
+//      onSubmit={values => onSubmitContactDetails({ ...values, currentEmail, currentPhoneNumber })}
       onChange={onChange}
       inProgress={saveContactDetailsInProgress}
       ready={contactDetailsChanged}

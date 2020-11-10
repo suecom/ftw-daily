@@ -14,6 +14,19 @@ way to update this template, but currently, we follow a pattern:
 
 ## Upcoming version 2020-XX-XX
 
+- [fix] Routes component got double rendered due to Redux container HOC. Because navigation could
+  happen twice, loadData was also called twice.
+  [#1380](https://github.com/sharetribe/ftw-daily/pull/1380)
+- [fix] 401 return code when rendering on SSR.
+  [#1379](https://github.com/sharetribe/ftw-daily/pull/1379)
+
+## [v6.4.2] 2020-10-30
+
+- [fix] Fix the issue with form on AuthenticationPage not showing on smaller screens when using
+  Safari as browser. [#1377](https://github.com/sharetribe/ftw-daily/pull/1377)
+
+  [v6.4.2]: https://github.com/sharetribe/ftw-daily/compare/v6.4.1...v6.4.2
+
 ## [v6.4.1] 2020-10-20
 
 - [add] Add new Stripe countires Bulgaria, Cyprus, Czech Republic, Malta and Romania to the

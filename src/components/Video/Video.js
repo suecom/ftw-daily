@@ -15,7 +15,7 @@ const Video = props => {
         <ReactPlayer 
           width = '100%'
           height = '100%'
-          controls = 'true'
+          controls = { true }
           url = { props.url }
           config = {{
             youtube: {

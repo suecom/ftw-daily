@@ -9,7 +9,7 @@ import {
   NamedLink,
 } from '../../components';
 
-import css from './SellersPage.css';
+import css from './SellersPage.module.css';
 import image from './sellers.jpg';
 
 const SellersPage = () => {

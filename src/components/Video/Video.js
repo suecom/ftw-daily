@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactPlayer from 'react-player/lazy'
 
-import css from './Video.css';
+import css from './Video.module.css';
 
 const Video = props => {
   const { rootClassName, className } = props;

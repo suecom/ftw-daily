@@ -6,7 +6,7 @@ import { propTypes } from '../../util/types';
 import config from '../../config';
 
 import { RangeFilterForm } from '../../forms';
-import css from './RangeFilterPopup.css';
+import css from './RangeFilterPopup.module.css';
 
 const KEY_CODE_ESCAPE = 27;
 const RADIX = 10;

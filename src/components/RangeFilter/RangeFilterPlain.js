@@ -7,7 +7,7 @@ import config from '../../config';
 
 import { RangeFilterForm } from '../../forms';
 
-import css from './RangeFilterPlain.css';
+import css from './RangeFilterPlain.module.css';
 
 const RADIX = 10;
 

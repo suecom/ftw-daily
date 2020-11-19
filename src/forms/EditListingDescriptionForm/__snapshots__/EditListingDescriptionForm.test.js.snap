@@ -3,12 +3,12 @@
 exports[`EditListingDescriptionForm matches snapshot 1`] = `
 <form
   action="/"
-  className=""
+  className="root"
   method="post"
   onSubmit={[Function]}
 >
   <div
-    className=""
+    className="root title"
   >
     <label
       htmlFor="title"
@@ -17,7 +17,7 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
     </label>
     <input
       autoFocus={true}
-      className=""
+      className="input"
       id="title"
       maxLength={60}
       name="title"
@@ -30,7 +30,7 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
     />
   </div>
   <div
-    className=""
+    className="root description"
   >
     <label
       htmlFor="make"
@@ -87,7 +87,7 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
     />
   </div>
   <div
-    className=""
+    className="root category"
   >
     <label
       htmlFor="year"
@@ -145,7 +145,7 @@ exports[`EditListingDescriptionForm matches snapshot 1`] = `
     />
   </div>
   <button
-    className=""
+    className="root submitButton"
     disabled={true}
     type="submit"
   >

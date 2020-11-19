@@ -6,7 +6,7 @@ import { lazyLoadWithDimensions } from '../../util/contextHelpers';
 
 import { NamedLink } from '../../components';
 
-import css from './SectionLocations.css';
+import css from './SectionLocations.module.css';
 
 import londonImage from './images/location_london.jpg';
 import manchesterImage from './images/location_manchester.jpg';

@@ -15,7 +15,7 @@ import crypto from 'crypto';
 
 import facebookImage from '../../assets/miniFacebook-1200x630.jpg';
 import twitterImage from '../../assets/miniTwitter-600x314.jpg';
-import css from './Page.css';
+import css from './Page.module.css';
 
 const preventDefault = e => {
   e.preventDefault();

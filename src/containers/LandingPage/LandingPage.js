@@ -22,7 +22,7 @@ import { TopbarContainer } from '../../containers';
 
 import facebookImage from '../../assets/miniFacebook-1200x630.jpg';
 import twitterImage from '../../assets/miniTwitter-600x314.jpg';
-import css from './LandingPage.css';
+import css from './LandingPage.module.css';
 
 export const LandingPageComponent = props => {
   const { history, intl, location, scrollingDisabled } = props;

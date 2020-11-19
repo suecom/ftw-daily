@@ -1,4 +1,4 @@
-@import '../../styles/marketplaceDefaults.css';
+@import '../../styles/propertySets.css';
 
 .pageTitle {
   text-align: center;
@@ -44,14 +44,20 @@
 }
 
 .contentMain {
-  & p {
-    @apply --marketplaceH4FontStyles;
-  }
-
   width: 90%;
 
   @media (--viewportMedium) {
     max-width: 650px;
+  }
+
+  & p {
+    @apply --marketplaceH4FontStyles;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  & h1 {
+    color: var(--marketplaceColor);
   }
 }
 
@@ -61,5 +67,27 @@
   margin-bottom: 24px;
 }
 
-.root {
+.column {
+  background-color: var(--marketplaceColor);
+  width: 50%;
+  text-align: center;
+}
+
+.list {
+  @apply --marketplaceH4FontStyles;
+
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.ulist {
+  @apply --marketplaceH4FontStyles;
+
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }

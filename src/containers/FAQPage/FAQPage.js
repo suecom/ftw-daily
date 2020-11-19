@@ -9,7 +9,7 @@ import {
   Footer,
 } from '../../components';
 
-import css from './FAQPage.css';
+import css from './FAQPage.module.css';
 import image from './faq.jpg';
 
 const FAQPage = () => {

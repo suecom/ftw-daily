@@ -9,7 +9,7 @@ import {
   NamedLink,
 } from '../../components';
 
-import css from './HireScotlandPage.css';
+import css from './HireScotlandPage.module.css';
 import image from './location_scotland.jpg';
 
 const HireScotland = () => {

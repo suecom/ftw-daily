@@ -9,7 +9,7 @@ import {
   NamedLink,
 } from '../../components';
 
-import css from './HireOxfordPage.css';
+import css from './HireOxfordPage.module.css';
 import image from './location_oxford.jpg';
 
 const HireOxford = () => {

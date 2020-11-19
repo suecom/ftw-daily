@@ -9,7 +9,7 @@ import {
   NamedLink,
 } from '../../components';
 
-import css from './HireManchesterPage.css';
+import css from './HireManchesterPage.module.css';
 import image from './location_manchester.jpg';
 
 const HireManchester = () => {

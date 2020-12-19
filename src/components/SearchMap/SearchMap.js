@@ -10,7 +10,6 @@ import { obfuscatedCoordinates } from '../../util/maps';
 import config from '../../config';
 
 import { hasParentWithClassName } from './SearchMap.helpers.js';
-
 import SearchMapWithMapbox, {
   LABEL_HANDLE,
   INFO_CARD_HANDLE,
@@ -19,15 +18,6 @@ import SearchMapWithMapbox, {
   fitMapToBounds,
   isMapsLibLoaded,
 } from './SearchMapWithMapbox';
-
-import SearchMapWithGoogleMap, {
-  LABEL_HANDLE,
-  INFO_CARD_HANDLE,
-  getMapBounds,
-  getMapCenter,
-  fitMapToBounds,
-  isMapsLibLoaded,
-} from './SearchMapWithGoogleMap';
 import ReusableMapContainer from './ReusableMapContainer';
 import css from './SearchMap.module.css';
 

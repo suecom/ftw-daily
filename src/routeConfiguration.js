@@ -10,6 +10,14 @@ import { NamedRedirect } from './components';
 
 const pageDataLoadingAPI = getPageDataLoadingAPI();
 
+const HireLondon = loadable(() => import(/* webpackChunkName: "HireLondon" */ './containers/HireLondon/HireLondonPage'));
+const HireManchester = loadable(() => import(/* webpackChunkName: "HireManchester" */ './containers/HireManchester/HireManchesterPage'));
+const HireOxford = loadable(() => import(/* webpackChunkName: "HireOxford" */ './containers/HireOxford/HireOxfordPage'));
+const HireScotland = loadable(() => import(/* webpackChunkName: "HireScotland" */ './containers/HireScotland/HireScotlandPage'));
+const HireSouthCoast = loadable(() => import(/* webpackChunkName: "HireSouthCoast" */ './containers/HireSouthCoast/HireSouthCoastPage'));
+const FAQPage = loadable(() => import(/* webpackChunkName: "FAQPage" */ './containers/FAQPage/FAQPage'));
+const SellersPage = loadable(() => import(/* webpackChunkName: "SellersPage" */ './containers/SellersPage/SellersPage'));
+
 const AboutPage = loadable(() => import(/* webpackChunkName: "AboutPage" */ './containers/AboutPage/AboutPage'));
 const AuthenticationPage = loadable(() => import(/* webpackChunkName: "AuthenticationPage" */ './containers/AuthenticationPage/AuthenticationPage'));
 const CheckoutPage = loadable(() => import(/* webpackChunkName: "CheckoutPage" */ './containers/CheckoutPage/CheckoutPage'));

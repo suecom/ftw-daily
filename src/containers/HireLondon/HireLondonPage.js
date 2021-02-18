@@ -1,5 +1,6 @@
 import React from 'react';
-import { StaticPage, TopbarContainer } from '..';
+import config from '../../config';
+import { StaticPage, TopbarContainer } from '../../containers';
 import {
   LayoutSingleColumn,
   LayoutWrapperTopbar,

@@ -1,6 +1,7 @@
 import React from 'react';
+import config from '../../config';
 import { Accordion, AccordionItem } from 'react-light-accordion';
-import { StaticPage, TopbarContainer } from '..';
+import { StaticPage, TopbarContainer } from '../../containers';
 import {
   LayoutSingleColumn,
   LayoutWrapperTopbar,
